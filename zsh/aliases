@@ -1,0 +1,41 @@
+
+#Common folders
+alias dl="cd ~/Downloads"
+alias tmp="cd ~/tmp"
+alias ..="cd .."
+
+#python
+alias py=python
+
+#Django
+alias djm='py manage.py $1'
+alias djrun='py manage.py runserver_plus'
+alias djs='py manage.py shell_plus'
+alias djsync='py manage.py syncdb'
+alias djreset='rm data.db && py manage.py syncdb'
+
+# ls
+alias ls="ls -F"
+alias l="ls -lAh"
+alias ll="ls -l"
+alias la='ls -A'
+alias lg='ls | grep $1'
+
+# git
+alias g='git'
+alias gp='git push'
+alias gc='git add . && git commit -m $1'
+alias gs='git status'
+
+# rails
+alias sc='script/console'
+alias ss='script/server'
+alias sg='script/generate'
+alias a='autotest -rails'
+alias tlog='tail -f log/development.log'
+alias scaffold='script/generate nifty_scaffold'
+alias migrate='rake db:migrate db:test:clone'
+alias rst='touch tmp/restart.txt'
+
+# commands starting with % for pasting from web
+alias %=' '
