@@ -1,3 +1,5 @@
+ ,v
+[submodule "bundle/nerdtree"]	path = bundle/nerdtree	url = http://github.com/scrooloose/nerdtree.git[submodule "bundle/nerdcommenter"]	path = bundle/nerdcommenter	url = http://github.com/scrooloose/nerdcommenter.git[submodule "bundle/supertab"]	path = bundle/supertab	url = http://github.com/ervandew/supertab.git[submodule "bundle/snipmate.vim"]	path = bundle/snipmate.vim	url = http://github.com/msanders/snipmate.vim.git[submodule "bundle/tskeleton_vim"]	path = bundle/tskeleton_vim	url = http://github.com/tomtom/tskeleton_vim.git[submodule "bundle/tlib_vim"]	path = bundle/tlib_vim	url = git://github.com/tomtom/tlib_vim.git[submodule "bundle/vim-ragtag"]	path = bundle/vim-ragtag	url = http://github.com/tpope/vim-ragtag.git[submodule "bundle/vim-surround"]	path = bundle/vim-surround	url = http://github.com/tpope/vim-surround.git[submodule "bundle/neocomplcache"]	path = bundle/neocomplcache	url = http://github.com/Shougo/neocomplcache.git[submodule "bundle/vim-space"]	path = bundle/vim-space	url = http://github.com/spiiph/vim-space.git[submodule "bundle/ack.vim"]	path = bundle/ack.vim	url = http://github.com/mileszs/ack.vim.git[submodule "bundle/delimitMate"]	path = bundle/delimitMate	url = http://github.com/Raimondi/delimitMate.git[submodule "budle/vim-surround"]	path = budle/vim-surround	url = http://github.com/tpope/vim-surround.git[submodule "bundle/vim-autoclose"]	path = bundle/vim-autoclose	url = https://github.com/Townk/vim-autoclose.git[submodule "vim-endwise"]	path = vim-endwise	url = https://github.com/tpope/vim-endwise.git,V
 ,V
 #Untaralias untar='tar -xf $1'#Git#Scriptsalias ssh_list='~/.zsh/scripts/ssh_list',V
 alias py=python#Djangoalias djm='py manage.py $1'alias djrun='py manage.py runserver_plus'alias djs='py manage.py shell_plus'alias djsync='py manage.py syncdb'alias djreset='rm data.db && py manage.py syncdb',V
@@ -13,7 +15,6 @@ code,v
 . ~/.zsh/config. ~/.zsh/aliases. ~/.zsh/completion,V
 config,v
 #Quick edding of vim and zsh foldersalias evim="cd ~/.vim"alias ezsh="cd ~/.zsh",V
- ,v
 ryanb/dotfiles,v
 https://materialgroup.beanstalkapp.com/profootball/changesets/208,v
 User comes to the site w/ cookie on mobile,v
@@ -97,4 +98,3 @@ while h.data[l]  puts "Level "+l.to_s  while h.parent_index(i) == l    puts i
   def left_child(i)    i = (i * 2) + 1  end,V
 leftindex,v
     input = [2,3,1]    h = Heap.new(input)        leftindex = h.left_child(0)    leftindex.should == 1    h.data[leftindex].should == 3,V
-h = Heap.new([1,2,3]),V
