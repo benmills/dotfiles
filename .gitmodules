@@ -1,46 +1,6 @@
-[submodule "bundle/nerdtree"]
-	path = bundle/nerdtree
+[submodule "vim/bundle/nerdtree"]
+	path = vim/bundle/nerdtree
 	url = http://github.com/scrooloose/nerdtree.git
-[submodule "bundle/nerdcommenter"]
-	path = bundle/nerdcommenter
+[submodule "vim/bundle/nerdcommenter"]
+	path = vim/bundle/nerdcommenter
 	url = http://github.com/scrooloose/nerdcommenter.git
-[submodule "bundle/supertab"]
-	path = bundle/supertab
-	url = http://github.com/ervandew/supertab.git
-[submodule "bundle/snipmate.vim"]
-	path = bundle/snipmate.vim
-	url = http://github.com/msanders/snipmate.vim.git
-[submodule "bundle/tskeleton_vim"]
-	path = bundle/tskeleton_vim
-	url = http://github.com/tomtom/tskeleton_vim.git
-[submodule "bundle/tlib_vim"]
-	path = bundle/tlib_vim
-	url = git://github.com/tomtom/tlib_vim.git
-[submodule "bundle/vim-ragtag"]
-	path = bundle/vim-ragtag
-	url = http://github.com/tpope/vim-ragtag.git
-[submodule "bundle/vim-surround"]
-	path = bundle/vim-surround
-	url = http://github.com/tpope/vim-surround.git
-[submodule "bundle/neocomplcache"]
-	path = bundle/neocomplcache
-	url = http://github.com/Shougo/neocomplcache.git
-[submodule "bundle/vim-space"]
-	path = bundle/vim-space
-	url = http://github.com/spiiph/vim-space.git
-[submodule "bundle/ack.vim"]
-	path = bundle/ack.vim
-	url = http://github.com/mileszs/ack.vim.git
-[submodule "bundle/delimitMate"]
-	path = bundle/delimitMate
-	url = http://github.com/Raimondi/delimitMate.git
-[submodule "budle/vim-surround"]
-	path = budle/vim-surround
-	url = http://github.com/tpope/vim-surround.git
-[submodule "bundle/vim-autoclose"]
-	path = bundle/vim-autoclose
-	url = https://github.com/Townk/vim-autoclose.git
-[submodule "vim-endwise"]
-	path = vim-endwise
-	url = https://github.com/tpope/vim-endwise.git
-
