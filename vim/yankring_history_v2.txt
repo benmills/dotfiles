@@ -1,7 +1,15 @@
+Stucture,v
+<mx:Image source="@Embed('com/amfam/salesproduct/auto/ui/assets/images/print-check.png')" />,v
+</s:HGroup>,v
+@Embed('com/amfam/salesproduct/auto/ui/assets/images/AFI-logo.png'),v
+,V
+<s:Label>Ben Mills</s:Label>,v
+$HOME/.bin,v
+setopt NO_BG_NICE # don't nice background taskssetopt NO_HUPsetopt NO_LIST_BEEPsetopt LOCAL_OPTIONS # allow functions to have local optionssetopt LOCAL_TRAPS # allow functions to have local trapssetopt HIST_VERIFYsetopt SHARE_HISTORY # share history between sessions ???setopt EXTENDED_HISTORY # add timestamps to historysetopt PROMPT_SUBSTsetopt CORRECTsetopt COMPLETE_IN_WORDsetopt IGNORE_EOFsetopt APPEND_HISTORY # adds historysetopt INC_APPEND_HISTORY SHARE_HISTORY  # adds history incrementally and share it across sessionssetopt HIST_IGNORE_ALL_DUPS  # don't record dupes in historysetopt HIST_REDUCE_BLANKS,v
+bundle/delimitMate,v
 [submodule "bundle/supertab"]	path = bundle/supertab	url = http://github.com/ervandew/supertab.git[submodule "bundle/snipmate.vim"]	path = bundle/snipmate.vim	url = http://github.com/msanders/snipmate.vim.git,V
  ,v
 [submodule "bundle/nerdtree"]	path = bundle/nerdtree	url = http://github.com/scrooloose/nerdtree.git[submodule "bundle/nerdcommenter"]	path = bundle/nerdcommenter	url = http://github.com/scrooloose/nerdcommenter.git[submodule "bundle/supertab"]	path = bundle/supertab	url = http://github.com/ervandew/supertab.git[submodule "bundle/snipmate.vim"]	path = bundle/snipmate.vim	url = http://github.com/msanders/snipmate.vim.git[submodule "bundle/tskeleton_vim"]	path = bundle/tskeleton_vim	url = http://github.com/tomtom/tskeleton_vim.git[submodule "bundle/tlib_vim"]	path = bundle/tlib_vim	url = git://github.com/tomtom/tlib_vim.git[submodule "bundle/vim-ragtag"]	path = bundle/vim-ragtag	url = http://github.com/tpope/vim-ragtag.git[submodule "bundle/vim-surround"]	path = bundle/vim-surround	url = http://github.com/tpope/vim-surround.git[submodule "bundle/neocomplcache"]	path = bundle/neocomplcache	url = http://github.com/Shougo/neocomplcache.git[submodule "bundle/vim-space"]	path = bundle/vim-space	url = http://github.com/spiiph/vim-space.git[submodule "bundle/ack.vim"]	path = bundle/ack.vim	url = http://github.com/mileszs/ack.vim.git[submodule "bundle/delimitMate"]	path = bundle/delimitMate	url = http://github.com/Raimondi/delimitMate.git[submodule "budle/vim-surround"]	path = budle/vim-surround	url = http://github.com/tpope/vim-surround.git[submodule "bundle/vim-autoclose"]	path = bundle/vim-autoclose	url = https://github.com/Townk/vim-autoclose.git[submodule "vim-endwise"]	path = vim-endwise	url = https://github.com/tpope/vim-endwise.git,V
-,V
 #Untaralias untar='tar -xf $1'#Git#Scriptsalias ssh_list='~/.zsh/scripts/ssh_list',V
 alias py=python#Djangoalias djm='py manage.py $1'alias djrun='py manage.py runserver_plus'alias djs='py manage.py shell_plus'alias djsync='py manage.py syncdb'alias djreset='rm data.db && py manage.py syncdb',V
 # cdalias ..='cd ..',V
@@ -90,11 +98,3 @@ h.parent_index(i),v
       p = h.parent_index(i)      puts i.to_s+": "+item.to_s+" par: "+p.to_s,V
   p = h.parent_index(i)  puts i.to_s+": "+item.to_s+" par: "+p.to_s,V
       item.should <= right,V
-left,v
-      item.should <= left,V
-while h.data[l]  puts h.data[l]  l += 0end,V
-h.data.each do |item| puts itemend,V
-while h.data[l]  puts "Level "+l.to_s  while h.parent_index(i) == l    puts i    i += 1  end  l += 1end,V
-    h = Heap.new([300,1,0,5,8,9,11,56]),V
-  def left_child(i)    i = (i * 2) + 1  end,V
-leftindex,v
