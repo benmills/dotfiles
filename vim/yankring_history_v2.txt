@@ -1,100 +1,100 @@
-Stucture,v
-<mx:Image source="@Embed('com/amfam/salesproduct/auto/ui/assets/images/print-check.png')" />,v
-</s:HGroup>,v
-@Embed('com/amfam/salesproduct/auto/ui/assets/images/AFI-logo.png'),v
+  IndentGuide ,V
+.sub_square_ad {  margin-left:  12px;},V
+git clone git://github.com/nathanaelkane/vim-indent-guides.git,v
+http://files.bmdev.org/ss/54/843ue07d4maso.png,v
+<script type="text/javascript">GA_googleFillSlot(gam_section+"_160x600");</script>,v
+trace('>>> Pre Scale: ', car2dImage.width);,v
+car2dImage.scaleX = CarImage.imageScale;					car2dImage.scaleY = CarImage.imageScale;,V
+https://gist.github.com/a0d3a4ff3f6bed4fcdc4,v
+		private function init():void {			var needsTable:Array = [				["Final Expenses", LifeNeedsModel.instance.life_needs_vo.final_expenses],				["Debts", LifeNeedsModel.instance.life_needs_vo.debts],				["Emergency Fund", LifeNeedsModel.instance.life_needs_vo.emergency_fund],				["Housing", LifeNeedsModel.instance.life_needs_vo.housing],				["Childcare", LifeNeedsModel.instance.life_needs_vo.childcare],				["Education Fund", LifeNeedsModel.instance.life_needs_vo.education],				["Survivor's Income", LifeNeedsModel.instance.life_needs_vo.survivors],				["Special Needs", LifeNeedsModel.instance.life_needs_vo.special],				["Total", LifeNeedsModel.instance.life_needs_vo.expenses]			];						var assestsTable:Array = [				["Checking Accounts", LifeNeedsModel.instance.life_needs_vo.checking_accounts],				["Savings Accounts", LifeNeedsModel.instance.life_needs_vo.savings_accounts],				["CD's", LifeNeedsModel.instance.life_needs_vo.cds],				["Money Market", LifeNeedsModel.instance.life_needs_vo.money_market],				["Investment Accounts", LifeNeedsModel.instance.life_needs_vo.investment_accounts],				["Retirement Accounts", LifeNeedsModel.instance.life_needs_vo.retirement_accounts],				["Annuities", LifeNeedsModel.instance.life_needs_vo.annuities],				["Current Benefits", LifeNeedsModel.instance.life_needs_vo.life_insurance],				["Other", LifeNeedsModel.instance.life_needs_vo.other_assets],				["Total", LifeNeedsModel.instance.life_needs_vo.assets]			];,v
+Insurance Suggested,v
+m,v
+http://files.bmdev.org/ss/1h/3zstm1bkqexw0.png,v
+85fc-376a-8910-a206-2efe,v
+Calculator Results,v
+http://files.bmdev.org/ss/c1/32ifflawhq80g.png,v
+ bordercolor="#CCCCCC",v
+At your request, the information you provided has been sent to an American Family agent, who will follow up with you in the near future.  In the meantime, if you have any questions on the products and services American Family offers, please call our customer service center at 1.800.MYAMFAM (692.6326).,v
+At your request, the information you provided has been sent to an American Family agent, who will follow up with you in the near future.,V
+Thank you for using the American Family Insurance Annuities Calculator,v
+Thank you for using the American Family Insurance Annuities Calculator.,v
+Thank you for using the American Family Insurance Life Needs Calculator.,V
+    	<td><font face="Arial, Helvetica, sans-serif" size="-1">$15,000</font></td>,V
+    <tr>    	<td><font face="Arial, Helvetica, sans-serif" size="-1"><b>Initial Premium</b></font></td>        <td><font face="Arial, Helvetica, sans-serif" size="-1">$5,000</font></td>        <td><font face="Arial, Helvetica, sans-serif" size="-1"><b>Retirement Age</b></font></td>        <td><font face="Arial, Helvetica, sans-serif" size="-1">67</font></td>    </tr>    <tr>      <td colspan="2"><font face="Arial, Helvetica, sans-serif" size="-1"><b>Accumulated Balance</b></font></td>      <td colspan="2"><font face="Arial, Helvetica, sans-serif" size="-1" color="#7db301"><b>$123,123,123</b></font></td>    </tr>    <tr>      <td colspan="2"><font face="Arial, Helvetica, sans-serif" size="-1"><b>Annual Payout for 10 Years</b></font></td>      <td colspan="2"><font face="Arial, Helvetica, sans-serif" size="-1" color="#7db301"><b>$123,123,123</b></font></td>    </tr>,V
+>    	<td><font face="Arial, Helvetica, sans-serif" size="-1"><b>Initial Premium</b></font></td>        <td><font face="Arial, Helvetica, sans-serif" size="-1">$5,000</font></td>        <td><font face="Arial, Helvetica, sans-serif" size="-1"><b>Retirement Age</b></font></td>        <td><font face="Arial, Helvetica, sans-serif" size="-1">67</font></td>    </tr>,v
+-,v
+Assets,v
+    <td colspan="4" bgcolor="#73a90a"><font color="#FFFFFF" size="-1" face="Arial, Helvetica, sans-serif"><strong>Your Assets</strong></font></td>,V
+Needs,v
+    <td colspan="4" bgcolor="#73a90a"><font color="#FFFFFF" size="-1" face="Arial, Helvetica, sans-serif"><strong>Your Needs</strong></font></td>,V
+Annuity,v
+E1E1E1,v
+73a90a,v
+0082c1,v
+#E1E1E1,v
+html-emails,v
+ m10,v
+Carl travel. In south subburbs.,v
+https://www.homemadepizza.com/,v
+Have you had homemade pizza co?,v
+l m10,v
+sub_new,v
+  padding: 10px 0px;,V
+6,v
+len,v
+http://jobs.github.com/positions,v
+r,v
+    // Time for recusion,V
+      single_out[0] = String.valueOf(str[0]);,V
+new String[1],v
+{String.valueOf(str[0])},v
+single_out,v
+      int inner_length = inner.length;dd,V
 ,V
-<s:Label>Ben Mills</s:Label>,v
-$HOME/.bin,v
-setopt NO_BG_NICE # don't nice background taskssetopt NO_HUPsetopt NO_LIST_BEEPsetopt LOCAL_OPTIONS # allow functions to have local optionssetopt LOCAL_TRAPS # allow functions to have local trapssetopt HIST_VERIFYsetopt SHARE_HISTORY # share history between sessions ???setopt EXTENDED_HISTORY # add timestamps to historysetopt PROMPT_SUBSTsetopt CORRECTsetopt COMPLETE_IN_WORDsetopt IGNORE_EOFsetopt APPEND_HISTORY # adds historysetopt INC_APPEND_HISTORY SHARE_HISTORY  # adds history incrementally and share it across sessionssetopt HIST_IGNORE_ALL_DUPS  # don't record dupes in historysetopt HIST_REDUCE_BLANKS,v
-bundle/delimitMate,v
-[submodule "bundle/supertab"]	path = bundle/supertab	url = http://github.com/ervandew/supertab.git[submodule "bundle/snipmate.vim"]	path = bundle/snipmate.vim	url = http://github.com/msanders/snipmate.vim.git,V
- ,v
-[submodule "bundle/nerdtree"]	path = bundle/nerdtree	url = http://github.com/scrooloose/nerdtree.git[submodule "bundle/nerdcommenter"]	path = bundle/nerdcommenter	url = http://github.com/scrooloose/nerdcommenter.git[submodule "bundle/supertab"]	path = bundle/supertab	url = http://github.com/ervandew/supertab.git[submodule "bundle/snipmate.vim"]	path = bundle/snipmate.vim	url = http://github.com/msanders/snipmate.vim.git[submodule "bundle/tskeleton_vim"]	path = bundle/tskeleton_vim	url = http://github.com/tomtom/tskeleton_vim.git[submodule "bundle/tlib_vim"]	path = bundle/tlib_vim	url = git://github.com/tomtom/tlib_vim.git[submodule "bundle/vim-ragtag"]	path = bundle/vim-ragtag	url = http://github.com/tpope/vim-ragtag.git[submodule "bundle/vim-surround"]	path = bundle/vim-surround	url = http://github.com/tpope/vim-surround.git[submodule "bundle/neocomplcache"]	path = bundle/neocomplcache	url = http://github.com/Shougo/neocomplcache.git[submodule "bundle/vim-space"]	path = bundle/vim-space	url = http://github.com/spiiph/vim-space.git[submodule "bundle/ack.vim"]	path = bundle/ack.vim	url = http://github.com/mileszs/ack.vim.git[submodule "bundle/delimitMate"]	path = bundle/delimitMate	url = http://github.com/Raimondi/delimitMate.git[submodule "budle/vim-surround"]	path = budle/vim-surround	url = http://github.com/tpope/vim-surround.git[submodule "bundle/vim-autoclose"]	path = bundle/vim-autoclose	url = https://github.com/Townk/vim-autoclose.git[submodule "vim-endwise"]	path = vim-endwise	url = https://github.com/tpope/vim-endwise.git,V
-#Untaralias untar='tar -xf $1'#Git#Scriptsalias ssh_list='~/.zsh/scripts/ssh_list',V
-alias py=python#Djangoalias djm='py manage.py $1'alias djrun='py manage.py runserver_plus'alias djs='py manage.py shell_plus'alias djsync='py manage.py syncdb'alias djreset='rm data.db && py manage.py syncdb',V
-# cdalias ..='cd ..',V
-#Common foldersalias dl="cd ~/Downloads"alias tmp="cd ~/tmp"alias ..="cd ..",v
-alias gl='git pull'alias gp='git push'alias gd='git diff'alias gc='git commit'alias gca='git commit -a'alias gco='git checkout'alias gb='git branch'alias gs='git status'alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"alias changelog='git log `git log -1 --format=%H -- CHANGELOG*`..; cat CHANGELOG*',V
-#Projectalias pj="cd /sites/$1",V
-# Path to your oh-my-zsh configuration.,V
-fpath=(~/.zsh/functions $fpath),v
-autoload -U ~/.zsh/functions/*(:t),v
-code,v
-. ~/.zsh/config,V
-. ~/.zsh/config. ~/.zsh/aliases. ~/.zsh/completion,V
-config,v
-#Quick edding of vim and zsh foldersalias evim="cd ~/.vim"alias ezsh="cd ~/.zsh",V
-ryanb/dotfiles,v
-https://materialgroup.beanstalkapp.com/profootball/changesets/208,v
-User comes to the site w/ cookie on mobile,v
-,,v
-stats_table,v
-django_extentions,v
-/2010/12/08/week-14-confidence-pool-picks-2?msg=You%20are%20now%20logged-in.,v
-django_extensions,v
-173.230.137.238,v
-memcached://127.0.0.1:11211/,v
-Pr0fooz,v
-dj_profootball,v
-django_dev_profootball,v
-django-projects/profootball/urls.py,v
-images,v
-01/05/2011,v
-src/main/flex/com/amfam/salesproduct/auto/ui/assets,v
-set t_Co=256,V
-/sites/bridesmaids/django-project,v
-src/main/flex/com/amfam/salesproduct/auto/ui/assets ,V
-say("My name is ben");,V
-	$one = 123;	$two = null;		print $one < $two;,V
-file:///Users/benmills/Sites/AutoQuote/bin-debug/CTest.html,v
-This premium is based on the information you provided about your household, the coverages you selected and consumer reports we have ordered. The premiums shown are subject to underwriting review and final determinationv by American Family. This is not a policy and no coverage is provided. You will be contacted by an American Family representative to review your quote.,V
-This premium is based on the information you provided about your household, the coverages you selected and consumer reports we have ordered. The premiums shown are subject to underwriting review and final determinationv by American Family. This is not a policy and no coverage is provided. You will be contacted by an American Family representative to review your quote.,v
-<mx:Image source="@Embed('com/amfam/salesproduct/auto/ui/assets/images/AFI-logo.png')" />,v
-					<mx:Image source="@Embed('/com/afi/Coverages/assets/images/AFI-logo.png')" />,V
-annuities,v
-Coverages,v
- <fx:Style source="com/amfam/salesproduct/auto/ui/assets/css/autoquote.css"/>,v
-#!/bin/sh,v
-setw -g mode-mouse on,v
-T:#(sysctl -n dev.cpu.1.temperature) fq:#(sysctl -n dev.cpu.0.freq) B:#(sysctl -n hw.acpi.battery.life)%% #(sysctl -n hw.acpi.battery.time)min,v
-tmux source-file ~/.tmux.conf,v
-set -g bell-action anyset -g default-terminal screen-256colorset -g display-panes-colour redset -g message-bg cyanset -g message-fg whiteset -g mouse-select-pane onset -g pane-border-bg defaultset -g pane-border-fg cyanset -g pane-active-border-bg defaultset -g pane-active-border-fg whiteset -g repeat-time 250set -g set-titles onset -g status-bg cyanset -g status-fg whiteset -g status-keys viset -g status-left '[#I:#P]'# normal: month/day hour:minuteset -g status-right '%m/%d %H:%M'# desktop: temp month/day hour:minute#set -g status-right '#(sensors -A acpitz-virtual-0 | grep temp | cut -d+ -f2 | cut -d. -f1)C %m/%d %H:%M'# laptop: bat% (battime) temp speed month/day hour:minute#set -g status-right '#(acpi | cut -d" " -f4,5 | sed "s/, \\(.*\\\)/\\/\\1/g") #(acpi -t | cut -d" " -f4 | cut -d"." -f1)C #(cpufreq-info -mf | sed "s/[ Hz]//g") %m/%d %H:%M'set -g visual-activity onset -g visual-bell onsetw -g mode-bg redsetw -g mode-attr brightsetw -g mode-fg whitesetw -g mode-keys visetw -g mode-mouse onsetw -g monitor-activity onsetw -g window-status-current-fg whitesetw -g window-status-current-attr brightsetw -g window-status-current-bg blackset -g prefix ^A,M-abind-key ^A send-prefixbind-key M-a send-prefixbind-key a last-windowbind-key ^D detach-clientbind-key v split-window -hbind-key ^V split-window -hbind-key s split-windowbind-key ^S split-windowbind-key @ confirm-before kill-windowbind-key h select-pane -Lbind-key ^H select-pane -Lbind-key k select-pane -Ubind-key ^K select-pane -Ubind-key j select-pane -Dbind-key ^J select-pane -Dbind-key l select-pane -Rbind-key ^L select-pane -Rbind-key J resize-pane -D 5bind-key K resize-pane -U 5bind-key H resize-pane -L 5bind-key L resize-pane -R 5bind-key M-j resize-pane -Dbind-key M-k resize-pane -Ubind-key M-h resize-pane -Lbind-key M-l resize-pane -R,V
-# Enable UTF-8#set-optionw -g utf8 on# History sizeset-option -g history-limit 15000# Coloursset-option -g status-bg colour255set-option -g status-fg colour0set-option -g pane-active-border-bg defaultset-option -g pane-active-border-fg default# Modeset-window-option -g mode-keys viset-window-option -g automatic-rename on# Statusset-option -g status-interval 1set-option -g status-left-length 75set-option -g status-right-length 55set-option -g status-left "[#I]#30T"set-option -g status-right 'T:#(sysctl -n dev.cpu.1.temperature) fq:#(sysctl -n dev.cpu.0.freq) B:#(sysctl -n hw.acpi.battery.life)%% #(sysctl -n hw.acpi.battery.time)min %a %H:%M:%S %b %d %Y '# Disable multiple pane movementset-option -g repeat-time 300# Screen-like last-window switch behaviourunbind-key "l"bind-key "a" last-windowbind-key "C-a" last-window# h for split , v for v-splitunbind-key '"'unbind-key '%'bind-key "h" split-windowbind-key "v" split-window -h# Screen-like list-windowsunbind-key 'w'bind-key '"' choose-window# Screen-like rename-windowunbind-key ","bind-key "A" command-prompt "rename-window '%%'",v
-## run `source-file ~/.tmux.conf` to reload config,V
-# tmux config# jwc# see my blog post about tmux for more information#   http://blog.jwcxz.com/?p=517set -g bell-action anyset -g default-terminal screen-256colorset -g display-panes-colour redset -g message-bg cyanset -g message-fg whiteset -g mouse-select-pane onset -g pane-border-bg defaultset -g pane-border-fg cyanset -g pane-active-border-bg defaultset -g pane-active-border-fg whiteset -g repeat-time 250set -g set-titles onset -g status-bg cyanset -g status-fg whiteset -g status-keys viset -g status-left '[#I:#P]'# normal: month/day hour:minuteset -g status-right '%m/%d %H:%M'# desktop: temp month/day hour:minute#set -g status-right '#(sensors -A acpitz-virtual-0 | grep temp | cut -d+ -f2 | cut -d. -f1)C %m/%d %H:%M'# laptop: bat% (battime) temp speed month/day hour:minute#set -g status-right '#(acpi | cut -d" " -f4,5 | sed "s/, \\(.*\\\)/\\/\\1/g") #(acpi -t | cut -d" " -f4 | cut -d"." -f1)C #(cpufreq-info -mf | sed "s/[ Hz]//g") %m/%d %H:%M'set -g visual-activity onset -g visual-bell onsetw -g mode-bg redsetw -g mode-attr brightsetw -g mode-fg whitesetw -g mode-keys visetw -g mode-mouse onsetw -g monitor-activity onsetw -g window-status-current-fg whitesetw -g window-status-current-attr brightsetw -g window-status-current-bg blackset -g prefix ^A,M-abind-key ^A send-prefixbind-key M-a send-prefixbind-key a last-windowbind-key ^D detach-clientbind-key v split-window -hbind-key ^V split-window -hbind-key s split-windowbind-key ^S split-windowbind-key @ confirm-before kill-windowbind-key h select-pane -Lbind-key ^H select-pane -Lbind-key k select-pane -Ubind-key ^K select-pane -Ubind-key j select-pane -Dbind-key ^J select-pane -Dbind-key l select-pane -Rbind-key ^L select-pane -Rbind-key J resize-pane -D 5bind-key K resize-pane -U 5bind-key H resize-pane -L 5bind-key L resize-pane -R 5bind-key M-j resize-pane -Dbind-key M-k resize-pane -Ubind-key M-h resize-pane -Lbind-key M-l resize-pane -R,V
-## run `source-file ~/.tmux.conf` to reload config# Enable UTF-8#set-optionw -g utf8 on# History sizeset-option -g history-limit 15000# Coloursset-option -g status-bg colour255set-option -g status-fg colour0set-option -g pane-active-border-bg defaultset-option -g pane-active-border-fg default# Modeset-window-option -g mode-keys viset-window-option -g automatic-rename on# Statusset-option -g status-interval 1set-option -g status-left-length 75set-option -g status-right-length 55set-option -g status-left "[#I]#30T"set-option -g status-right 'T:#(sysctl -n dev.cpu.1.temperature) fq:#(sysctl -n dev.cpu.0.freq) B:#(sysctl -n hw.acpi.battery.life)%% #(sysctl -n hw.acpi.battery.time)min %a %H:%M:%S %b %d %Y '# Disable multiple pane movementset-option -g repeat-time 300# Screen-like last-window switch behaviourunbind-key "l"bind-key "a" last-windowbind-key "C-a" last-window# h for split , v for v-splitunbind-key '"'unbind-key '%'bind-key "h" split-windowbind-key "v" split-window -h# Screen-like list-windowsunbind-key 'w'bind-key '"' choose-window# Screen-like rename-windowunbind-key ","bind-key "A" command-prompt "rename-window '%%'",V
-# Use C-a prefixset-option -g prefix C-aunbind-key "C-b"bind-key "C-a" send-prefix,V
-# we might need ` at some point, allow switching# we can also send the prefix char with `-abind-key F11 set-option -g prefix C-abind-key F12 set-option -g prefix `# 0 is too far from ` set -g base-index 1set-option -g default-terminal "screen-256color"set-option -g mouse-select-pane onset-option -g status-keys viset-option -g bell-action anyset-option -g set-titles onset-option -g set-titles-string '#H:#S.#I.#P #W #T' # window number,program name,active (or not)#set-option -g visual-bell onsetw -g mode-keys visetw -g mode-mouse onsetw -g monitor-activity onbind e previous-windowbind f next-windowset-option -g status-utf8 on# set-option -g status-justify centreset-option -g status-justify leftset-option -g status-bg blackset-option -g status-fg whiteset-option -g status-left-length 40set-option -g pane-active-border-fg greenset-option -g pane-active-border-bg blackset-option -g pane-border-fg whiteset-option -g pane-border-bg blackset-option -g message-fg blackset-option -g message-bg green#setw -g mode-bg blacksetw -g window-status-bg blacksetw -g window-status-current-fg greensetw -g window-status-alert-attr defaultsetw -g window-status-alert-fg yellowset -g status-left '#[fg=red]#H#[fg=green]:#[fg=white]#S #[fg=green]][#[default]'# set -g status-right '#[fg=green]][#[fg=white] #T #[fg=green]][ #[fg=blue]%Y-%m-%d #[fg=white]%H:%M#[default]'set -g status-right '#[fg=green]][ #[fg=blue]%Y-%m-%d #[fg=white]%H:%M#[default]'set -g history-limit 4096# `+r reloads the configuration, handybind r source-file ~/.tmux.conf,v
-# ` is an interesting key for a prefixset-option -g prefix `# set-option -g prefix C-aunbind-key C-bbind-key C-a last-windowbind-key ` last-windowbind-key a send-prefix# we might need ` at some point, allow switching# we can also send the prefix char with `-abind-key F11 set-option -g prefix C-abind-key F12 set-option -g prefix `# 0 is too far from ` set -g base-index 1set-option -g default-terminal "screen-256color"set-option -g mouse-select-pane onset-option -g status-keys viset-option -g bell-action anyset-option -g set-titles onset-option -g set-titles-string '#H:#S.#I.#P #W #T' # window number,program name,active (or not)#set-option -g visual-bell onsetw -g mode-keys visetw -g mode-mouse onsetw -g monitor-activity onbind e previous-windowbind f next-windowset-option -g status-utf8 on# set-option -g status-justify centreset-option -g status-justify leftset-option -g status-bg blackset-option -g status-fg whiteset-option -g status-left-length 40set-option -g pane-active-border-fg greenset-option -g pane-active-border-bg blackset-option -g pane-border-fg whiteset-option -g pane-border-bg blackset-option -g message-fg blackset-option -g message-bg green#setw -g mode-bg blacksetw -g window-status-bg blacksetw -g window-status-current-fg greensetw -g window-status-alert-attr defaultsetw -g window-status-alert-fg yellowset -g status-left '#[fg=red]#H#[fg=green]:#[fg=white]#S #[fg=green]][#[default]'# set -g status-right '#[fg=green]][#[fg=white] #T #[fg=green]][ #[fg=blue]%Y-%m-%d #[fg=white]%H:%M#[default]'set -g status-right '#[fg=green]][ #[fg=blue]%Y-%m-%d #[fg=white]%H:%M#[default]'set -g history-limit 4096# `+r reloads the configuration, handybind r source-file ~/.tmux.conf,V
-## run `source-file ~/.tmux.conf` to reload config# Enable UTF-8#set-optionw -g utf8 on# Use C-a prefixset-option -g prefix C-aunbind-key "C-b"bind-key "C-a" send-prefix# History sizeset-option -g history-limit 15000# Coloursset-option -g status-bg colour255set-option -g status-fg colour0set-option -g pane-active-border-bg defaultset-option -g pane-active-border-fg default# Modeset-window-option -g mode-keys viset-window-option -g automatic-rename on# Statusset-option -g status-interval 1set-option -g status-left-length 75set-option -g status-right-length 55set-option -g status-left "[#I]#30T"set-option -g status-right 'T:#(sysctl -n dev.cpu.1.temperature) fq:#(sysctl -n dev.cpu.0.freq) B:#(sysctl -n hw.acpi.battery.life)%% #(sysctl -n hw.acpi.battery.time)min %a %H:%M:%S %b %d %Y '# Disable multiple pane movementset-option -g repeat-time 300# Screen-like last-window switch behaviourunbind-key "l"bind-key "a" last-windowbind-key "C-a" last-window# h for split , v for v-splitunbind-key '"'unbind-key '%'bind-key "h" split-windowbind-key "v" split-window -h# Screen-like list-windowsunbind-key 'w'bind-key '"' choose-window# Screen-like rename-windowunbind-key ","bind-key "A" command-prompt "rename-window '%%'",V
-/xorg62/wmfs,v
-bind j up-panebind k down-pane,V
-exec >>~/.xsession-errors 2>&1,V
-/usr/local/bin/tmux,V
-void *_vprocmgr_detach_from_console(unsigned int flags);,V
-xmodmap -e 'remove Mod2 = Meta_L' -e 'add Mod1 = Meta_L',V
-		fatal("daemon failed");,V
-fatalx("_vprocmgr_detach_from_console failed");,v
-	if (daem,V
-on(1, 0) != 0),v
-if (_vprocmgr_detach_from_console(0) != NULL),v
-xmodmap -e 'remove Mod2 = Meta_L' -e 'add Mod1 = Meta_L',v
-! left apple key becomes alt ! and right one stays meta! remap f12 to insert cause i just can't figure out which keycombo should! give that to meclear mod1clear mod2keycode 71 = Alt_Ladd mod2 = Alt_Lkeycode 63 = Meta_Ladd mod1 = Meta_Lkeycode 119 = Insert,V
-/usr/local/bin/dwm-launch,V
-p -e 'remove Mod2 = Meta_L' -e 'add Mod1 = Meta_L'&,V
-cdle truedo    xsetroot -name "`date +"%Y-%m-%d %H:%M"`"      sleep 5      done &,V
-      exec /usr/local/bin/dwm~while true  do      xsetroot -name "`date +"%Y-%m-%d %H:%M"`"        sleep 5        done &        exec /usr/local/bin/dwm,V
-cd ~while true  do      xsetroot -name "`date +"%Y-%m-%d %H:%M"`"        sleep 5        done &        exec /usr/local/bin/dwm,V
-$PATH=$PATH:/usr/local/binxsetroot -solid '#4a525a'xmodmap -e 'remove Mod2 = Meta_L' -e 'add Mod1 = Meta_L'exec >>~/.xsession-errors 2>&1dwm-launch,V
-dwm-launch,V
-ckground: black,V
-asdfasdf #h = Heap.new([300,1,0,5,8,9,11,56])#l = 0#i = 0#h.data.each_with_index do |item, i|  #p = h.parent_index(i)  #puts i.to_s+": "+item.to_s+" par: "+p.to_s#end,V
-cp /usr/share/tmux/screen-keys.conf ~/.tmux.conf,v
-#h = Heap.new([300,1,0,5,8,9,11,56])#l = 0#i = 0#h.data.each_with_index do |item, i|  #p = h.parent_index(i)  #puts i.to_s+": "+item.to_s+" par: "+p.to_s#end,V
-  #it "returns an item for an index" do  #end,V
-      #puts '\n', item <= left, item <= right, item >= parent,V
-partition { |e|  },v
-h.parent_index(i),v
-      p = h.parent_index(i)      puts i.to_s+": "+item.to_s+" par: "+p.to_s,V
-  p = h.parent_index(i)  puts i.to_s+": "+item.to_s+" par: "+p.to_s,V
-      item.should <= right,V
+  // Util Functions,V
+  public static int fac(int n) {    if (n <= 1) return 1;    return n * fac(n-1);  }  public static char[] less_one(char[] in) {    char[] out = new char[in.length - 1];    for (int i = 0; i < out.length; i++) out[i] = in[i+1];    return out;  },V
+  public static String print_array(char[] str) {    String out = "";    for (int i = 0; i < str.length; i++) {      out += str[i];    }    return out;  }  public static String print_string_array(String[] str) {    return out;  },V
+str,v
+  public static String print_array(char[] str) {    String out = "";    for (int i = 0; i < str.length; i++) {      out += str[i];    }    return out;  },V
+  public static String print_string_array(String[] str) {    return out;  },V
+Output,v
+print_string_array(perms),v
+    String out = "";    for (int i = 0; i < str.length; i++) {      out += str[i]+", ";    },V
+    ,V
+    //System.out.println(print_array(perm(str)));    //for (int i = 0; i < str.length; i++) {      //System.out.println(print_array(str));      //str = less_one(str);    //},V
+perm(str),v
+    perm(str);,V
+Perm,v
+    int len = str.length;,V
+      //System.out.println(str.length);,V
+      System.out.println(print_array(str));,V
+      str = less_one(str);,V
+    String[] save = new String[fac(str.length)];,V
+str.length,v
+      System.out.println(i);,V
+    System.out.println(less_one(str));,V
+      ;print_array(str,V
+t,v
+print_array(str),v
+gth,v
+.,v
+      save[i] = print_array(str);,V
+    System.out.println(print_string_array(save));,V
+char,v
+  public static String print_array(char[] str) {    String out = "";    for (int i = 0; i < str.length; i++) {      out += str[i];    }    return out;  },V
+m.out.println(print_array(perm(str)));    //for (int i = 0; i < str.length; i++) {      //,v
+out,v
+),v
+i],v
+            3   public static int fac(              4     if (}              5     return n * fac(}              6   }                7                       8   public static char[                      9     char[}                     10     for (}                     11     return out;                     12   }                      13                            14,V
+less_one(str),v
+      char[] inner = perm(less_one(str));      for (int ii = 0; ii < inner.length; ii++) {        char a = str[0];        char b = inner[ii];        //out[i] = a + b;        System.out.println(b);      },V
+    if (str.length == 1) return str;    char[] out = new char[fac(str.length)];    for (int i = 0; i < str.length; i++) {      char[] inner = perm(less_one(str));      for (int ii = 0; ii < inner.length; ii++) {        char a = str[0];        char b = inner[ii];        //out[i] = a + b;        System.out.println(b);      }    },V
+    System.out.println()fac(4);,V
+fac(4),v
+    System.out.println(fac(4));,V
+Math.exp(2),v
+      char[] inner_str = perm(str, ,V
+i,v
+in,v
+in.length - 1,v

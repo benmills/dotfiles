@@ -39,3 +39,6 @@ alias rst='touch tmp/restart.txt'
 
 # commands starting with % for pasting from web
 alias %=' '
+
+# java
+alias jvc='javac $*.java && java $*'

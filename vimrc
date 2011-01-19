@@ -75,7 +75,9 @@ set nolist
 colorscheme ir_black
 if has("gui_running")
 	colorscheme liquidcarbon
+  
 endif
+
 " Clear Search
 map <leader><space> :noh<Enter>
 
