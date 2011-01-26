@@ -1,100 +1,100 @@
-  IndentGuide ,V
-.sub_square_ad {  margin-left:  12px;},V
-git clone git://github.com/nathanaelkane/vim-indent-guides.git,v
-http://files.bmdev.org/ss/54/843ue07d4maso.png,v
-<script type="text/javascript">GA_googleFillSlot(gam_section+"_160x600");</script>,v
-trace('>>> Pre Scale: ', car2dImage.width);,v
-car2dImage.scaleX = CarImage.imageScale;					car2dImage.scaleY = CarImage.imageScale;,V
-https://gist.github.com/a0d3a4ff3f6bed4fcdc4,v
-		private function init():void {			var needsTable:Array = [				["Final Expenses", LifeNeedsModel.instance.life_needs_vo.final_expenses],				["Debts", LifeNeedsModel.instance.life_needs_vo.debts],				["Emergency Fund", LifeNeedsModel.instance.life_needs_vo.emergency_fund],				["Housing", LifeNeedsModel.instance.life_needs_vo.housing],				["Childcare", LifeNeedsModel.instance.life_needs_vo.childcare],				["Education Fund", LifeNeedsModel.instance.life_needs_vo.education],				["Survivor's Income", LifeNeedsModel.instance.life_needs_vo.survivors],				["Special Needs", LifeNeedsModel.instance.life_needs_vo.special],				["Total", LifeNeedsModel.instance.life_needs_vo.expenses]			];						var assestsTable:Array = [				["Checking Accounts", LifeNeedsModel.instance.life_needs_vo.checking_accounts],				["Savings Accounts", LifeNeedsModel.instance.life_needs_vo.savings_accounts],				["CD's", LifeNeedsModel.instance.life_needs_vo.cds],				["Money Market", LifeNeedsModel.instance.life_needs_vo.money_market],				["Investment Accounts", LifeNeedsModel.instance.life_needs_vo.investment_accounts],				["Retirement Accounts", LifeNeedsModel.instance.life_needs_vo.retirement_accounts],				["Annuities", LifeNeedsModel.instance.life_needs_vo.annuities],				["Current Benefits", LifeNeedsModel.instance.life_needs_vo.life_insurance],				["Other", LifeNeedsModel.instance.life_needs_vo.other_assets],				["Total", LifeNeedsModel.instance.life_needs_vo.assets]			];,v
-Insurance Suggested,v
-m,v
-http://files.bmdev.org/ss/1h/3zstm1bkqexw0.png,v
-85fc-376a-8910-a206-2efe,v
-Calculator Results,v
-http://files.bmdev.org/ss/c1/32ifflawhq80g.png,v
- bordercolor="#CCCCCC",v
-At your request, the information you provided has been sent to an American Family agent, who will follow up with you in the near future.  In the meantime, if you have any questions on the products and services American Family offers, please call our customer service center at 1.800.MYAMFAM (692.6326).,v
-At your request, the information you provided has been sent to an American Family agent, who will follow up with you in the near future.,V
-Thank you for using the American Family Insurance Annuities Calculator,v
-Thank you for using the American Family Insurance Annuities Calculator.,v
-Thank you for using the American Family Insurance Life Needs Calculator.,V
-    	<td><font face="Arial, Helvetica, sans-serif" size="-1">$15,000</font></td>,V
-    <tr>    	<td><font face="Arial, Helvetica, sans-serif" size="-1"><b>Initial Premium</b></font></td>        <td><font face="Arial, Helvetica, sans-serif" size="-1">$5,000</font></td>        <td><font face="Arial, Helvetica, sans-serif" size="-1"><b>Retirement Age</b></font></td>        <td><font face="Arial, Helvetica, sans-serif" size="-1">67</font></td>    </tr>    <tr>      <td colspan="2"><font face="Arial, Helvetica, sans-serif" size="-1"><b>Accumulated Balance</b></font></td>      <td colspan="2"><font face="Arial, Helvetica, sans-serif" size="-1" color="#7db301"><b>$123,123,123</b></font></td>    </tr>    <tr>      <td colspan="2"><font face="Arial, Helvetica, sans-serif" size="-1"><b>Annual Payout for 10 Years</b></font></td>      <td colspan="2"><font face="Arial, Helvetica, sans-serif" size="-1" color="#7db301"><b>$123,123,123</b></font></td>    </tr>,V
->    	<td><font face="Arial, Helvetica, sans-serif" size="-1"><b>Initial Premium</b></font></td>        <td><font face="Arial, Helvetica, sans-serif" size="-1">$5,000</font></td>        <td><font face="Arial, Helvetica, sans-serif" size="-1"><b>Retirement Age</b></font></td>        <td><font face="Arial, Helvetica, sans-serif" size="-1">67</font></td>    </tr>,v
--,v
-Assets,v
-    <td colspan="4" bgcolor="#73a90a"><font color="#FFFFFF" size="-1" face="Arial, Helvetica, sans-serif"><strong>Your Assets</strong></font></td>,V
-Needs,v
-    <td colspan="4" bgcolor="#73a90a"><font color="#FFFFFF" size="-1" face="Arial, Helvetica, sans-serif"><strong>Your Needs</strong></font></td>,V
-Annuity,v
-E1E1E1,v
-73a90a,v
-0082c1,v
-#E1E1E1,v
-html-emails,v
- m10,v
-Carl travel. In south subburbs.,v
-https://www.homemadepizza.com/,v
-Have you had homemade pizza co?,v
-l m10,v
-sub_new,v
-  padding: 10px 0px;,V
-6,v
-len,v
-http://jobs.github.com/positions,v
-r,v
-    // Time for recusion,V
-      single_out[0] = String.valueOf(str[0]);,V
-new String[1],v
-{String.valueOf(str[0])},v
-single_out,v
-      int inner_length = inner.length;dd,V
-,V
-  // Util Functions,V
-  public static int fac(int n) {    if (n <= 1) return 1;    return n * fac(n-1);  }  public static char[] less_one(char[] in) {    char[] out = new char[in.length - 1];    for (int i = 0; i < out.length; i++) out[i] = in[i+1];    return out;  },V
-  public static String print_array(char[] str) {    String out = "";    for (int i = 0; i < str.length; i++) {      out += str[i];    }    return out;  }  public static String print_string_array(String[] str) {    return out;  },V
-str,v
-  public static String print_array(char[] str) {    String out = "";    for (int i = 0; i < str.length; i++) {      out += str[i];    }    return out;  },V
-  public static String print_string_array(String[] str) {    return out;  },V
-Output,v
-print_string_array(perms),v
-    String out = "";    for (int i = 0; i < str.length; i++) {      out += str[i]+", ";    },V
+void,v
+      a = ran_empty(a, 0, r-1);,V
+      r = 0;,V
+static,v
+a.length == 1,v
     ,V
-    //System.out.println(print_array(perm(str)));    //for (int i = 0; i < str.length; i++) {      //System.out.println(print_array(str));      //str = less_one(str);    //},V
-perm(str),v
-    perm(str);,V
-Perm,v
-    int len = str.length;,V
-      //System.out.println(str.length);,V
-      System.out.println(print_array(str));,V
-      str = less_one(str);,V
-    String[] save = new String[fac(str.length)];,V
-str.length,v
-      System.out.println(i);,V
-    System.out.println(less_one(str));,V
-      ;print_array(str,V
-t,v
-print_array(str),v
-gth,v
-.,v
-      save[i] = print_array(str);,V
-    System.out.println(print_string_array(save));,V
-char,v
-  public static String print_array(char[] str) {    String out = "";    for (int i = 0; i < str.length; i++) {      out += str[i];    }    return out;  },V
-m.out.println(print_array(perm(str)));    //for (int i = 0; i < str.length; i++) {      //,v
-out,v
-),v
-i],v
-            3   public static int fac(              4     if (}              5     return n * fac(}              6   }                7                       8   public static char[                      9     char[}                     10     for (}                     11     return out;                     12   }                      13                            14,V
-less_one(str),v
-      char[] inner = perm(less_one(str));      for (int ii = 0; ii < inner.length; ii++) {        char a = str[0];        char b = inner[ii];        //out[i] = a + b;        System.out.println(b);      },V
-    if (str.length == 1) return str;    char[] out = new char[fac(str.length)];    for (int i = 0; i < str.length; i++) {      char[] inner = perm(less_one(str));      for (int ii = 0; ii < inner.length; ii++) {        char a = str[0];        char b = inner[ii];        //out[i] = a + b;        System.out.println(b);      }    },V
-    System.out.println()fac(4);,V
-fac(4),v
-    System.out.println(fac(4));,V
-Math.exp(2),v
-      char[] inner_str = perm(str, ,V
+    int r = (int)(a.length * Math.random());    r = 0;    a[r] = nil;,V
+b_len,v
+,V
+    System.out.println(r);,V
+7,v
+    int[] a = {0,1,2,3,4,5,6,7,8,9,10}; ,V
+    // b: 0,1,2,3,4,5 (remove - 1) // c: 7,8,9,10 (a.len - remove),V
+    int[] a = {0,1,2,3,4,5,6,7,8,9,10}; ,V
+       p_array(a);    p_array(b);    p_array(c);,V
+    System.out.println(b.length);    System.out.println(c.length);,V
+    // b: 0,1,2,3,4,5 (remove - 1)    // c: 7,8,9,10 (a.len - remove),V
+    int[] a = {0,1,2,3,4,5,6,7,8,9,10};     int r = 7;    // b: 0,1,2,3,4,5 (remove - 1)    // c: 7,8,9,10 (a.len - remove)    a[r] = -99;    int[] b = new int[r-1];    int[] c = new int[a.length-r];    System.out.println(b.length);    System.out.println(c.length);        int b_i = 0;    int c_i = 0;    for (int i=0; i<a.length; i++) {      if (i < r-1) b[b_i++] = a[i];      else if (i != r) c[c_i++] = a[i];    }       p_array(a);    p_array(b);    p_array(c);,V
+ System.out.println(,v
+"c "+i);,v
+=,v
+    System.out.println(b.length);,V
+split,v
+remove,v
+b,v
+c_len,v
+return,v
+    int c_len = split % 2 == 1? split : split-1;,V
+    //System.out.println("Splitting on: "+remove);,V
+    float fsplit = a.length;    fsplit /= 2;    System.out.println("fsplit: "+fsplit);    int split = (int)Math.floor(fsplit);,V
+split-1,v
+fsplit,v
+    System.out.println(fsplit);,V
+floor,v
+    int b_len = (int)Math.floor(fsplit);,V
+(int)Math.floor(fsplit);,v
+    System.out.println("fsplit: "+fsplit);,V
+Splitting,v
+    System.out.println("Splitting on: "+split);,V
+    pr,V
+int,v
+s,v
 i,v
-in,v
-in.length - 1,v
+    p_array(a);,V
+    int[] b = int[split];,V
+    System.out.println(f/2);,V
+    float f = 9;,V
+    float split = a.length,V
+float(9/2),v
+1,v
+ ,v
+-,v
+),v
+(,v
+null,v
+    System.out.println("HI");,V
+*,v
+0,v
+perms,v
+// Print permutations in a sane fashion,V
+// Print permutations in a sane fashion    String out = "";    for (int i = 0; i < perms.length; i++) {      out += perms[i]+", ";    }    System.out.println(out);,V
+/s/depaul-homework/csc-383/hw-3,v
+    int[] b = {};,V
+b = ,v
+(a.length-1)/2,v
+, int start = -1, int end = -1,v
+/* code */,v
+whoami@hostname,v
+[ whoami@hostname ~ ]> ,V
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009"                xmlns:s="library://ns.adobe.com/flex/spark"                xmlns:mx="library://ns.adobe.com/flex/mx"               width="1024" height="768" 			   preinitialize="initVars()"                preloader="com.amfam.salesproduct.common.ui.preloader.AFIPreloader"               initialize="init()">,V
+error,v
+fetish,v
+",v
+<<>,v
+<,V
+<agentLocatorTitle>,v
+<agentLocatorText>,v
+<error_CustomerCareText>,v
+<phoneNumberSub>,v
+<phoneNumber>,v
+<customerCareCenter>,v
+<coverageCalculatorInfo>,v
+<customerCare>,v
+<coverageCalculator>,v
+<timout_subtitle>,v
+<error_subtitle>,v
+<subtitle>,v
+<title>,v
+;,v
+String ,v
+:,v
+<subtitle>"...but we c,v
+:String = ,v
+:String = representative of our Customer Care Center will be contacting you soon to offer assistance. To expedite the process, please call us, or schedule a callback from the link below.,v
+var ,v
+public var ,v
+"A ,v
+override public ,v
++,v
+Contact an Agent,V
