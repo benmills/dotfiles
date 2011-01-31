@@ -1,5 +1,29 @@
-https://github.com/nathanaelkane/vim-indent-guides.git,v
+1b1d1e,v
+232323,v
+111314,v
+2d3234,v
+https://sanders.fogbugz.com/default.asp?pg=pgList&pre=preSaveCurrentFilter&ixProject=32,v
+let g:indent_guides_guide_size = 1,v
+let g:indent_guides_enable_on_vim_startup = 0,v
+292d2f,v
+2d3133,v
+green,v
+303131,v
+2a2a2a,v
+222324,v
+333536,v
+red,v
 ,V
+hi IndentGuidesEven ctermbg=darkgreyhi IndentGuidesOdd  ctermbg=black,V
+let g:indent_guides_auto_colors = 0autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4,V
+Color,v
+ ,v
+Normal,v
+" Normal Color {{{1" ============================================================================,V
+https://twitter.com/brandon_weiss/status/32176970003382272,v
+git://github.com/benmills/dotfiles.git,v
+git@github.com:benmills/dotfiles.git,v
+https://github.com/nathanaelkane/vim-indent-guides.git,v
         self.parsed_data = [],V
         ideal_data = {               'arm_height': '',            'callouts': '1,2,3',            'depth': '21.25',            'fabric_yardage': '',            'features': '1,2',            'height': '34.75',            'model_number': '53-18',            'related_products': 'Series 101',            'seat_depth': '15.5',            'seat_height': '17.5',            'series_id': '101',            'similar_items': '',            'spec_sheet': '',            'weight': '23',            'width': '18.25'        }        self.assertEqual(mi.parsed_data[0], ideal_data),V
         self.products_raw = open('test_data/products_V2.csv', 'r'),V
@@ -13,7 +37,6 @@ https://sanders.fogbugz.com/default.asp?pg=pgDownload&pgType=pgFile&ixBugEvent=9
 import csvimport pprintdef parse(file):    reader = csv.reader(f)    headers = []    for h in reader.next():        headers.append(h)        parsed_data = []    for row in reader:        i = 0        data = {}        for r in row:            data[headers[i]] = r             i += 1        parsed_data.append(data)    pp = pprint.PrettyPrinter(indent=4)    pp.pprint(parsed_data[0])        f = open('test_data/products_V2.csv', 'r')parse(f),V
         'similar_items'model_number':'53US-18',,V
 ',v
- ,v
         'similar_items',V
         'callouts':'"1,3"'',,V
 ,,v
@@ -75,26 +98,3 @@ import randomimport unittestclass TestSequenceFunctions(unittest.TestCase):
 SeriesCollection,v
 Series,v
 self,v
-    # Uncomment the next line to enable the admin:    # 'django.contrib.admin',    # Uncomment the next line to enable admin documentation:    # 'django.contrib.admindocs',,V
-http://www.youtube.com/watch?v=09hLxQE5Zuo,v
-http://www.cdm.depaul.edu/academics/Pages/MSinComputerScience.aspx,v
-http://www.braintreepaymentsolutions.com/,v
-DEBUG = TrueTEMPLATE_DEBUG = DEBUG,V
-ROOT_URLCONF = 'urls',V
-.,v
-generic_django,v
-# Absolute path to the directory that holds media.# Example: "/home/media/media.lawrence.com/"MEDIA_ROOT = ''# URL that handles the media served from MEDIA_ROOT. Make sure to use a# trailing slash if there is a path component (optional in other cases).# Examples: "http://media.lawrence.com", "http://example.com/media/"MEDIA_URL = ''# URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a# trailing slash.# Examples: "http://foo.com/media/", "/media/".ADMIN_MEDIA_PREFIX = '/media/',V
-DATABASES = {    'default': {        'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.        'NAME': '',                      # Or path to database file if using sqlite3.        'USER': '',                      # Not used with sqlite3.        'PASSWORD': '',                  # Not used with sqlite3.        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.    }},V
-http://www.youtube.com/watch?v=va1-JK3pu2o&feature=player_embedded,v
-sandersnewmedia/Jasper-Chair,v
-void,v
-      a = ran_empty(a, 0, r-1);,V
-      r = 0;,V
-static,v
-a.length == 1,v
-    ,V
-    int r = (int)(a.length * Math.random());    r = 0;    a[r] = nil;,V
-b_len,v
-    System.out.println(r);,V
-7,v
-    int[] a = {0,1,2,3,4,5,6,7,8,9,10}; ,V
