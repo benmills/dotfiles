@@ -14,6 +14,13 @@ endif
 let colors_name = "liquidcarbon"
 " 1}}}
 
+" vim-indent-guides {{{1
+" ============================================================================
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#2a2a2a   ctermbg=3
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#232323 ctermbg=4
+" 1}}}
+
 " Normal Color {{{1
 " ============================================================================
 hi Normal           guifg=#bdcdcd   guibg=#252525

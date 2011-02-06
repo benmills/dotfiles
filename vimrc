@@ -141,6 +141,10 @@ map <down> <nop>
 map <left> <nop>
 map <right> <nop>
 
+" IndentGuide
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_guide_size = 1
+
 " shift+arrow for better window nav
 noremap <C-J> <C-W>j
 noremap <C-K> <C-W>k
