@@ -37,6 +37,7 @@ set number
 set backspace=indent,eol,start
 set laststatus=2                  " Show the status line all the time
 set cursorline
+set wildignore+=*.o,*.obj,.git,*.pyc,.DS_Store
 
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
@@ -75,7 +76,6 @@ set nolist
 colorscheme ir_black
 if has("gui_running")
 	colorscheme liquidcarbon
-  
 endif
 
 " Clear Search
@@ -84,13 +84,14 @@ map <leader><space> :noh<Enter>
 " Flex syntax
 autocmd BufRead *.as set filetype=actionscript 
 autocmd BufRead *.mxml set filetype=mxml 
+au BufNewFile,BufRead *.less set filetype=less
 
 " mustace!
 runtime! ftdetect/*.vim
 au BufNewFile,BufRead *.mustache        setf mustache
 
 " Working with windows
-nnoremap <leader>w <C-w>v<C-w>l:FuzzyFinderTextMate<Enter>
+nnoremap <leader>w <C-w>v<C-w>l:CommandT<Enter>
 
 " Close window
 nnoremap <leader>cw <C-w>c
@@ -108,14 +109,15 @@ map <leader>teh :ConqueTermSplit zsh<CR>
 map <leader>te :ConqueTerm zsh<CR>
 map <leader>rk :ConqueTermSplit zsh<CR>rake<Enter>
 
-" FuzzyFinder
-map <leader>f :FuzzyFinderTextMate<Enter>
-map <leader>t :FuzzyFinderTextMate <c-r>=expand("<cword>")<CR><Enter>
+" CommandT
+map <leader>f :CommandT<Enter>
+let g:CommandTMaxHeight=10
 
 " NERDTree
 map <leader>nt :NERDTreeToggle<Enter>
 let NERDTreeShowFiles=1
 let NERDTreeShowHidden=1
+let NERDTreeIgnore=['.DS_Store']
 
 " Yankring
 map <leader>y :YRShow<cr>
@@ -164,8 +166,8 @@ au FocusLost * :wa
 " Adding tag support for other langs
 let tlist_actionscript_settings = 'actionscript;c:class;f:method;p:property;v:variable'
 
-" one less keystroke...
-nnoremap ; :
+" Refresh
+map <leader>rf :CommandTFlush<CR>
 
 " Hide MacVim menubar
 if has("gui_running")
@@ -183,11 +185,12 @@ set linespace=4
 let g:ConqueTerm_ReadUnfocused = 1
 
 " Django Surrond
-let g:surround_{char2nr("b")} = "{% block\1 \r..*\r &\1%}\r{% endblock %}"
-let g:surround_{char2nr("i")} = "{% if\1 \r..*\r &\1%}\r{% endif %}"
-let g:surround_{char2nr("w")} = "{% with\1 \r..*\r &\1%}\r{% endwith %}"
-let g:surround_{char2nr("c")} = "{% comment\1 \r..*\r &\1%}\r{% endcomment %}"
-let g:surround_{char2nr("f")} = "{% for\1 \r..*\r &\1%}\r{% endfor %}"
+let g:surround_{char2nr("b")} = "{% block\1 \r..*\r &\1 %}\r{% endblock %}"
+let g:surround_{char2nr("i")} = "{% if\1 \r..*\r &\1 %}\r{% endif %}"
+let g:surround_{char2nr("w")} = "{% with\1 \r..*\r &\1 %}\r{% endwith %}"
+let g:surround_{char2nr("c")} = "{% comment\1 \r..*\r &\1 %}\r{% endcomment %}"
+let g:surround_{char2nr("f")} = "{% for\1 \r..*\r &\1 %}\r{% endfor %}"
+let g:surround_{char2nr("t")} = "{% \1\r..*\r&\1 %}\r"
 
 " Trying out arrow keys as 'text shifters'
 function! DelEmptyLineAbove()
@@ -213,7 +216,7 @@ function! AddEmptyLineAbove()
     endif
     let &scrolloff = l:scrolloffsave
 endfunction
- 
+
 function! DelEmptyLineBelow()
     if line(".") == line("$")
         return

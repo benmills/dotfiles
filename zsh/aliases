@@ -24,7 +24,8 @@ alias lg='ls | grep $1'
 # git
 alias g='git'
 alias gp='git push'
-alias gc='git add . && git commit -m $1'
+alias ga='git add .'
+alias gc='git commit'
 alias gs='git status'
 
 # rails
