@@ -1,0 +1,12 @@
+setopt prompt_subst
+autoload colors    
+colors  
+
+git_prompt_info() {
+  ref=$($(which git) symbolic-ref HEAD 2> /dev/null) || return
+  echo "${ref#refs/heads/}"
+}
+
+export PROMPT='
+[ %n@% %M %{$fg[cyan]%}%/ %{$fg_bold[blue]%}$(git_prompt_info)%{$reset_color%}]
+%{$fg[yellow]%}>%{$reset_color%} '
