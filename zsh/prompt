@@ -1,4 +1,3 @@
-setopt prompt_subst
 autoload colors    
 colors  
 

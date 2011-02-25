@@ -1,22 +1,32 @@
+autoload -U compinit
+compinit
+
 #Path
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH:$HOME/.bin
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
 
-#Source
-#source ~/.bin/bashmarks.sh
+# Env Vars
+export EDITOR=vim
 
-#Config
+# Options
 fpath=(~/.zsh/functions $fpath)
 autoload -U ~/.zsh/functions/*(:t)
-
+set -o emacs
 setopt EXTENDED_HISTORY # add timestamps to history
-setopt CORRECT
+setopt LOCAL_OPTIONS # allow functions to have local options
+setopt LOCAL_TRAPS # allow functions to have local traps
+setopt PROMPT_SUBST
 setopt COMPLETE_IN_WORD
-
+setopt IGNORE_EOF
+setopt AUTO_CD
+setopt HIST_IGNORE_DUPS
 setopt APPEND_HISTORY # adds history
 setopt INC_APPEND_HISTORY SHARE_HISTORY  # adds history incrementally and share it across sessions
 setopt HIST_IGNORE_ALL_DUPS  # don't record dupes in history
 setopt HIST_REDUCE_BLANKS
 
-bindkey ^b vi-backward-word
-bindkey ^f vi-forward-word
+# Completion
+zstyle ':completion::complete:*' use-cache 1
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # case insensitive completion
+zstyle ':completion:*:default' menu 'select=0' # menu-style
+
