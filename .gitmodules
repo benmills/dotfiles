@@ -6,7 +6,7 @@
 	url = http://github.com/scrooloose/nerdcommenter.git
 [submodule "vim/bundle/supertab"]
 	path = vim/bundle/supertab
-	url = http://github.com/ervandew/supertab.git
+	url = https://github.com/ervandew/supertab.git
 [submodule "vim/bundle/vim-ragtag"]
 	path = vim/bundle/vim-ragtag
 	url = http://github.com/tpope/vim-ragtag.git
