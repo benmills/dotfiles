@@ -14,3 +14,7 @@
 
   # show difference between working tree and the index
   unstaged = diff
+  
+[github]
+  user = benmills
+  token = 7354f573f43906c1164ec123e5d0ed1c
