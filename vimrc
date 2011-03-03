@@ -129,11 +129,14 @@ map <leader>f :CommandT<Enter>
 " NERDTree
 map <leader>nt :NERDTreeToggle<Enter>
 
+" NERDCommenter
+map <leader>cc :NERDComToggleComment<Entera
+
 " Yankring
 map <leader>yr :YRShow<cr>
 
 " BufferExplorer
-map <leader>be :BufExplorer<Enter>
+map <leader>e :BufExplorer<Enter>
 
 " Ack
 map <leader>ak :Ack 
@@ -168,5 +171,5 @@ if has("gui_running")
   " Fonts
   set guifont="Meslo LG M DZ":h10
   set antialias
-  set linespace=4
+  set linespace=2
 endif
