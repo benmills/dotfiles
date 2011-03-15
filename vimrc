@@ -130,7 +130,7 @@ map <leader>f :CommandT<Enter>
 map <leader>nt :NERDTreeToggle<Enter>
 
 " NERDCommenter
-map <leader>cc :NERDComToggleComment<Entera
+map <leader>cc :NERDComToggleComment<Enter>
 
 " Yankring
 map <leader>yr :YRShow<cr>
