@@ -1,8 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/Users/benmills/Sites/37s'
-let g:netrw_dirhist_2='/Users/benmills/Sites/centro'
-let g:netrw_dirhist_3='/Volumes/KINGSTON/Code Samples'
-let g:netrw_dirhist_4='/Users/benmills/Library/Application Support/Adium 2.0/Message Styles/AdiumyChat HUD.AdiumMessageStyle/Contents/Resources'
-let g:netrw_dirhist_5='/Users/benmills/dotfiles/zsh'
-let g:netrw_dirhist_6='/Users/benmills/Sites/Mavrek/.git'
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/benmills/bt/braintree-python'
+let g:netrw_dirhist_2='/Users/benmills/bt/braintree-python/tests'
+let g:netrw_dirhist_3='/Users/benmills/bt/braintree-python/tests/integration'
+let g:netrw_dirhist_4='/Users/benmills/bt/braintree-python/tests'

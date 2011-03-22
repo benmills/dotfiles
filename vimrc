@@ -81,6 +81,11 @@ au BufNewFile,BufRead *.less set filetype=less
 au BufNewFile,BufRead *.mustache        setf mustache
 runtime! ftdetect/*.vim
 
+" Folding
+set foldmethod=indent
+set foldlevel=2
+set nofoldenable
+
 
 
 " Plugin Options
@@ -121,10 +126,9 @@ nnoremap <leader>w <C-w>v<C-w>l:CommandT<Enter>
 map <leader>tev :ConqueTermVSplit zsh<CR>
 map <leader>teh :ConqueTermSplit zsh<CR>
 map <leader>te :ConqueTerm zsh<CR>
-map <leader>rk :ConqueTermSplit zsh<CR>rake<Enter>
 
 " CommandT
-map <leader>f :CommandT<Enter>
+map <leader>ff :CommandT<Enter>
 
 " NERDTree
 map <leader>nt :NERDTreeToggle<Enter>
@@ -154,6 +158,10 @@ map <right> <nop>
 
 " Refresh
 map <leader>rf :CommandTFlush<CR>
+
+" Folding
+map <leader>fe :set foldenable<CR>
+map <leader>fd :set nofoldenable<CR>
 
 
 
