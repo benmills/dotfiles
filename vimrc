@@ -29,6 +29,7 @@ set number
 set backspace=indent,eol,start
 set laststatus=2                  " Show the status line all the time
 set wildignore+=*.o,*.obj,.git,*.pyc,.DS_Store
+set t_Co=256 
 
 " Security
 set modelines=0

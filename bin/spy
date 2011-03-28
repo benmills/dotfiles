@@ -1,0 +1,24 @@
+#!/usr/bin/env python
+
+def spliter(option, opt, value, parser):
+    setattr(parser.values, option.dest, value.split(','))
+
+if __name__=='__main__':
+    import optparse
+    p = optparse.OptionParser()
+    p.add_option('--matches', '-m', type='string', action='callback', default="", callback=spliter)
+    p.add_option('--file', '-f', default="")
+    options, arguments = p.parse_args()
+
+    if len(options.matches):
+        output = ""
+        for i in options.matches:
+            if len(output) == 0: 
+                output = "grep --color=always '"+i+"' "+options.file
+            else:
+                output += " | grep --color=always '"+i+"'"
+
+        import os
+        print "Running: "
+        print output
+        os.system(output)
