@@ -4,6 +4,12 @@ let g:netrw_dirhist_1='/Users/benmills/bt/braintree-python'
 let g:netrw_dirhist_2='/Users/benmills/bt/braintree-python/tests'
 let g:netrw_dirhist_3='/Users/benmills/bt/braintree-python/tests/integration'
 let g:netrw_dirhist_4='/Users/benmills/bt/braintree-python/tests'
+<<<<<<< HEAD
 let g:netrw_dirhist_5='/Users/benmills/.zsh'
 let g:netrw_dirhist_6='/usr/local/Cellar/bitlbee/3.0/etc/bitlbee'
 let g:netrw_dirhist_7='/Users/benmills/.irssi'
+=======
+let g:netrw_dirhist_5='/home/benmills/.config'
+let g:netrw_dirhist_6='/home/benmills/.config/awesome'
+let g:netrw_dirhist_7='/home/benmills/.irssi'
+>>>>>>> 913b89b8dd8aef41ff97a637f21d687f72d32f61
