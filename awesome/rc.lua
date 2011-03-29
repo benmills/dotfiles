@@ -6,6 +6,7 @@ require("awful.rules")
 require("beautiful")
 -- Notification library
 require("naughty")
+require("vicious")
 
 -- Load Debian menu entries
 require("debian.menu")
@@ -68,10 +69,15 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 
 -- {{{ Wibox
 -- Create a textclock widget
-mytextclock = awful.widget.textclock({ align = "right" })
+mytextclock = awful.widget.textclock({ align = "right" }, "[%d %I:%M] ")
 
 -- Create a systray
 mysystray = widget({ type = "systray" })
+
+-- {{{ Reusable separator
+separator = widget({ type = "imagebox" })
+separator.image = image(beautiful.widget_sep)
+-- }}}
 
 -- Create a wibox for each screen and add it
 mywibox = {}
@@ -131,19 +137,29 @@ for s = 1, screen.count() do
                                               return awful.widget.tasklist.label.currenttags(c, s)
                                           end, mytasklist.buttons)
 
+
+    --{{{ Battery percentage and state indicator
+        --- example output +95% or -95% when discharging
+        batwidget = widget({ type = "textbox", name = "batwidget", align = "right", width = 100 })
+            vicious.register(batwidget, vicious.widgets.bat, ' [$1$2%] ', 61, "BAT0")
+                                        -- }}}
+
+
+
     -- Create the wibox
     mywibox[s] = awful.wibox({ position = "top", screen = s })
     -- Add widgets to the wibox - order matters
     mywibox[s].widgets = {
         {
-            mylauncher,
+            mylayoutbox[s], 
             mytaglist[s],
             mypromptbox[s],
             layout = awful.widget.layout.horizontal.leftright
         },
-        mylayoutbox[s],
         mytextclock,
+        batwidget,
         s == 1 and mysystray or nil,
+        separator,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
     }

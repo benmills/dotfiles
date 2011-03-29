@@ -17,11 +17,11 @@ theme.font      = "monaco 8"
 
 -- {{{ Colors
 theme.fg_normal = "#DCDCCC"
-theme.fg_focus  = "#4F79B0"
+theme.fg_focus  = "#99AABF"
 theme.fg_urgent = "#CC9393"
-theme.bg_normal = "#262622"
-theme.bg_focus  = "#262622"
-theme.bg_urgent = "#262622"
+theme.bg_normal = "#222326"
+theme.bg_focus  = "#222326"
+theme.bg_urgent = "#222326"
 -- }}}
 
 -- {{{ Borders
@@ -75,7 +75,7 @@ theme.taglist_squares_unsel = "/usr/share/awesome/themes/zenburn/taglist/squarez
 -- }}}
 
 -- {{{ Misc
-theme.awesome_icon           = "/usr/share/awesome/themes/zenburn/awesome-icon.png"
+theme.awesome_icon           = "/usr/share/awesome/icons/awesome16.png"
 theme.menu_submenu_icon      = "/usr/share/awesome/themes/default/submenu.png"
 theme.tasklist_floating_icon = "/usr/share/awesome/themes/default/tasklist/floatingw.png"
 -- }}}
