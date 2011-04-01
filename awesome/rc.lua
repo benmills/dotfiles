@@ -33,8 +33,7 @@ layouts =
     awful.layout.suit.tile,
     awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
-    awful.layout.suit.max.fullscreen,
-    awful.layout.suit.magnifier,
+    awful.layout.suit.max,
     awful.layout.suit.floating
 }
 -- }}}
@@ -44,7 +43,7 @@ layouts =
 tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
-    tags[s] = awful.tag({ "term", "web", "im", "media", 5, 6, 7, 8, 9 }, s, layouts[1])
+    tags[s] = awful.tag({ "term", "web", "im", "media", "misc", 6, 7, 8, 9 }, s, layouts[1])
 end
 -- }}}
 
@@ -57,7 +56,7 @@ myawesomemenu = {
    { "quit", awesome.quit }
 }
 
-mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
+mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu },
                                     { "Debian", debian.menu.Debian_menu.Debian },
                                     { "open terminal", terminal }
                                   }
@@ -133,10 +132,18 @@ for s = 1, screen.count() do
     mytaglist[s] = awful.widget.taglist(s, awful.widget.taglist.label.all, mytaglist.buttons)
 
     -- Create a tasklist widget
+    --mytasklist_template = { { item = "title", bg_resize = true}, layout = layout.horizontal.leftright }
+    --mytasklist[s] = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, mytasklist.buttons, nil, mytasklist_template)
+
     mytasklist[s] = awful.widget.tasklist(function(c)
                                               return awful.widget.tasklist.label.currenttags(c, s)
                                           end, mytasklist.buttons)
 
+    --Initialize widget
+    --memwidget = awful.widget.textbox()
+    -- Progressbar properties
+    -- Register widget
+    --vicious.register(memwidget, vicious.widgets.mem, " [$1 $2MB/$3MB] ", 13)
 
     --{{{ Battery percentage and state indicator
         --- example output +95% or -95% when discharging
@@ -151,16 +158,13 @@ for s = 1, screen.count() do
     -- Add widgets to the wibox - order matters
     mywibox[s].widgets = {
         {
-            mylayoutbox[s], 
             mytaglist[s],
             mypromptbox[s],
             layout = awful.widget.layout.horizontal.leftright
         },
+        s == 1 and mysystray or nil,
         mytextclock,
         batwidget,
-        s == 1 and mysystray or nil,
-        separator,
-        mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
     }
 end
@@ -219,6 +223,9 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1)         end),
     awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
+    awful.key({modkey }, "p", function()
+      awful.util.spawn_with_shell( "exe=`dmenu_path | dmenu -b -fn 'monaco 7' -nf '#FFFFFF' -nb '#3C3C3C' -sf '#ffffff' -sb '#2D2D2D'` && exec $exe")
+    end),
 
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),

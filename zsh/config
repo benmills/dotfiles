@@ -2,7 +2,7 @@ autoload -U compinit
 compinit
 
 #Path
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH:$HOME/.bin:/usr/local/sbin
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH:$HOME/.bin:/usr/local/sbin:/var/lib/gems/1.8/bin/
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
 
 # Env Vars

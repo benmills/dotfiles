@@ -73,7 +73,7 @@ set listchars=tab:▸\ ,eol:¬,precedes:>,extends:<,nbsp:.,trail:.
 set nolist
 
 " Color
-colorscheme ir_black
+colorscheme miromiro
 
 " File Types
 autocmd BufRead *.as set filetype=actionscript 
@@ -150,6 +150,9 @@ map <leader>aw :Ack <c-r>=expand("<cword>")<CR>
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>vie :e $MYVIMRC<CR>
 nmap <silent> <leader>vis :so $MYVIMRC<CR>
+
+" Rebuild Tags
+map <silent> <LocalLeader>rt :!ctags -R --exclude=".git\|.svn\|log\|tmp\|db\|pkg" --extra=+f<CR>
 
 " Use the hjkl keys
 map <up> <nop>

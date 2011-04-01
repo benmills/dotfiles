@@ -1,5 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_cnt =9
 let g:netrw_dirhist_1='/Users/benmills/bt/braintree-python'
 let g:netrw_dirhist_2='/Users/benmills/bt/braintree-python/tests'
 let g:netrw_dirhist_3='/Users/benmills/bt/braintree-python/tests/integration'
@@ -8,3 +8,4 @@ let g:netrw_dirhist_5='/home/benmills/.config'
 let g:netrw_dirhist_6='/home/benmills/.config/awesome'
 let g:netrw_dirhist_7='/home/benmills/.irssi'
 let g:netrw_dirhist_8='/home/benmills/dotfiles/irssi/scripts/autorun'
+let g:netrw_dirhist_9='/home/benmills/bt/system-scripts/pairing_stations/vim_dotfiles'

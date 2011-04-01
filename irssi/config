@@ -202,4 +202,6 @@ settings = {
     nick = "benmills";
   };
   "fe-text" = { actlist_sort = "refnum"; scroll = "yes"; };
+
+  "fe-common/core" = { theme = "miromiro"; };
 };

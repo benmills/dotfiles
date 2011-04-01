@@ -8,7 +8,7 @@
 
 -- {{{ Main
 theme = {}
-theme.wallpaper_cmd = { "xsetroot -solid '#3C3C3C'" }
+theme.wallpaper_cmd = { "xsetroot -solid '#29292B'" }
 theme.confdir       = awful.util.getdir("config")
 -- }}}
 
@@ -16,12 +16,12 @@ theme.confdir       = awful.util.getdir("config")
 theme.font      = "monaco 8"
 
 -- {{{ Colors
-theme.fg_normal = "#DCDCCC"
-theme.fg_focus  = "#99AABF"
+theme.fg_normal = "#777777"
+theme.fg_focus  = "#FFFFFF"
 theme.fg_urgent = "#CC9393"
-theme.bg_normal = "#222326"
-theme.bg_focus  = "#222326"
-theme.bg_urgent = "#222326"
+theme.bg_normal = "#121212"
+theme.bg_focus  = "#121212"
+theme.bg_urgent = "#121212"
 -- }}}
 
 -- {{{ Borders
@@ -81,18 +81,18 @@ theme.tasklist_floating_icon = "/usr/share/awesome/themes/default/tasklist/float
 -- }}}
 
 -- {{{ Layout
-theme.layout_tile       = "/usr/share/awesome/themes/zenburn/layouts/tile.png"
-theme.layout_tileleft   = "/usr/share/awesome/themes/zenburn/layouts/tileleft.png"
-theme.layout_tilebottom = "/usr/share/awesome/themes/zenburn/layouts/tilebottom.png"
-theme.layout_tiletop    = "/usr/share/awesome/themes/zenburn/layouts/tiletop.png"
-theme.layout_fairv      = "/usr/share/awesome/themes/zenburn/layouts/fairv.png"
-theme.layout_fairh      = "/usr/share/awesome/themes/zenburn/layouts/fairh.png"
-theme.layout_spiral     = "/usr/share/awesome/themes/zenburn/layouts/spiral.png"
-theme.layout_dwindle    = "/usr/share/awesome/themes/zenburn/layouts/dwindle.png"
-theme.layout_max        = "/usr/share/awesome/themes/zenburn/layouts/max.png"
-theme.layout_fullscreen = "/usr/share/awesome/themes/zenburn/layouts/fullscreen.png"
-theme.layout_magnifier  = "/usr/share/awesome/themes/zenburn/layouts/magnifier.png"
-theme.layout_floating   = "/usr/share/awesome/themes/zenburn/layouts/floating.png"
+theme.layout_tile       = "/usr/share/awesome/themes/sky/layouts/tile.png"
+theme.layout_tileleft   = "/usr/share/awesome/themes/sky/layouts/tileleft.png"
+theme.layout_tilebottom = "/usr/share/awesome/themes/sky/layouts/tilebottom.png"
+theme.layout_tiletop    = "/usr/share/awesome/themes/sky/layouts/tiletop.png"
+theme.layout_fairv      = "/usr/share/awesome/themes/sky/layouts/fairv.png"
+theme.layout_fairh      = "/usr/share/awesome/themes/sky/layouts/fairh.png"
+theme.layout_spiral     = "/usr/share/awesome/themes/sky/layouts/spiral.png"
+theme.layout_dwindle    = "/usr/share/awesome/themes/sky/layouts/dwindle.png"
+theme.layout_max        = "/usr/share/awesome/themes/sky/layouts/max.png"
+theme.layout_fullscreen = "/usr/share/awesome/themes/sky/layouts/fullscreen.png"
+theme.layout_magnifier  = "/usr/share/awesome/themes/sky/layouts/magnifier.png"
+theme.layout_floating   = "/usr/share/awesome/themes/sky/layouts/floating.png"
 -- }}}
 
 
