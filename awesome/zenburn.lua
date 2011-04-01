@@ -13,15 +13,15 @@ theme.confdir       = awful.util.getdir("config")
 -- }}}
 
 -- {{{ Styles
-theme.font      = "monaco 8"
+theme.font      = "monaco 9"
 
 -- {{{ Colors
 theme.fg_normal = "#777777"
 theme.fg_focus  = "#FFFFFF"
 theme.fg_urgent = "#CC9393"
-theme.bg_normal = "#121212"
-theme.bg_focus  = "#121212"
-theme.bg_urgent = "#121212"
+theme.bg_normal = "#1E1E21"
+theme.bg_focus  = "#1E1E21"
+theme.bg_urgent = "#1E1E21"
 -- }}}
 
 -- {{{ Borders

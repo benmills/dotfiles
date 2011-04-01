@@ -21,8 +21,17 @@ servers = (
   }
 );
 
+#THIS SECTION DEALS WITH THE CHANNELS THAT YOU WANT TO JOIN ON CONNECT
+channels = (
+  { name = "#lookslikeawar"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#dev"; chatnet = "braintreeps"; autojoin = "yes"; }
+);
+
 chatnets = {
-  Bitlbee = { type = "IRC"; };
+  Bitlbee = { 
+    type = "IRC";
+    autosendcmd = "/msg &bitlbee identify 1337";
+  };
   braintreeps = { type = "IRC"; };
   freenode = { type = "IRC"; };
 };
