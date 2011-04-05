@@ -13,7 +13,7 @@ theme.confdir       = awful.util.getdir("config")
 -- }}}
 
 -- {{{ Styles
-theme.font      = "monaco 9"
+theme.font      = "monaco 8"
 
 -- {{{ Colors
 theme.fg_normal = "#777777"
@@ -42,6 +42,8 @@ theme.titlebar_bg_normal = "#3F3F3F"
 -- Example:
 --theme.taglist_bg_focus = "#CC9393"
 -- }}}
+--
+theme.tooltop_opacity = 0.2
 
 -- {{{ Widgets
 -- You can add as many variables as

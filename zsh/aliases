@@ -43,3 +43,6 @@ alias %=' '
 
 # java
 alias jvc='javac $*.java && java $*'
+
+# computer
+alias airlock='gnome-screensaver-command -l'
