@@ -17,11 +17,12 @@ theme.font      = "monaco 8"
 
 -- {{{ Colors
 theme.fg_normal = "#777777"
-theme.fg_focus  = "#FFFFFF"
+theme.fg_focus  = "#7E62B3"
 theme.fg_urgent = "#CC9393"
 theme.bg_normal = "#1E1E21"
 theme.bg_focus  = "#1E1E21"
 theme.bg_urgent = "#1E1E21"
+theme.taglist_bg_focus = "#29292B"
 -- }}}
 
 -- {{{ Borders
@@ -73,7 +74,6 @@ theme.menu_width  = "200"
 -- {{{ Taglist
 theme.taglist_squares_sel   = "/usr/share/awesome/themes/zenburn/taglist/squarefz.png"
 theme.taglist_squares_unsel = "/usr/share/awesome/themes/zenburn/taglist/squarez.png"
---theme.taglist_squares_resize = "false"
 -- }}}
 
 -- {{{ Misc
@@ -97,6 +97,12 @@ theme.layout_magnifier  = "/usr/share/awesome/themes/sky/layouts/magnifier.png"
 theme.layout_floating   = "/usr/share/awesome/themes/sky/layouts/floating.png"
 -- }}}
 
+
+-- {{{ Taglist icons
+--theme.taglist_squares_sel   = theme.confdir .. "/icons/taglist/sel.png"
+--theme.taglist_squares_unsel = theme.confdir .. "/icons/taglist/unsel.png"
+--theme.taglist_squares_resize = "false"
+-- }}}
 
 -- {{{ Widget icons
 theme.widget_cpu    = theme.confdir .. "/icons/cpu.png"

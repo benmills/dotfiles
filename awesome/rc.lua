@@ -68,7 +68,7 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 
 -- {{{ Wibox
 -- Create a textclock widget
-mytextclock = awful.widget.textclock({ align = "right" }, "[%d %I:%M] ")
+mytextclock = awful.widget.textclock({ align = "right" }, "[%d <span color='#905288'>%I:%M</span>] ")
 
 -- Create a systray
 mysystray = widget({ type = "systray" })
@@ -148,7 +148,7 @@ for s = 1, screen.count() do
     --{{{ Battery percentage and state indicator
         --- example output +95% or -95% when discharging
         batwidget = widget({ type = "textbox", name = "batwidget", align = "right", width = 100 })
-            vicious.register(batwidget, vicious.widgets.bat, ' [$1$2%] ', 61, "BAT0")
+            vicious.register(batwidget, vicious.widgets.bat, ' [<span color="#287373">$1$2%</span>] ', 61, "BAT0")
                                         -- }}}
 
 
@@ -228,7 +228,7 @@ globalkeys = awful.util.table.join(
     end),
 
     -- Prompt
-    awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
+    awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run({ prompt = "> "}) end),
 
     awful.key({ modkey }, "x",
               function ()
