@@ -119,7 +119,7 @@ mytasklist.buttons = awful.util.table.join(
 
 for s = 1, screen.count() do
     -- Create a promptbox for each screen
-    mypromptbox[s] = awful.widget.prompt({ layout = awful.widget.layout.horizontal.leftright })
+    mypromptbox[s] = awful.widget.prompt({ prompt = " <span color='white'>></span> ",  layout = awful.widget.layout.horizontal.leftright })
     -- Create an imagebox widget which will contains an icon indicating which layout we're using.
     -- We need one layoutbox per screen.
     mylayoutbox[s] = awful.widget.layoutbox(s)
@@ -223,12 +223,19 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1)         end),
     awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
-    awful.key({modkey }, "p", function()
-      awful.util.spawn_with_shell( "exe=`dmenu_path | dmenu -b -fn 'monaco 7' -nf '#FFFFFF' -nb '#3C3C3C' -sf '#ffffff' -sb '#2D2D2D'` && exec $exe")
-    end),
+    --awful.key({modkey }, "p", function()
+      --awful.util.spawn_with_shell( "exe=`dmenu_path | dmenu -b -fn 'monaco 7' -nf '#FFFFFF' -nb '#3C3C3C' -sf '#ffffff' -sb '#2D2D2D'` && exec $exe")
+    --end),
 
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run({ prompt = "> "}) end),
+
+    --awful.key({ modkey }, "r",
+              --function ()
+                  --awful.prompt.run({ prompt = "R: " },
+                  --mypromptbox[mouse.screen].widget,
+                  --awful.util.getdir("cache") .. "/history_eval")
+              --end),
 
     awful.key({ modkey }, "x",
               function ()
