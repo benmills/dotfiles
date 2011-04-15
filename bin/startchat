@@ -1,3 +1,4 @@
 #! /bin/bash
+killall remotenote
 nohup remotenote &
 ssh bmchat
