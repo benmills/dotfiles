@@ -16,7 +16,7 @@ alias djreset='rm data.db && py manage.py syncdb'
 
 # ls
 alias ls="ls -F"
-alias l="ls -lAhG --color=auto"
+alias l="ls -lAhG"
 alias ll="ls -l"
 alias la='ls -A'
 alias lg='ls | grep $1'

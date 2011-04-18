@@ -1,4 +1,4 @@
 #! /bin/bash
-killall remotenote
-nohup remotenote &
+killall remotegrowl
+nohup remotegrowl &
 ssh bmchat
