@@ -1,4 +1,4 @@
 #! /bin/bash
 killall remotegrowl
-nohup remotegrowl &
+remotegrowl &
 ssh bmchat

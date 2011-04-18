@@ -56,15 +56,16 @@ hi MatchParen      ctermfg=0    ctermbg=7
 hi ErrorMsg        ctermfg=1    ctermbg=None
 hi WildMenu        ctermfg=5    ctermbg=15
 hi Folded          cterm=reverse ctermfg=6    ctermbg=0
-hi Search          ctermfg=1    ctermbg=15
+hi Search          ctermfg=15    ctermbg=black
 hi IncSearch       ctermfg=1    ctermbg=15
 hi WarningMsg      ctermfg=1    ctermbg=15
 hi Question        ctermfg=10   ctermbg=15
 hi Pmenu           ctermfg=2    ctermbg=15
 hi PmenuSel        ctermfg=1    ctermbg=15
-hi Visual          ctermfg=8    ctermbg=15
+hi Visual          ctermfg=15    ctermbg=black
 hi StatusLine      ctermfg=0    ctermbg=7
 hi StatusLineNC    ctermfg=8    ctermbg=0
+hi VertSplit       ctermfg=0 ctermbg=0
 
 " Specific for Vim script  --- 
 hi vimCommentTitle ctermfg=10
