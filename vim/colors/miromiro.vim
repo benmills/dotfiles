@@ -55,7 +55,7 @@ hi Debug           ctermfg=1	ctermbg=None
 hi MatchParen      ctermfg=0    ctermbg=7
 hi ErrorMsg        ctermfg=1    ctermbg=None
 hi WildMenu        ctermfg=5    ctermbg=15
-hi Folded          cterm=reverse ctermfg=6    ctermbg=0
+hi Folded          ctermfg=black    ctermbg=None
 hi Search          ctermfg=15    ctermbg=black
 hi IncSearch       ctermfg=1    ctermbg=15
 hi WarningMsg      ctermfg=1    ctermbg=15

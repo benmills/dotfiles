@@ -19,6 +19,7 @@ set scrolloff=3
 set autoindent
 set showmode
 set showcmd
+set paste
 set hidden
 set wildmenu
 set wildmode=list:longest
