@@ -1,3 +1,0 @@
-!! Map caps to esc
-clear Lock
-add Caps_Lock = Control_L
