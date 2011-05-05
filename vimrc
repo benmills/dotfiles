@@ -74,7 +74,8 @@ set listchars=tab:▸\ ,eol:¬,precedes:>,extends:<,nbsp:.,trail:.
 set nolist
 
 " Color
-colorscheme miromiro
+set background=dark
+colorscheme solarized
 
 " File Types
 autocmd BufRead *.as set filetype=actionscript 
