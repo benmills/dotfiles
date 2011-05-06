@@ -1,0 +1,2 @@
+#!/bin/bash
+pmset -g ps | grep '%' | awk '{print $2}' | sed '/^$/d' | sed s/.$//
