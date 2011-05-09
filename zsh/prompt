@@ -7,5 +7,5 @@ git_prompt_info() {
 }
 
 export PROMPT='
-%n@% %M %{$fg[blue]%}%/ %{$fg_bold[red]%}$(git_prompt_info)%{$reset_color%}
+%n@% %M %{$fg[blue]%}%/ %{$fg[green]%}$(git_prompt_info)%{$reset_color%}
 %{$fg[magenta]%}$%{$reset_color%} '
