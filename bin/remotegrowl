@@ -1,4 +1,4 @@
 #!/bin/bash
-ssh bmchat ": > .irssi/fnotify ; tail -f .irssi/fnotify " | sed -l 's/[<@&]//g' | while read heading message;
+ssh chat@benmills.org ": > .irssi/fnotify ; tail -f .irssi/fnotify " | sed -l 's/[<@&]//g' | while read heading message;
 do growlnotify -m "${message}" -t "${heading}"
 done

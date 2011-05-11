@@ -1,4 +1,4 @@
 #! /bin/bash
 killall remotegrowl
 remotegrowl &
-ssh bmchat
+ssh chat@benmills.org
