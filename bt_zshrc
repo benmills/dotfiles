@@ -30,3 +30,4 @@ _cap () {
 compdef _cap cap
 
 source ~/bt/system-scripts/pairing_stations/aliases
+eval `ssh-agent`
