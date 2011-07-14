@@ -9,6 +9,7 @@ export PATH=/usr/local/bin:/var/lib/gems/1.8/bin/:$PATH:/usr/local/Cellar/python
 export EDITOR=vim
 export JAVA_HOME="/Library/Java/Home"
 export GREP_OPTIONS='--color'
+export LSCOLORS=ExFxCxDxBxegedabagacad
 
 # Options
 fpath=(~/.zsh/functions $fpath)

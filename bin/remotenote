@@ -1,5 +1,0 @@
-#!/bin/bash
-ssh bmchat ": > .irssi/fnotify ; tail -f .irssi/fnotify " |
-sed -u 's/[<@&]//g' | while read heading message;
-do /usr/bin/notify-send -i /usr/share/icons/Tango-xfce/scalable/apps/terminal.svg -t 3000 -- "${heading}" "${message}";
-done
