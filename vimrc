@@ -127,6 +127,7 @@ map <leader>te :ConqueTerm zsh<CR>
 
 " CommandT
 map <leader>ff :CommandT<Enter>
+map <leader>fb :CommandTBuffer<Enter>
 
 " NERDTree
 map <leader>nt :NERDTreeToggle<Enter>
