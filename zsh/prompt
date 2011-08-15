@@ -3,9 +3,13 @@ colors
 
 git_prompt_info() {
   ref=$($(which git) symbolic-ref HEAD 2> /dev/null) || return
-  echo "${ref#refs/heads/}"
+  echo "${ref#refs/heads/} "
+}
+
+rvm_info() {
+  echo "rvm"
 }
 
 export PROMPT='
-%n@% %M %{$fg[blue]%}%/ %{$fg[green]%}$(git_prompt_info)%{$reset_color%}
+%n@% %M %{$fg[blue]%}%/ %{$fg[green]%}$(git_prompt_info)%{$fg[red]%}$(~/.rvm/bin/rvm-prompt)%{$reset_color%}
 %{$fg[magenta]%}$%{$reset_color%} '

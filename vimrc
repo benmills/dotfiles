@@ -75,7 +75,7 @@ set nolist
 
 " Color
 set background=dark
-colorscheme solarized
+colorscheme ir_black
 
 " File Types
 autocmd BufRead *.as set filetype=actionscript 
