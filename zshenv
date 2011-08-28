@@ -3,4 +3,3 @@
 . ~/.zsh/config
 . ~/.zsh/prompt
 . ~/.zsh/sources
-

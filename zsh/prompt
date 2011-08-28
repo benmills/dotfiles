@@ -6,10 +6,7 @@ git_prompt_info() {
   echo "${ref#refs/heads/} "
 }
 
-rvm_info() {
-  echo "rvm"
-}
 
 export PROMPT='
-%n@% %M %{$fg[blue]%}%/ %{$fg[green]%}$(git_prompt_info)%{$fg[red]%}$(~/.rvm/bin/rvm-prompt)%{$reset_color%}
+%n@% %M %{$fg[blue]%}%/ %{$fg[green]%}$(git_prompt_info)%{$reset_color%}
 %{$fg[magenta]%}$%{$reset_color%} '
