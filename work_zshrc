@@ -1,4 +1,4 @@
-. ~/Dropbox/dotfiles/zshenv
+. ~/dotfiles/zshenv
 
 export SYSTEM_SCRIPTS=~/bt/system-scripts
 . ~/bt/system-scripts/pairing_stations/ec2env

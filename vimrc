@@ -164,22 +164,3 @@ map <leader>rf :CommandTFlush<CR>
 " Folding
 map <leader>fe :set foldenable<CR>
 map <leader>fd :set nofoldenable<CR>
-
-
-
-" gvim settings
-" ============
-
-if has("gui_running")
-	colorscheme liquidcarbon
-
-  " Hide the GUI
-  set guioptions=ic
-  set guioptions-=m  "remove menu bar
-  set guioptions-=r  "remove right-hand scroll bar
-
-  " Fonts
-  set guifont="Meslo LG M DZ":h10
-  set antialias
-  set linespace=2
-endif

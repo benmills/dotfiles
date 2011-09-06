@@ -12,8 +12,6 @@ export GREP_OPTIONS='--color'
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
 # Options
-fpath=(~/.zsh/functions $fpath)
-autoload -U ~/.zsh/functions/*(:t)
 set -o emacs
 setopt EXTENDED_HISTORY # add timestamps to history
 setopt LOCAL_OPTIONS # allow functions to have local options
