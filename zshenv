@@ -1,4 +1,7 @@
-. ~/dotfiles/zshenv
+. ~/.zsh/aliases
+. ~/.zsh/completion
+. ~/.zsh/config
+. ~/.zsh/prompt
 
 export SYSTEM_SCRIPTS=~/bt/system-scripts
 . ~/bt/system-scripts/pairing_stations/ec2env
