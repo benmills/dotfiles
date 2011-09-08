@@ -4,3 +4,4 @@ vim/.VimballRecord
 bin/nohup.out
 nohup.out
 .DS_Store
+*/**/.DS_Store
