@@ -4,24 +4,18 @@
 [submodule "vim/bundle/nerdcommenter"]
 	path = vim/bundle/nerdcommenter
 	url = http://github.com/scrooloose/nerdcommenter.git
-[submodule "vim/bundle/vim-ragtag"]
-	path = vim/bundle/vim-ragtag
-	url = http://github.com/tpope/vim-ragtag.git
-[submodule "vim/bundle/vim-surround"]
-	path = vim/bundle/vim-surround
-	url = http://github.com/tpope/vim-surround.git
 [submodule "vim/bundle/ack.vim"]
 	path = vim/bundle/ack.vim
 	url = http://github.com/mileszs/ack.vim.git
 [submodule "vim/bundle/vim-coffee-script"]
 	path = vim/bundle/vim-coffee-script
 	url = https://github.com/kchmck/vim-coffee-script.git
-[submodule "awesome/vicious"]
-	path = awesome/vicious
-	url = http://git.sysphere.org/vicious
-[submodule "vim/bundle/gitgrep.vim"]
-	path = vim/bundle/gitgrep.vim
-	url = https://github.com/aghareza/vim-gitgrep.git
 [submodule "vim/bundle/Command-T"]
 	path = vim/bundle/Command-T
 	url = https://github.com/wincent/Command-T.git
+[submodule "vim/bundle/vim-surround"]
+  path = vim/bundle/vim-surround
+	url = http://github.com/tpope/vim-surround.git
+[submodule "vim/bundle/vim-javascript"]
+	path = vim/bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
