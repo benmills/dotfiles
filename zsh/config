@@ -36,3 +36,6 @@ if [ -f ~/bt/system-scripts/pairing_stations/ec2env ]; then
   export SYSTEM_SCRIPTS=~/bt/system-scripts
   source ~/bt/system-scripts/pairing_stations/ec2env
 fi
+
+#nvm
+. ~/.nvm/nvm.sh
