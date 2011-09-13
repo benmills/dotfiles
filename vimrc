@@ -145,6 +145,9 @@ map <leader>e :BufExplorer<Enter>
 map <leader>ak :Ack 
 map <leader>aw :Ack <c-r>=expand("<cword>")<CR>
 
+" Vimwiki
+let g:vimwiki_list = [{'path': '~/Dropbox/notes/'}]
+
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>vie :e $MYVIMRC<CR>
 nmap <silent> <leader>vis :so $MYVIMRC<CR>
