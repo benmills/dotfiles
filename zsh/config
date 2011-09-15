@@ -2,8 +2,7 @@ autoload -U compinit
 compinit
 
 #Path
-export PATH=/usr/local/bin:/var/lib/gems/1.8/bin/:$PATH:/usr/local/Cellar/python/2.7.1/bin/:/usr/local/lib/node_modules/.bin/:$HOME/.bin/
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+export PATH=$HOME/.bin/:/usr/local/bin:/var/lib/gems/1.8/bin/:$PATH:/usr/local/Cellar/python/2.7.1/bin/:/usr/local/lib/node_modules/.bin/:$HOME/.rbenv/bin/
 
 # Env Vars
 export EDITOR=vim
@@ -39,3 +38,6 @@ fi
 
 #nvm
 . ~/.nvm/nvm.sh
+
+#rbenv
+eval "$(rbenv init -)"

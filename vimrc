@@ -143,7 +143,6 @@ map <leader>e :BufExplorer<Enter>
 
 " Ack
 map <leader>ak :Ack 
-map <leader>aw :Ack <c-r>=expand("<cword>")<CR>
 
 " Vimwiki
 let g:vimwiki_list = [{'path': '~/Dropbox/notes/'}]
