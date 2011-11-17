@@ -39,5 +39,4 @@ fi
 #nvm
 . ~/.nvm/nvm.sh
 
-#rbenv
-eval "$(rbenv init -)"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
