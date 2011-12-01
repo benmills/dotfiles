@@ -7,6 +7,15 @@ call pathogen#helptags()
 
 filetype plugin indent on
 
+" Highlight trailing whitespace
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd BufRead,InsertLeave * match ExtraWhitespace /\s\+$/
+
+" Set up highlight group & retain through colorscheme changes
+highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+map <silent> <LocalLeader>ws :highlight clear ExtraWhitespace<CR>
+
 
 
 " Options
@@ -19,7 +28,7 @@ set scrolloff=3
 set autoindent
 set showmode
 set showcmd
-set paste
+set nopaste
 set hidden
 set wildmenu
 set wildmode=list:longest
@@ -45,10 +54,6 @@ set shiftround      " when at 3 spaces, and I hit > ... go to 4, not 5
 set smarttab
 set smartindent     " Indent based on the previous line
 
-" Useful status information at bottom of screen
-set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
-set statusline+=%{SyntasticStatuslineFlag()}
-
 " Scroll the viewport faster
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
@@ -73,7 +78,7 @@ set formatoptions=qrn1
 
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬,precedes:>,extends:<,nbsp:.,trail:.
-set list
+set nolist
 
 " Color
 set background=dark
@@ -94,6 +99,7 @@ set nofoldenable
 " Quick Editing
 nnoremap <leader>ev :e $MYVIMRC<cr>
 nnoremap <leader>eo :e ~/Dropbox/notes<cr>
+nnoremap <leader>es :e ~/.vim/snippets
 
 
 
@@ -115,6 +121,9 @@ let g:surround_{char2nr("t")} = "<\1\r..*\r&\1>\r</\1\r..*\r&\1>"
 
 " Shortcuts
 " ============
+
+" Last buffer
+map <leader>bb :e#<CR>
 
 " Clear Search
 map <leader>nh :noh<Enter>
@@ -146,6 +155,12 @@ map <silent> <LocalLeader>rt :!ctags -R --exclude=".git\|.svn\|log\|tmp\|db\|pkg
 
 " Refresh
 map <leader>rf :CommandTFlush<CR>
+
+" Ruby Focused Unit Test
+map <leader>rf :RunRubyFocusedUnitTest<CR>
+map <leader>rc :RunRubyFocusedContext<CR>
+map <leader>rb :RunAllRubyTests<CR>
+map <leader>rl :RunLastRubyTest<CR>
 
 " Folding
 map <leader>fe :set foldenable<CR>
