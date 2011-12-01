@@ -38,6 +38,3 @@ fi
 
 #nvm
 . ~/.nvm/nvm.sh
-
-#rbenv
-eval "$(rbenv init -)"

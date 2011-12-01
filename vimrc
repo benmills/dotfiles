@@ -30,7 +30,8 @@ set number
 set backspace=indent,eol,start
 set laststatus=2                  " Show the status line all the time
 set wildignore+=*.o,*.obj,.git,*.pyc,.DS_Store
-set t_Co=256 
+set t_Co=256
+set showbreak=↪
 
 " Security
 set modelines=0
@@ -46,6 +47,7 @@ set smartindent     " Indent based on the previous line
 
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
+set statusline+=%{SyntasticStatuslineFlag()}
 
 " Scroll the viewport faster
 nnoremap <C-e> 3<C-e>
@@ -59,8 +61,8 @@ set showmatch
 set hlsearch
 set gdefault
 
-" backup to ~/.tmp 
-set nobackup 
+" backup to ~/.tmp
+set nobackup
 set nowritebackup
 set noswapfile
 
@@ -71,15 +73,15 @@ set formatoptions=qrn1
 
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬,precedes:>,extends:<,nbsp:.,trail:.
-set nolist
+set list
 
 " Color
 set background=dark
 colorscheme pure
 
 " File Types
-autocmd BufRead *.as set filetype=actionscript 
-autocmd BufRead *.mxml set filetype=mxml 
+autocmd BufRead *.as set filetype=actionscript
+autocmd BufRead *.mxml set filetype=mxml
 au BufNewFile,BufRead *.less set filetype=less
 au BufNewFile,BufRead *.mustache        setf mustache
 runtime! ftdetect/*.vim
@@ -88,6 +90,10 @@ runtime! ftdetect/*.vim
 set foldmethod=indent
 set foldlevel=2
 set nofoldenable
+
+" Quick Editing
+nnoremap <leader>ev :e $MYVIMRC<cr>
+nnoremap <leader>eo :e ~/Dropbox/notes<cr>
 
 
 
@@ -101,10 +107,6 @@ let g:CommandTMaxHeight=10
 let NERDTreeShowFiles=1
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['.DS_Store']
-let g:yankring_history_dir = "~/.vim/"
-
-" Continue ConqueTerm shell when it's not the current, focused buffer
-let g:ConqueTerm_ReadUnfocused = 1
 
 " Surrond
 let g:surround_{char2nr("t")} = "<\1\r..*\r&\1>\r</\1\r..*\r&\1>"
@@ -120,45 +122,27 @@ map <leader>nh :noh<Enter>
 " Working with windows
 nnoremap <leader>w <C-w>v<C-w>l:CommandT<Enter>
 
-" Terminal
-map <leader>tev :ConqueTermVSplit zsh<CR>
-map <leader>teh :ConqueTermSplit zsh<CR>
-map <leader>te :ConqueTerm zsh<CR>
-
 " CommandT
-map <leader>ff :CommandT<Enter>
+map <C-f> :CommandT<Enter>
 map <leader>fb :CommandTBuffer<Enter>
 
 " NERDTree
 map <leader>nt :NERDTreeToggle<Enter>
 
 " NERDCommenter
-map <leader>cc :NERDComToggleComment<Enter>
-
-" Yankring
-map <leader>yr :YRShow<cr>
+map <leader>cc :NERDComToggleComment<CR>
 
 " BufferExplorer
 map <leader>e :BufExplorer<Enter>
 
 " Ack
-map <leader>ak :Ack 
+map <leader>ak :Ack
 
-" Vimwiki
-let g:vimwiki_list = [{'path': '~/Dropbox/notes/'}]
-
-" Quickly edit/reload the vimrc file
-nmap <silent> <leader>vie :e $MYVIMRC<CR>
+" Quickly reload the vimrc file
 nmap <silent> <leader>vis :so $MYVIMRC<CR>
 
 " Rebuild Tags
 map <silent> <LocalLeader>rt :!ctags -R --exclude=".git\|.svn\|log\|tmp\|db\|pkg" --extra=+f<CR>
-
-" Use the hjkl keys
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
 
 " Refresh
 map <leader>rf :CommandTFlush<CR>
@@ -166,3 +150,22 @@ map <leader>rf :CommandTFlush<CR>
 " Folding
 map <leader>fe :set foldenable<CR>
 map <leader>fd :set nofoldenable<CR>
+
+" TagBar
+map <Leader>tb :TagbarToggle<CR>
+
+" Compile erlang
+map <Leader>ce :call CompileErlang()<CR>
+map <Leader>re b"fyw/module<CR>f("myi(:call RunErlangFunction("<C-r>m:<C-r>f")<CR>
+
+function! RunErlangFunction(fun)
+  let curline = getline('.')
+  call inputsave()
+  let args = input('Args for ' . a:fun . ': ', "[]")
+  call Send_to_Tmux(a:fun . "(" . args . ").\n")
+endfunction
+
+function! CompileErlang()
+  let output = system("erlc " . bufname("%"))
+  echo output
+endfunction
