@@ -1,0 +1,219 @@
+*vimerl.txt*	The Erlang plugin for Vim
+
+
+
+                   _    ___                     __
+                  | |  / (_)___ ___  ___  _____/ /
+                  | | / / / __ `__ \/ _ \/ ___/ /
+                  | |/ / / / / / / /  __/ /  / /
+                  |___/_/_/ /_/ /_/\___/_/  /_/
+
+                  http://github.com/jimenezrick/vimerl
+
+
+
+==============================================================================
+Contents                                                              *vimerl*
+
+1.  Intro			|vimerl-intro|
+2.  Usage			|vimerl-usage|
+2.1 Code indenting		|vimerl-indenting|
+2.2 Code folding		|vimerl-folding|
+2.3 Code omni completion	|vimerl-completion|
+2.4 Syntax check		|vimerl-syntax-check|
+2.5 Code skeletons		|vimerl-skeletons|
+3.  Commands			|vimerl-commands|
+4.  Options			|vimerl-options|
+5.  License			|vimerl-license|
+
+==============================================================================
+1. Intro                                                        *vimerl-intro*
+
+Vimerl is a plugin for programming in Erlang. It provides several nice
+features to make your life easier when writing code.
+
+The plugin offers the following features:
+	- Syntax highlighting
+	- Code indenting
+	- Code folding
+	- Code omni completion
+	- Syntax check with QuickFix support
+	- Code skeletons for the OTP behaviours
+	- Pathogen support (http://github.com/tpope/vim-pathogen)
+
+==============================================================================
+2. Usage                                                        *vimerl-usage*
+
+In this section it is explained how to use the features of this plugin.
+
+------------------------------------------------------------------------------
+2.1 Code indenting                                          *vimerl-indenting*
+
+All the code you write is automatically indented. To reindent a block of code
+use the |=| or |v_=| command.
+
+------------------------------------------------------------------------------
+2.2 Code folding                                              *vimerl-folding*
+
+In order to enable/disable code folding see the |'foldenable'| Vim option and
+also enable the |'erlang_folding'| option.
+
+------------------------------------------------------------------------------
+2.3 Code omni completion                                   *vimerl-completion*
+
+The omni completion may be used after writing the name of a module followed by
+a colon (e.g. "lists:") pressing afterwards CTRL-X CTRL-O. The omni completion
+can be used with functions from the OTP or from your local modules.
+
+Note: the information needed for the omni completion with the OTP is extracted
+from the man-pages, so look in the options section to customize where are your
+man-pages installed.
+
+Note: it is required to have in your $PATH the escript program.
+
+------------------------------------------------------------------------------
+2.4 Syntax check with QuickFix support                   *vimerl-syntax-check*
+
+When syntax check is enabled, whenever the file is written, it is checked for
+syntax errors using the Erlang compiler. The error message of the current line
+is shown at the bottom. |signs| are used to indicate lines with errors.
+
+You can also use the |quickfix| commands to navigate through the errors.
+
+Note: look in the commands section how to enable/disabling the syntax check.
+
+------------------------------------------------------------------------------
+2.5 Code skeletons                                          *vimerl-skeletons*
+
+It is possible to load a code skeleton for one of the OTP behaviours.
+
+Note: look in the commands section how to load a skeleton.
+
+==============================================================================
+3. Commands                                                  *vimerl-commands*
+
+                                                     *:ErlangEnableShowErrors*
+Enables syntax check: >
+	:ErlangEnableShowErrors
+<
+                                                    *:ErlangDisableShowErrors*
+Disables syntax check and hides current errors: >
+	:ErlangDisableShowErrors
+<
+                                                          *:ErlangApplication*
+Loads an OTP application skeleton: >
+	:ErlangApplication
+<
+                                                           *:ErlangSupervisor*
+Loads an OTP supervisor skeleton: >
+	:ErlangSupervisor
+<
+                                                            *:ErlangGenServer*
+Loads an OTP gen_server skeleton: >
+	:ErlangGenServer
+<
+                                                               *:ErlangGenFsm*
+Loads an OTP gen_fsm skeleton: >
+	:ErlangGenFsm
+<
+                                                             *:ErlangGenEvent*
+Loads an OTP gen_event skeleton: >
+	:ErlangGenEvent
+
+Note: all the previous commands are applied to the current buffer.
+
+==============================================================================
+4. Options                                                    *vimerl-options*
+
+The following options offer the possibility to customize the plugin behaviour.
+
+------------------------------------------------------------------------------
+                                                            *'erlang_folding'*
+
+This option controls whether automatic code folding is enabled or disabled
+(default: 0, values: 0 or 1): >
+	:let erlang_folding = 0
+
+------------------------------------------------------------------------------
+                                                      *'erlang_highlight_bif'*
+
+This option controls whether BIF functions are highlighted as keywords
+including functions from the erlang module (default: 1, values: 0 or 1): >
+	:let erlang_highlight_bif = 1
+
+------------------------------------------------------------------------------
+                                                       *'erlang_skel_replace'*
+
+This option controls whether loading a code skeleton implies replacing the
+content of the current buffer (default: 1, values: 0 or 1): >
+	:let erlang_skel_replace = 1
+
+------------------------------------------------------------------------------
+                                                        *'erlang_skel_header'*
+
+This option defines the information used to fill the skeleton header. If this
+variable is not defined, then the header is not included (default: undefined,
+values: dictionary): >
+	:let erlang_skel_header = {"author": "Foo Bar",
+				   "owner" : "Fubar",
+				   "year"  : "2000"}
+
+Note: the "year" key may be omitted, in that case the current year is used.
+
+------------------------------------------------------------------------------
+                                                         *'erlang_keywordprg'*
+
+This option defines the command used to show man-pages with the |K| command
+(default: "erl -man", values: string): >
+	:let erlang_keywordprg = "erl -man"
+
+------------------------------------------------------------------------------
+                                                        *'erlang_show_errors'*
+
+This option controls if the syntax check is enabled or disabled (default: 1,
+values: 0 or 1): >
+	:let erlang_show_errors = 1
+
+------------------------------------------------------------------------------
+                                                    *'erlang_completion_grep'*
+
+This option defines the grep program used for omni completion (default:
+"grep", values: string): >
+	:let erlang_completion_grep = "grep"
+
+Note: if your man-pages are compressed use "zgrep".
+
+------------------------------------------------------------------------------
+                                                      *'erlang_man_extension'*
+
+This option defines the filename extension used in the man-pages
+(default: "", values: string): >
+	:let erlang_man_extension = ""
+
+Note: if your man-pages are compressed put their extension (e.g. ".gz").
+
+------------------------------------------------------------------------------
+                                                           *'erlang_man_path'*
+
+This option defines the location of the man-pages (default:
+"/usr/lib/erlang/man", values: string): >
+	:let erlang_man_path = "/usr/lib/erlang/man"
+
+------------------------------------------------------------------------------
+                                             *'erlang_completion_display_doc'*
+
+This option defines whether the arguments and the returned values of the
+functions are shown when using omni completion (default: 1, values: 0 or 1): >
+	:let erlang_completion_display_doc = 1
+
+==============================================================================
+5. License                                                    *vimerl-license*
+
+Several people have contributed to this plugin (see AUTHORS file), so it
+should be necessary to ask everybody about how its code is licensed. Anyway,
+assume that this is free software.
+
+Use, copy or modify this code freely. At least try to preserve the names of
+the authors who have participated.
+
+ vim:tw=78:ts=8:ft=help:norl:

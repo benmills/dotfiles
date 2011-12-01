@@ -1,0 +1,2 @@
+- Fix indentation algorithm to parse correctly `try..of..catch..after..end'.
+- Review indent file from branch experimental-indent-aszlig

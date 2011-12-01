@@ -1,0 +1,33 @@
+   _    ___                     __
+  | |  / (_)___ ___  ___  _____/ /
+  | | / / / __ `__ \/ _ \/ ___/ /
+  | |/ / / / / / / /  __/ /  / /
+  |___/_/_/ /_/ /_/\___/_/  /_/
+====================================
+
+The Erlang plugin for Vim.
+
+
+ How to install it
+-------------------
+
+Copy the content of the tarball to your `.vim'. It also works perfectly
+with `Pathogen' (http://github.com/tpope/vim-pathogen).
+
+Don't forget to run `:helptags' if you are not using `Pathogen'.
+
+
+ How to use it
+---------------
+
+Start with `:help vimerl'.
+
+
+ How to contribute or report bugs
+----------------------------------
+
+Send it to me:
+    Ricardo Catalinas Jiménez <jimenezrick@gmail.com>
+
+Or use GitHub:
+    http://github.com/jimenezrick/vimerl
