@@ -117,6 +117,10 @@ let NERDTreeIgnore=['.DS_Store']
 " Surrond
 let g:surround_{char2nr("t")} = "<\1\r..*\r&\1>\r</\1\r..*\r&\1>"
 
+" Notes
+let g:notes_directory = "~/Dropbox/notes"
+highlight notesAtxHeading ctermfg=blue
+
 
 
 " Shortcuts
@@ -171,9 +175,19 @@ map <Leader>tb :TagbarToggle<CR>
 
 " Compile erlang
 map <Leader>ce :call CompileErlang()<CR>
-map <Leader>re b"fyw/module<CR>f("myi(:call RunErlangFunction("<C-r>m:<C-r>f")<CR>
+"map <Leader>re b"fyw/module<CR>f("myi(:call RunErlangFunction("<C-r>m:<C-r>f")<CR>
+map <Leader>re :call RunErlangFunction()<CR>
 
-function! RunErlangFunction(fun)
+function! RunErlangFunction()
+  let modname = split(bufname("%"), '\.')[0]
+  let funname = expand("<cword>")
+  let fun = modname . ":" . funname
+  let curline = getline('.')
+  call inputsave()
+  let args = input('Args for ' . fun . ': ', "[]")
+endfunction
+
+function! OldRunErlangFunction(fun)
   let curline = getline('.')
   call inputsave()
   let args = input('Args for ' . a:fun . ': ', "[]")
@@ -181,6 +195,13 @@ function! RunErlangFunction(fun)
 endfunction
 
 function! CompileErlang()
-  let output = system("erlc " . bufname("%"))
-  echo output
+  call setqflist([])
+  let l:result = system("erlc " . bufname("%"))
+  if l:result == ""
+    echo "Ok"
+    exec ":cclose"
+  else
+    cexpr l:result
+    copen
+  endif
 endfunction
