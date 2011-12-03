@@ -39,6 +39,7 @@
 ## Plugins
 
 *General*
+
 * [ack.vim](https://github.com/mileszs/ack.vim)
 * [bufexplorer](http://www.vim.org/scripts/script.php?script_id=42)
 * [camelcasemotion](https://github.com/bkad/CamelCaseMotion)
@@ -61,6 +62,7 @@
 * [vim-surround](https://github.com/tpope/vim-surround)
 
 *Syntax*
+
 * [io.vim](https://github.com/benmills/dotfiles/tree/master/vim/bundle/io.vim)
 * [vim-scala](https://github.com/derekwyatt/vim-scala)
 * [vim-coffee-script](https://github.com/kchmck/vim-coffee-script)
@@ -72,6 +74,7 @@
 * [vimerl](https://github.com/oscarh/vimerl)
 
 ##   Shortcuts
+```
 bb   - Go to the last buffer
 nh   - Clear search highlight
 w    - Open new vertical split, focus on it and start Commant-T
@@ -91,7 +94,7 @@ fe   - enables folding
 fd   - disables folding
 tb   - Starts tagbar
 ce   - Compiles erlang file
-
+```
 
 
 
