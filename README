@@ -32,3 +32,65 @@
  |       |_| |_|_|\___|___/           |           
  |                                    |                 
  |____________________________________|
+
+
+## Plugins
+
+*General*
+* [ack.vim](https://github.com/mileszs/ack.vim)
+* [bufexplorer](http://www.vim.org/scripts/script.php?script_id=42)
+* [camelcasemotion](https://github.com/bkad/CamelCaseMotion)
+* [command-t](https://github.com/wincent/Command-T)
+* [current-func-info](https://github.com/tyru/current-func-info.vim)
+* [nerdtree](https://github.com/scrooloose/nerdtree)
+* [notes.vim](https://github.com/xolox/vim-notes)
+* [repeat.vim](https://github.com/tpope/vim-repeat)
+* [ruby_focused_unit_test_vim](https://github.com/drewolson/ruby_focused_unit_test_vim)
+* [snipmate.vim](https://github.com/msanders/snipmate.vim)
+* [syntastic](https://github.com/scrooloose/syntastic)
+* [tagbar](https://github.com/majutsushi/tagbar)
+* [tcomment](https://github.com/tomtom/tcomment_vim)
+* [textshifters](https://github.com/benmills/dotfiles/tree/master/vim/bundle/textshifters)
+* [tslime.vim](https://github.com/kikijump/tslime.vim)
+* [vim-endwise](https://github.com/tpope/vim-endwise)
+* [vim-fugitive](https://github.com/tpope/vim-fugitive)
+* [vim-indent-guides](https://github.com/nathanaelkane/vim-indent-guides)
+* [vim-powerline](https://github.com/Lokaltog/vim-powerline)
+* [vim-surround](https://github.com/tpope/vim-surround)
+
+*Syntax*
+* [io.vim](https://github.com/benmills/dotfiles/tree/master/vim/bundle/io.vim)
+* [vim-scala](https://github.com/derekwyatt/vim-scala)
+* [vim-coffee-script](https://github.com/kchmck/vim-coffee-script)
+* [vim-javascript](https://github.com/pangloss/vim-javascript)
+* [vim-markdown](https://github.com/tpope/vim-markdown)
+* [vim-rails](https://github.com/tpope/vim-rails)
+* [vim-ruby](https://github.com/vim-ruby/vim-ruby)
+* [vimclojure](http://www.vim.org/scripts/script.php?script_id=2501)
+* [vimerl](https://github.com/oscarh/vimerl)
+
+##   Shortcuts
+bb   - Go to the last buffer
+nh   - Clear search highlight
+w    - Open new vertical split, focus on it and start Commant-T
+C-f  - Starts Command-T
+fb   - Start Command-T buffer mode
+nt   - Starts NERDTree
+cc   - Comment or uncomment current line(s)
+be   - Starts BufferExplorer
+ak   - Runs the `Ack` command
+vis  - Sources your vimrc file
+rt   - Rebuilds tags
+rf   - Run ruby focused unit test
+rc   - Runs ruby focused test context
+rb   - Runs current ruby test file
+rl   - Runs last ruby test/context/file
+fe   - enables folding
+fd   - disables folding
+tb   - Starts tagbar
+ce   - Compiles erlang file
+
+
+
+
+

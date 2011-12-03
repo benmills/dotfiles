@@ -142,8 +142,8 @@ map <leader>fb :CommandTBuffer<Enter>
 " NERDTree
 map <leader>nt :NERDTreeToggle<Enter>
 
-" NERDCommenter
-map <leader>cc :NERDComToggleComment<CR>
+" TComment
+map <leader>cc :TComment<CR>
 
 " BufferExplorer
 map <leader>e :BufExplorer<Enter>
@@ -156,9 +156,6 @@ nmap <silent> <leader>vis :so $MYVIMRC<CR>
 
 " Rebuild Tags
 map <silent> <LocalLeader>rt :!ctags -R --exclude=".git\|.svn\|log\|tmp\|db\|pkg" --extra=+f<CR>
-
-" Refresh
-map <leader>rf :CommandTFlush<CR>
 
 " Ruby Focused Unit Test
 map <leader>rf :RunRubyFocusedUnitTest<CR>
