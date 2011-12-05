@@ -75,15 +75,19 @@
 
 ##   Shortcuts
 ```
-bb   - Go to the last buffer
-nh   - Clear search highlight
-w    - Open new vertical split, focus on it and start Commant-T
-C-f  - Starts Command-T
-fb   - Start Command-T buffer mode
-nt   - Starts NERDTree
-cc   - Comment or uncomment current line(s)
-be   - Starts BufferExplorer
+
+navigation
 ak   - Runs the `Ack` command
+bb   - Go to the last buffer
+be   - Starts BufferExplorer
+fw    - Open new vertical split, focus on it and start Commant-T
+fb   - Start Command-T buffer mode
+C-f  - Starts Command-T
+nt   - Starts NERDTree
+nf   - Finds current file in NERDTree
+
+nh   - Clear search highlight
+cc   - Comment or uncomment current line(s)
 vis  - Sources your vimrc file
 rt   - Rebuilds tags
 rf   - Run ruby focused unit test

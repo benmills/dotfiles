@@ -132,12 +132,10 @@ map <leader>bb :e#<CR>
 " Clear Search
 map <leader>nh :noh<Enter>
 
-" Working with windows
-nnoremap <leader>w <C-w>v<C-w>l:CommandT<Enter>
-
 " CommandT
 map <C-f> :CommandT<Enter>
 map <leader>fb :CommandTBuffer<Enter>
+nnoremap <leader>fw <C-w>v<C-w>l:CommandT<Enter>
 
 " NERDTree
 map <leader>nt :NERDTreeToggle<Enter>
@@ -146,7 +144,7 @@ map <leader>nt :NERDTreeToggle<Enter>
 map <leader>cc :TComment<CR>
 
 " BufferExplorer
-map <leader>e :BufExplorer<Enter>
+map <leader>be :BufExplorer<Enter>
 
 " Ack
 map <leader>ak :Ack
@@ -172,23 +170,45 @@ map <Leader>tb :TagbarToggle<CR>
 
 " Compile erlang
 map <Leader>ce :call CompileErlang()<CR>
-"map <Leader>re b"fyw/module<CR>f("myi(:call RunErlangFunction("<C-r>m:<C-r>f")<CR>
-map <Leader>re :call RunErlangFunction()<CR>
+map <Leader>tc :call TmuxCompileErlang()<CR>
+map <Leader>tf :call TmuxRunErlangFunction()<CR>
+map <Leader>tl :call TmuxRunLastErlangFunction()<CR>
 
-function! RunErlangFunction()
+
+
+" Functions
+" ============
+
+function! TmuxRunErlangFunction()
   let modname = split(bufname("%"), '\.')[0]
   let funname = expand("<cword>")
   let fun = modname . ":" . funname
   let curline = getline('.')
+
+  if exists("g:terl_defaultargs")
+    let defaultargs = g:terl_defaultargs
+  else
+    let defaultargs = "[]"
+  endif
+
   call inputsave()
-  let args = input('Args for ' . fun . ': ', "[]")
+  let args = input('Args for ' . fun . ': ', defaultargs)
+  let g:terl_defaultargs = args
+  let g:tmfun = fun . "(" . args . ").\n"
+  call Send_to_Tmux(g:tmfun)
 endfunction
 
-function! OldRunErlangFunction(fun)
-  let curline = getline('.')
-  call inputsave()
-  let args = input('Args for ' . a:fun . ': ', "[]")
-  call Send_to_Tmux(a:fun . "(" . args . ").\n")
+function! TmuxRunLastErlangFunction()
+  if exists("g:tmfun")
+    call Send_to_Tmux(g:tmfun)
+  else
+    echo "No last Erlang function"
+  endif
+endfunction
+
+function! TmuxCompileErlang()
+  let modname = split(bufname("%"), '\.')[0]
+  call Send_to_Tmux("c(" . modname . ").\n")
 endfunction
 
 function! CompileErlang()
