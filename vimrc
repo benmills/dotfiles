@@ -85,8 +85,6 @@ set background=dark
 colorscheme pure
 
 " File Types
-autocmd BufRead *.as set filetype=actionscript
-autocmd BufRead *.mxml set filetype=mxml
 au BufNewFile,BufRead *.less set filetype=less
 au BufNewFile,BufRead *.mustache        setf mustache
 runtime! ftdetect/*.vim
@@ -134,8 +132,14 @@ sunmap e
 " Shortcuts
 " ============
 
-" Last buffer
+" Alternate Files
+map <leader>aa :A<CR>
+map <leder>as :AS<CR>
+map <leder>av :AV<CR>
+
+" Buffers
 map <leader>bb :e#<CR>
+map <leader>be :BufExplorer<Enter>
 
 " Clear Search
 map <leader>nh :noh<Enter>
@@ -143,16 +147,15 @@ map <leader>nh :noh<Enter>
 " CommandT
 map <C-f> :CommandT<Enter>
 map <leader>fb :CommandTBuffer<Enter>
+map <leader>fr :CommandTFlush<Enter>
 nnoremap <leader>fw <C-w>v<C-w>l:CommandT<Enter>
 
 " NERDTree
 map <leader>nt :NERDTreeToggle<Enter>
+map <leader>nf :NERDTreeFind<Enter>
 
 " TComment
 map <leader>cc :TComment<CR>
-
-" BufferExplorer
-map <leader>be :BufExplorer<Enter>
 
 " Ack
 map <leader>ak :Ack
