@@ -5,4 +5,4 @@ bin/nohup.out
 nohup.out
 .DS_Store
 */**/.DS_Store
-bin/unread_count
+bin/total_unread_count
