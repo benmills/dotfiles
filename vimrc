@@ -185,6 +185,11 @@ map <Leader>tc :call TmuxCompileErlang()<CR>
 map <Leader>tf :call TmuxRunErlangFunction()<CR>
 map <Leader>tl :call TmuxRunLastErlangFunction()<CR>
 
+" Insert Shortcuts
+" ============
+
+imap <C-l> <SPACE>=><SPACE>
+
 
 
 " Functions
@@ -232,4 +237,16 @@ function! CompileErlang()
     cexpr l:result
     copen
   endif
+endfunction
+
+function! RubyTestFocused()
+  echo "You're editing " bufname("%")
+  " echo system("bundle exec rspec " . bufname("%"))
+  echo system("ruby -v")
+  " call setqflist([])
+  " let l:result = "bundle exec rspec ./spec/models/applicant_spec.rb:5 # Applicant name has a name"
+  " set errorformat=\"%f\"\\,\ line\ %l:\ %m
+  " set errorformat=rspec\ %f:%l\ %m
+  " cexpr l:result
+  " copen
 endfunction
