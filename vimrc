@@ -64,7 +64,6 @@ set smartcase
 set incsearch
 set showmatch
 set hlsearch
-set gdefault
 
 " backup to ~/.tmp
 set nobackup
@@ -86,6 +85,7 @@ colorscheme pure
 
 " File Types
 au BufNewFile,BufRead *.less set filetype=less
+au BufNewFile,BufRead rebar.config set filetype=erlang
 au BufNewFile,BufRead *.mustache        setf mustache
 runtime! ftdetect/*.vim
 
@@ -110,6 +110,9 @@ let g:CommandTMaxHeight=10
 " NERDTree
 let NERDTreeShowFiles=1
 let NERDTreeShowHidden=1
+let NERDTreeMinimalUI=1
+let NERDTreeDirArrows=1
+let NERDTreeQuitOnOpen=1
 let NERDTreeIgnore=['.DS_Store']
 
 " Surrond
@@ -239,14 +242,34 @@ function! CompileErlang()
   endif
 endfunction
 
-function! RubyTestFocused()
-  echo "You're editing " bufname("%")
-  " echo system("bundle exec rspec " . bufname("%"))
-  echo system("ruby -v")
-  " call setqflist([])
-  " let l:result = "bundle exec rspec ./spec/models/applicant_spec.rb:5 # Applicant name has a name"
-  " set errorformat=\"%f\"\\,\ line\ %l:\ %m
-  " set errorformat=rspec\ %f:%l\ %m
-  " cexpr l:result
-  " copen
+function! Strip(str)
+  return substitute(substitute(substitute(a:str, '^\s*\(.\{-}\)\s*$', '\1', ''), '\n\n', '\1', ''), '\n$', '\1', '')
+endfunction
+
+function! RunSpecs(args)
+  call setqflist([])
+
+  let l:results = system("rvm rvmrc load && rspec " . bufname("%") . " " . a:args)
+  let l:errors = split(l:results, "\nFinished in")
+
+  if len(l:errors) > 1
+    set errorformat=rspec\ %f:%l\ %m
+    let l:messages = split(split(l:errors[0], "Failures:\n\n")[1], '\s\d)\s')
+    let l:parsederrors = []
+
+    for msg in l:messages
+      let l:parsedmsg = split(Strip(msg), "\n")
+      if len(l:parsedmsg) > 1
+        let l:parsederrors = add(l:parsederrors, Strip(split(l:parsedmsg[1], "Failure/Error: ")[1]) . ": " . Strip(l:parsedmsg[len(l:parsedmsg)-1]))
+      endif
+    endfor
+
+    "set errorformat=rspec\ %f:%l\ %m
+    set errorformat=%m:\ #\ %f:%l
+    cexpr l:parsederrors
+    copen
+  else
+    let l:message = split(split(l:results, " seconds\n")[1], "\n")[0]
+    echo l:message
+  endif
 endfunction
