@@ -1,20 +1,15 @@
 # module and export all
+snippet f
+	${1}(${2}) ->${3}
 snippet mod
 	-module(${1:`Filename('', 'my')`}).
-	
-	-compile([export_all]).
-	
-	start() ->
-	    ${2}
-	
-	stop() ->
-	    ok.
-# define directive
 snippet def
 	-define(${1:macro}, ${2:body}).${3}
 # export directive
 snippet exp
 	-export([${1:function}/${2:arity}]).
+snippet serv:exp
+	-export([init/1, handle_call/3, handle_cast/2, handle_info/2, terminate/2, code_change/3]).
 # include directive
 snippet inc
 	-include("${1:file}").${2}

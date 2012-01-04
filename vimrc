@@ -130,6 +130,11 @@ sunmap w
 sunmap b
 sunmap e
 
+" Note.vim
+let g:notes_suffix = ".txt"
+let g:notes_title_sync = "change_title"
+let g:notes_directory = "~/Dropbox/notes"
+
 
 
 " Shortcuts
