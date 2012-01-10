@@ -118,10 +118,6 @@ let NERDTreeIgnore=['.DS_Store']
 " Surrond
 let g:surround_{char2nr("t")} = "<\1\r..*\r&\1>\r</\1\r..*\r&\1>"
 
-" Notes
-let g:notes_directory = "~/Dropbox/notes"
-highlight notesAtxHeading ctermfg=blue
-
 " CamelCaseMotion
 map <silent> w <Plug>CamelCaseMotion_w
 map <silent> b <Plug>CamelCaseMotion_b
@@ -134,7 +130,16 @@ sunmap e
 let g:notes_suffix = ".txt"
 let g:notes_title_sync = "change_title"
 let g:notes_directory = "~/Dropbox/notes"
+let g:notes_list_bullets = ['*', '◦', '▸', '▹', '▪', '▫']
+highlight notesAtxHeading ctermfg=blue
+highlight notesAtxHeading ctermfg=blue
+highlight notesTitle ctermfg=magenta ctermbg=none
 
+" Vimerl
+let erlang_show_errors = 0
+
+" Syntastic
+let g:syntastic_mode_map = { 'mode': 'active' }
 
 
 " Shortcuts
