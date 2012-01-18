@@ -138,8 +138,8 @@ highlight notesTitle ctermfg=magenta ctermbg=none
 " Vimerl
 let erlang_show_errors = 0
 
-" Syntastic
-let g:syntastic_mode_map = { 'mode': 'active' }
+" Powerline
+let Powerline_cache_file = "~/.vim/powerline.cache"
 
 
 " Shortcuts
