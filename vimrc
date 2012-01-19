@@ -139,7 +139,7 @@ highlight notesTitle ctermfg=magenta ctermbg=none
 let erlang_show_errors = 0
 
 " Powerline
-let Powerline_cache_file = "~/.vim/powerline.cache"
+let g:powerline_cache_file = "~/.vim"
 
 
 " Shortcuts
