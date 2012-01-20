@@ -158,7 +158,7 @@ map <leader>be :BufExplorer<Enter>
 map <leader>nh :noh<Enter>
 
 " CommandT
-map <C-f> :CommandT<Enter>
+map <leader>ff :CommandT<Enter>
 map <leader>fb :CommandTBuffer<Enter>
 map <leader>fr :CommandTFlush<Enter>
 nnoremap <leader>fw <C-w>v<C-w>l:CommandT<Enter>
