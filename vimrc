@@ -104,6 +104,10 @@ nnoremap <leader>es :e ~/.vim/snippets
 " Plugin Options
 " ============
 
+" Conque
+let g:ConqueTerm_ReadUnfocused = 1
+let g:ConqueTerm_InsertOnEnter = 0
+
 " CommandT
 let g:CommandTMaxHeight=10
 
