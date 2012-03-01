@@ -1,3 +1,5 @@
+" ========= Setup ========
+
 set nocompatible
 filetype off
 
@@ -15,10 +17,9 @@ autocmd BufRead,InsertLeave * match ExtraWhitespace /\s\+$/
 highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 
+"
 
-
-" Options
-" ============
+" ========= Options ========
 
 " Basic options
 syntax enable
@@ -74,10 +75,6 @@ set wrap
 set textwidth=79
 set formatoptions=qrn1
 
-" Use the same symbols as TextMate for tabstops and EOLs
-set listchars=tab:▸\ ,eol:¬,precedes:>,extends:<,nbsp:.,trail:.
-set nolist
-
 " Color
 set background=dark
 colorscheme ir_ben
@@ -85,7 +82,7 @@ colorscheme ir_ben
 " File Types
 au BufNewFile,BufRead *.less set filetype=less
 au BufNewFile,BufRead rebar.config set filetype=erlang
-au BufNewFile,BufRead *.mustache        setf mustache
+au BufNewFile,BufRead *.mustache setf mustache
 runtime! ftdetect/*.vim
 
 " Folding
@@ -93,39 +90,7 @@ set foldmethod=indent
 set foldlevel=2
 set nofoldenable
 
-" Quick Editing
-nnoremap <leader>ev :e $MYVIMRC<cr>
-nnoremap <leader>eo :e ~/Dropbox/notes<cr>
-nnoremap <leader>es :e ~/.vim/snippets
-
-" Better comand-line editing
-cnoremap <C-j> <t_kd>
-cnoremap <C-k> <t_ku>
-cnoremap <C-a> <Home>
-cnoremap <C-e> <End>
-cnoremap <C-f> <right>
-cnoremap <C-b> <left>
-
-" Make Y behave like other capitals
-map Y y$
-
-" Easier split navigation
-noremap <C-h> <C-w>h
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
-
-" Don't have to use Shift to get into command mode, just hit semicolon
-nnoremap ; :
-
-" Insert new lines without going into insert mode
-nmap t o<ESC>k
-nmap T O<ESC>j
-
-
-
-" Plugin Options
-" ============
+" ========= Plugin Options ========
 
 " CommandT
 let g:CommandTMaxHeight=10
@@ -147,9 +112,15 @@ let erlang_show_errors = 0
 " Powerline
 let g:powerline_cache_file = "~/.vim"
 
+"
 
-" Shortcuts
-" ============
+" ========= Navigation Shortcuts ========
+
+" " Easier split navigation
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
 
 " Alternate Files
 map <leader>aa :A<CR>
@@ -160,40 +131,73 @@ map <leder>av :AV<CR>
 map <leader>bb :e#<CR>
 map <leader>be :BuffergatorToggle<Enter>
 
-" Clear Search
-map <leader>/ :noh<Enter>
-
 " CommandT
 map <leader>ff :CommandT<Enter>
+map <C-p> :CommandT<Enter>
 map <leader>fb :CommandTBuffer<Enter>
 map <leader>fr :CommandTFlush<Enter>
 nnoremap <leader>fw <C-w>v<C-w>l:CommandT<Enter>
 
 " NERDTree
 map <leader>nt :NERDTreeToggle<Enter>
+map <leader>nt :NERDTreeToggle<Enter>
 map <leader>nf :NERDTreeFind<Enter>
+
+" Create window splits easier. The default
+" " way is Ctrl-w,v and Ctrl-w,s. I remap
+" " this to vv and ss
+nnoremap <silent> vv <C-w>v
+nnoremap <silent> ss <C-w>s
+
+" ========= Coding Shortcuts ========
+
+" Make Y behave like other capitals
+map Y y$
 
 " TComment
 map <leader>cc :TComment<CR>
 
-" Ack
-map <leader>ak :Ack
+" Ruby Focused Unit Test
+map <leader>rb :call RunVimTmuxCommand("clear && rspec " . bufname("%"))<CR>
+map <leader>rf :call RunVimTmuxCommand("clear && rspec " . bufname("%") . " -l " . line("."))<CR>
+map <leader>rx :CloseVimTmuxWindows<CR>
+map <leader>rl :RunLastVimTmuxCommand<CR>
+map <leader>rp :PromptVimTmuxCommand<CR>
+
+" Surround
+map <Leader>' cs"'
+map <Leader>" cs'"
+
+" ========= Utility Shortcuts ========
+
+" Quick Editing
+nnoremap <leader>ev :e $MYVIMRC<cr>
+nnoremap <leader>eo :e ~/Dropbox/notes<cr>
+nnoremap <leader>es :e ~/.vim/snippets
+
+" " Better comand-line editing
+cnoremap <C-j> <t_kd>
+cnoremap <C-k> <t_ku>
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+cnoremap <C-f> <right>
+cnoremap <C-b> <left>
+
+" " Don't have to use Shift to get into command mode, just hit semicolon
+nnoremap ; :
+
+" " Insert new lines without going into insert mode
+nmap t o<ESC>k
+nmap T O<ESC>j
+
+" Clear Search
+map <leader>/ :noh<Enter>
 
 " Quickly reload the vimrc file
 nmap <silent> <leader>vis :so $MYVIMRC<CR>
 
 " Rebuild Tags
 map <silent> <LocalLeader>rt :!ctags -R --exclude=".git\|.svn\|log\|tmp\|db\|pkg" --extra=+f<CR>
-
-" Ruby Focused Unit Test
-" map <leader>rb :call RunVimTmuxCommand("clear && rspec " . bufname("%"))<CR>
-" map <leader>rf :call RunVimTmuxCommand("clear && rspec " . bufname("%") . " -l " . line("."))<CR>
-" map <leader>rx :CloseVimTmuxWindows<CR>
-" map<leader>rl :RunLastVimTmuxCommand<CR>
-" map <leader>rf :RunRubyFocusedUnitTest<CR>
-" map <leader>rc :RunRubyFocusedContext<CR>
-" map <leader>rb :RunAllRubyTests<CR>
-" map <leader>rl :RunLastRubyTest<CR>
 
 " Folding
 map <leader>fe :set foldenable<CR>
@@ -202,23 +206,7 @@ map <leader>fd :set nofoldenable<CR>
 " TagBar
 map <Leader>tb :TagbarToggle<CR>
 
-" Surrount
-map <Leader>' cs"'
-map <Leader>" cs'"
-
-" Create window splits easier. The default
-" " way is Ctrl-w,v and Ctrl-w,s. I remap
-" " this to vv and ss
-nnoremap <silent> vv <C-w>v
-nnoremap <silent> ss <C-w>s
-
-
-
-" Insert Shortcuts
-" ============
+" ========= Insert Shortcuts ========
 
 imap <C-l> <SPACE>=><SPACE>
-
-function! Strip(str)
-  return substitute(substitute(substitute(a:str, '^\s*\(.\{-}\)\s*$', '\1', ''), '\n\n', '\1', ''), '\n$', '\1', '')
-endfunction
+imap jj <esc>
