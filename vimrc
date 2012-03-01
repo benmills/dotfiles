@@ -127,10 +127,6 @@ nmap T O<ESC>j
 " Plugin Options
 " ============
 
-" Conque
-let g:ConqueTerm_ReadUnfocused = 1
-let g:ConqueTerm_InsertOnEnter = 0
-
 " CommandT
 let g:CommandTMaxHeight=10
 
@@ -144,23 +140,6 @@ let NERDTreeIgnore=['.DS_Store']
 
 " Surrond
 let g:surround_{char2nr("t")} = "<\1\r..*\r&\1>\r</\1\r..*\r&\1>"
-
-" CamelCaseMotion
-map <silent> w <Plug>CamelCaseMotion_w
-map <silent> b <Plug>CamelCaseMotion_b
-map <silent> e <Plug>CamelCaseMotion_e
-sunmap w
-sunmap b
-sunmap e
-
-" Note.vim
-let g:notes_suffix = ".txt"
-let g:notes_title_sync = "change_title"
-let g:notes_directory = "~/Dropbox/notes"
-let g:notes_list_bullets = ['*', '◦', '▸', '▹', '▪', '▫']
-highlight notesAtxHeading ctermfg=blue
-highlight notesAtxHeading ctermfg=blue
-highlight notesTitle ctermfg=magenta ctermbg=none
 
 " Vimerl
 let erlang_show_errors = 0
@@ -179,7 +158,7 @@ map <leder>av :AV<CR>
 
 " Buffers
 map <leader>bb :e#<CR>
-map <leader>be :BufExplorer<Enter>
+map <leader>be :BuffergatorToggle<Enter>
 
 " Clear Search
 map <leader>/ :noh<Enter>
