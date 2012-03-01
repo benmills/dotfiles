@@ -14,7 +14,6 @@ autocmd BufRead,InsertLeave * match ExtraWhitespace /\s\+$/
 " Set up highlight group & retain through colorscheme changes
 highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-map <silent> <LocalLeader>ws :highlight clear ExtraWhitespace<CR>
 
 
 
@@ -81,7 +80,7 @@ set nolist
 
 " Color
 set background=dark
-colorscheme pure
+colorscheme ir_ben
 
 " File Types
 au BufNewFile,BufRead *.less set filetype=less
@@ -98,6 +97,30 @@ set nofoldenable
 nnoremap <leader>ev :e $MYVIMRC<cr>
 nnoremap <leader>eo :e ~/Dropbox/notes<cr>
 nnoremap <leader>es :e ~/.vim/snippets
+
+" Better comand-line editing
+cnoremap <C-j> <t_kd>
+cnoremap <C-k> <t_ku>
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+cnoremap <C-f> <right>
+cnoremap <C-b> <left>
+
+" Make Y behave like other capitals
+map Y y$
+
+" Easier split navigation
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+
+" Don't have to use Shift to get into command mode, just hit semicolon
+nnoremap ; :
+
+" Insert new lines without going into insert mode
+nmap t o<ESC>k
+nmap T O<ESC>j
 
 
 
@@ -159,7 +182,7 @@ map <leader>bb :e#<CR>
 map <leader>be :BufExplorer<Enter>
 
 " Clear Search
-map <leader>nh :noh<Enter>
+map <leader>/ :noh<Enter>
 
 " CommandT
 map <leader>ff :CommandT<Enter>
@@ -184,10 +207,14 @@ nmap <silent> <leader>vis :so $MYVIMRC<CR>
 map <silent> <LocalLeader>rt :!ctags -R --exclude=".git\|.svn\|log\|tmp\|db\|pkg" --extra=+f<CR>
 
 " Ruby Focused Unit Test
-map <leader>rf :RunRubyFocusedUnitTest<CR>
-map <leader>rc :RunRubyFocusedContext<CR>
-map <leader>rb :RunAllRubyTests<CR>
-map <leader>rl :RunLastRubyTest<CR>
+" map <leader>rb :call RunVimTmuxCommand("clear && rspec " . bufname("%"))<CR>
+" map <leader>rf :call RunVimTmuxCommand("clear && rspec " . bufname("%") . " -l " . line("."))<CR>
+" map <leader>rx :CloseVimTmuxWindows<CR>
+" map<leader>rl :RunLastVimTmuxCommand<CR>
+" map <leader>rf :RunRubyFocusedUnitTest<CR>
+" map <leader>rc :RunRubyFocusedContext<CR>
+" map <leader>rb :RunAllRubyTests<CR>
+" map <leader>rl :RunLastRubyTest<CR>
 
 " Folding
 map <leader>fe :set foldenable<CR>
@@ -196,94 +223,23 @@ map <leader>fd :set nofoldenable<CR>
 " TagBar
 map <Leader>tb :TagbarToggle<CR>
 
-" Compile erlang
-map <Leader>ce :call CompileErlang()<CR>
-map <Leader>tc :call TmuxCompileErlang()<CR>
-map <Leader>tf :call TmuxRunErlangFunction()<CR>
-map <Leader>tl :call TmuxRunLastErlangFunction()<CR>
+" Surrount
+map <Leader>' cs"'
+map <Leader>" cs'"
+
+" Create window splits easier. The default
+" " way is Ctrl-w,v and Ctrl-w,s. I remap
+" " this to vv and ss
+nnoremap <silent> vv <C-w>v
+nnoremap <silent> ss <C-w>s
+
+
 
 " Insert Shortcuts
 " ============
 
 imap <C-l> <SPACE>=><SPACE>
 
-
-
-" Functions
-" ============
-
-function! TmuxRunErlangFunction()
-  let modname = split(bufname("%"), '\.')[0]
-  let funname = expand("<cword>")
-  let fun = modname . ":" . funname
-  let curline = getline('.')
-
-  if exists("g:terl_defaultargs")
-    let defaultargs = g:terl_defaultargs
-  else
-    let defaultargs = "[]"
-  endif
-
-  call inputsave()
-  let args = input('Args for ' . fun . ': ', defaultargs)
-  let g:terl_defaultargs = args
-  let g:tmfun = fun . "(" . args . ").\n"
-  call Send_to_Tmux(g:tmfun)
-endfunction
-
-function! TmuxRunLastErlangFunction()
-  if exists("g:tmfun")
-    call Send_to_Tmux(g:tmfun)
-  else
-    echo "No last Erlang function"
-  endif
-endfunction
-
-function! TmuxCompileErlang()
-  let modname = split(bufname("%"), '\.')[0]
-  call Send_to_Tmux("c(" . modname . ").\n")
-endfunction
-
-function! CompileErlang()
-  call setqflist([])
-  let l:result = system("erlc " . bufname("%"))
-  if l:result == ""
-    echo "Ok"
-    exec ":cclose"
-  else
-    cexpr l:result
-    copen
-  endif
-endfunction
-
 function! Strip(str)
   return substitute(substitute(substitute(a:str, '^\s*\(.\{-}\)\s*$', '\1', ''), '\n\n', '\1', ''), '\n$', '\1', '')
-endfunction
-
-function! RunSpecs(args)
-  call setqflist([])
-
-  let l:results = system("rvm rvmrc load && rspec " . bufname("%") . " " . a:args)
-  let l:errors = split(l:results, "\nFinished in")
-
-  if len(l:errors) > 1
-    set errorformat=rspec\ %f:%l\ %m
-    let l:messages = split(split(l:errors[0], "Failures:\n\n")[1], '\s\d)\s')
-    let l:parsederrors = []
-
-    for msg in l:messages
-      let l:parsedmsg = split(Strip(msg), "\n")
-      if len(l:parsedmsg) > 1
-        let l:parsederrors = add(l:parsederrors, Strip(split(l:parsedmsg[1], "Failure/Error: ")[1]) . ": " . Strip(l:parsedmsg[len(l:parsedmsg)-1]))
-      endif
-    endfor
-
-    "set errorformat=rspec\ %f:%l\ %m
-    set errorformat=%m:\ #\ %f:%l
-    cexpr l:parsederrors
-    copen
-  else
-    let l:message = split(split(l:results, " seconds\n")[1], "\n")[0]
-    echo l:message
-  endif
 endfunction

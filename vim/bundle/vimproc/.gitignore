@@ -1,0 +1,7 @@
+autoload/proc.so
+autoload/proc.dll
+autoload/proc_cygwin.dll
+autoload/proc.exp
+autoload/proc.lib
+proc_w32.obj
+*.swp
