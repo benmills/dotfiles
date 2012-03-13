@@ -2,3 +2,4 @@ alias bt-ws-start='VBoxManage startvm bt-workstation --type headless && open /Ap
 alias bt-ws-stop='VBoxManage controlvm bt-workstation poweroff'
 alias ghost-start='VBoxManage startvm ghost --type headless && open /Applications/CoRD.app'
 alias ghost-stop='VBoxManage controlvm ghost poweroff'
+alias run-ant='ant -logger org.apache.tools.ant.listener.AnsiColorLogger'

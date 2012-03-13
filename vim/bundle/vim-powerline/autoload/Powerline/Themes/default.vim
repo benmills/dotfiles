@@ -1,5 +1,6 @@
-let g:Powerline#Themes#distinguished#theme = Pl#Theme#Create(
+let g:Powerline#Themes#default#theme = Pl#Theme#Create(
 	\ Pl#Theme#Buffer(''
+		\ , 'paste_indicator'
 		\ , 'mode_indicator'
 		\ , 'fugitive:branch'
 		\ , 'fileinfo'
@@ -107,7 +108,7 @@ let g:Powerline#Themes#distinguished#theme = Pl#Theme#Create(
 	\ ),
 	\
 	\ Pl#Theme#Buffer('nerdtree'
-		\ , ['raw.name', '%{expand("%:p:h")}']
+		\ , ['raw.name', '%{Powerline#Functions#GetShortPath(4)}']
 		\ , Pl#Segment#Truncate()
 		\ , Pl#Segment#Split()
 	\ )
