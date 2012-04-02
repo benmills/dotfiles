@@ -1,3 +1,8 @@
+if exists("g:loaded_vimux") || &cp
+  finish
+endif
+let g:loaded_vimux = 1
+
 if !has("ruby")
   finish
 end
@@ -9,12 +14,12 @@ command InspectVimTmuxRunner :call InspectVimTmuxRunner()
 command InterruptVimTmuxRunner :call InterruptVimTmuxRunner()
 command PromptVimTmuxCommand :call PromptVimTmuxCommand()
 
-function! RunVimTmuxCommand(command)
+function RunVimTmuxCommand(command)
   let g:_VimTmuxCmd = a:command
   ruby CurrentTmuxSession.new.run_shell_command(Vim.evaluate("g:_VimTmuxCmd"))
 endfunction
 
-function! RunLastVimTmuxCommand()
+function RunLastVimTmuxCommand()
   if exists("g:_VimTmuxCmd")
     ruby CurrentTmuxSession.new.run_shell_command(Vim.evaluate("g:_VimTmuxCmd"))
   else
@@ -22,32 +27,32 @@ function! RunLastVimTmuxCommand()
   endif
 endfunction
 
-function! ClearVimTmuxWindow()
+function ClearVimTmuxWindow()
   if exists("g:_VimTmuxRunnerPane")
     unlet g:_VimTmuxRunnerPane
   end
 endfunction
 
-function! CloseVimTmuxWindows()
+function CloseVimTmuxWindows()
   ruby CurrentTmuxSession.new.close_other_panes
   call ClearVimTmuxWindow()
   echoerr "CloseVimTmuxWindows is deprecated, use CloseVimTmuxPanes"
 endfunction
 
-function! CloseVimTmuxPanes()
+function CloseVimTmuxPanes()
   ruby CurrentTmuxSession.new.close_other_panes
   call ClearVimTmuxWindow()
 endfunction
 
-function! InterruptVimTmuxRunner()
+function InterruptVimTmuxRunner()
   ruby CurrentTmuxSession.new.interrupt_runner
 endfunction
 
-function! InspectVimTmuxRunner()
+function InspectVimTmuxRunner()
   ruby CurrentTmuxSession.new.inspect_runner
 endfunction
 
-function! PromptVimTmuxCommand()
+function PromptVimTmuxCommand()
   let l:command = input("Command? ")
   call RunVimTmuxCommand(l:command)
 endfunction
@@ -85,19 +90,35 @@ class TmuxSession
     end
   end
 
+  def orientation
+    if Vim.evaluate('exists("g:VimuxOrientation")') != 0 && ["h", "v"].include?(Vim.evaluate('g:VimuxOrientation'))
+      "-#{Vim.evaluate('g:VimuxOrientation')}"
+    else
+      "-v"
+    end
+  end
+
   def inspect_runner
-    run("select-pane -t #{target(:pane => runner_pane)}")
-    run("copy-mode")
+    _run("select-pane -t #{target(:pane => runner_pane)}")
+    _run("copy-mode")
+    Vim.command("let g:_VimTmuxInspecting = 1")
+  end
+
+  def stop_inspecting_runner
+    if Vim.evaluate('exists("g:_VimTmuxInspecting")') != 0
+      _run("send-keys -t #{target(:pane => runner_pane)} q")
+      Vim.command("unlet g:_VimTmuxInspecting")
+    end
   end
 
   def current_panes
-    run('list-panes').split("\n").map do |line|
+    _run('list-panes').split("\n").map do |line|
       line.split(':').first
     end
   end
 
   def active_pane_id
-    run('list-panes').split("\n").map do |line|
+    _run('list-panes').split("\n").map do |line|
       return line.split[-2] if line =~ /\(active\)/
     end
   end
@@ -108,12 +129,13 @@ class TmuxSession
 
   def runner_pane
     if @runner_pane.nil?
-      run("split-window -p #{height}")
+      type = Vim.evaluate('exists("g:_VimTmuxInspecting")') != 0
+      _run("split-window -p #{height} #{orientation}")
       @runner_pane = active_pane_id
       Vim.command("let g:_VimTmuxRunnerPane = '#{@runner_pane}'")
     end
 
-    run('list-panes').split("\n").map do |line|
+    _run('list-panes').split("\n").map do |line|
       return line.split(':').first if line =~ /#{@runner_pane}/
     end
 
@@ -123,30 +145,33 @@ class TmuxSession
   end
 
   def interrupt_runner
-    run("send-keys -t #{target(:pane => runner_pane)} ^c")
+    stop_inspecting_runner
+    _run("send-keys -t #{target(:pane => runner_pane)} ^c")
   end
 
   def run_shell_command(command)
-    send_command(command, target(:pane => runner_pane))
-    move_up_pane
+    stop_inspecting_runner
+    _send_command(command, target(:pane => runner_pane))
+    _move_up_pane
   end
 
   def close_other_panes
-    # if run("list-panes").split("\n").length > 1
-      run("kill-pane -a")
-    # end
+    stop_inspecting_runner
+    if _run("list-panes").split("\n").length > 1
+      _run("kill-pane -a")
+    end
   end
 
-  def move_up_pane
-    run("select-pane -t #{target}")
+  def _move_up_pane
+    _run("select-pane -t #{target}")
   end
 
-  def send_command(command, target)
-    run("send-keys -t #{target} '#{command.gsub("'", "\'")}'")
-    run("send-keys -t #{target} Enter")
+  def _send_command(command, target)
+    _run("send-keys -t #{target} '#{command.gsub("'", "\'")}'")
+    _run("send-keys -t #{target} Enter")
   end
 
-  def run(command)
+  def _run(command)
     `tmux #{command}`
   end
 end
@@ -161,7 +186,7 @@ class CurrentTmuxSession < TmuxSession
   end
 
   def get_property(match, type)
-    run("list-#{type.to_s}").split("\n").each do |line|
+    _run("list-#{type.to_s}").split("\n").each do |line|
       return line.split(':').first if line =~ /\(#{match.to_s}\)/
     end
   end
