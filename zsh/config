@@ -36,7 +36,7 @@ if [ -f ~/bt/system-scripts/pairing_stations/ec2env ]; then
   source ~/bt/system-scripts/pairing_stations/ec2env
 fi
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
+eval "$(rbenv init -)"
 
 #z
 . `brew --prefix`/etc/profile.d/z.sh
