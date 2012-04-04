@@ -37,9 +37,3 @@ if [ -f ~/bt/system-scripts/pairing_stations/ec2env ]; then
 fi
 
 eval "$(rbenv init -)"
-
-#z
-. `brew --prefix`/etc/profile.d/z.sh
-function precmd () {
-    z --add "$(pwd -P)"
-}
