@@ -1,2 +1,2 @@
 #!/bin/bash
-acpi | awk '{ print $4 }'
+acpi | awk '{ print $4 }' | sed '$s/.$//'

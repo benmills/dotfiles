@@ -1,0 +1,10 @@
+#!/bin/bash
+
+cmus-remote -Q &> /dev/null
+running=$?
+
+if [ "$running" -eq "0" ]; then
+  cmus-remote -C 'player-pause'
+else
+  urxvtc -title cmus -e cmus
+fi

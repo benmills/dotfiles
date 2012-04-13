@@ -178,7 +178,7 @@ end
 
 class CurrentTmuxSession < TmuxSession
   def initialize
-    session = self.get_property(:attached, :session)
+    session = self.get_session
     window = self.get_property(:active, :window)
     pane = self.get_property(:active, :pane)
 
@@ -189,6 +189,10 @@ class CurrentTmuxSession < TmuxSession
     _run("list-#{type.to_s}").split("\n").each do |line|
       return line.split(':').first if line =~ /\(#{match.to_s}\)/
     end
+  end
+
+  def get_session
+    _run("display -p '#S'").strip
   end
 end
 EOF

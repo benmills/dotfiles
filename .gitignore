@@ -6,3 +6,4 @@ nohup.out
 .DS_Store
 */**/.DS_Store
 bin/total_unread_count
+bin/brit

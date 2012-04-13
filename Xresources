@@ -1,0 +1,58 @@
+URxvt.scrollBar: off
+URxvt.font: xft:Inconsolata:size=10
+URxvt*termName:screen-256color
+
+Xft.dpi:        96
+Xft.antialias:  true
+Xft.rgba:       rgb
+Xft.hinting:    true
+Xft.hinstyle:   hintslight
+Xft.lcdfilter:  lcdlight
+
+URxvt*xftAntialias: true
+
+URxvt.perl-ext-common:  default,matcher,keyboard-select,url-select,clipboard
+URxvt.urlLauncher:      /usr/bin/google-chrome
+URxvt.matcher.button:   1
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.keysym.C-V:   perl:clipboard:paste
+
+!MISC
+URxvt.background:  #262626
+URxvt.foreground:  #A8A8A8
+
+URxvt.colorBD:     #D0D0D0
+URxvt.colorIT:     #D0D0D0
+URxvt.colorUL:     #D0D0D0
+
+!BLK
+URxvt.color0:      #404040
+URxvt.color8:      #767676
+
+!WHT
+URxvt.color7:      #D0D0D0
+URxvt.color15:     #FFFFFF
+
+!RED
+URxvt.color1:  #D0689D
+URxvt.color9:  #FFA0D5
+
+!GRN
+URxvt.color2:  #5E9A34
+URxvt.color10: #95D16B
+
+!YEL
+URxvt.color3:  #AE8250
+URxvt.color11: #E4B885
+
+!BLU
+URxvt.color4:  #698FC2
+URxvt.color12: #9EC5F9
+
+!MAG
+URxvt.color5:  #B171DC
+URxvt.color13: #E8A8FF
+
+!CYN
+URxvt.color6:  #2E9E6C
+URxvt.color14: #6CD5A3

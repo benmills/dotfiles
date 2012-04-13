@@ -1,0 +1,27 @@
+ncrease volume
+"amixer set Master playback 10+"
+    m:0x0 + c:123
+    XF86AudioRaiseVolume
+
+# Decrease volume
+"amixer set Master playback 10-"
+    m:0x0 + c:122
+    XF86AudioLowerVolume
+
+# Toggle mute
+"amixer set Master toggle"
+    m:0x0 + c:121
+    XF86AudioMute
+
+"~/.bin/toggle_cmus"
+    m:0x0 + c:172
+    XF86AudioPlay
+
+"cmus-remote -r"
+    m:0x0 + c:173
+    XF86AudioPrev
+
+"cmus-remote -n"
+    m:0x0 + c:171
+    XF86AudioNext
+

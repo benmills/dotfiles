@@ -1,4 +1,4 @@
-# Copyright 2010-2011 Wincent Colaiuta. All rights reserved.
+# Copyright 2010-2012 Wincent Colaiuta. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -33,10 +33,10 @@ module CommandT
     MH_END            = '</commandt>'
     @@buffer          = nil
 
-
     def initialize options = {}
       @prompt = options[:prompt]
       @reverse_list = options[:match_window_reverse]
+      @min_height = options[:min_height]
 
       # save existing window dimensions so we can restore them later
       @windows = []
@@ -83,6 +83,12 @@ module CommandT
           'setlocal textwidth=0'        # don't hard-wrap (break long lines)
         ].each { |command| ::VIM::command command }
 
+        # don't show the color column
+        ::VIM::command 'setlocal colorcolumn=0' if VIM::exists?('+colorcolumn')
+
+        # don't show relative line numbers
+        ::VIM::command 'setlocal norelativenumber' if VIM::exists?('+relativenumber')
+
         # sanity check: make sure the buffer really was created
         raise "Can't find GoToFile buffer" unless $curbuf.name.match /GoToFile\z/
         @@buffer = $curbuf
@@ -95,10 +101,14 @@ module CommandT
         ::VIM::command 'syntax match CommandTNoEntries "^-- NO SUCH FILE OR DIRECTORY --$"'
 
         if VIM::has_conceal?
-            ::VIM::command 'setlocal conceallevel=2'
-            ::VIM::command 'setlocal concealcursor=nvic'
-            ::VIM::command "syntax region CommandTCharMatched matchgroup=CommandTCharMatched start=+#{MH_START}+ matchgroup=CommandTCharMatchedEnd end=+#{MH_END}+ concealends"
-            ::VIM::command 'highlight def CommandTCharMatched term=bold,underline cterm=bold,underline gui=bold,underline'
+          ::VIM::command 'setlocal conceallevel=2'
+          ::VIM::command 'setlocal concealcursor=nvic'
+          ::VIM::command 'syntax region CommandTCharMatched ' \
+                         "matchgroup=CommandTCharMatched start=+#{MH_START}+ " \
+                         "matchgroup=CommandTCharMatchedEnd end=+#{MH_END}+ concealends"
+          ::VIM::command 'highlight def CommandTCharMatched ' \
+                         'term=bold,underline cterm=bold,underline ' \
+                         'gui=bold,underline'
         end
 
         ::VIM::command 'highlight link CommandTSelection Visual'
@@ -114,8 +124,8 @@ module CommandT
       # by some unexpected means of dismissing or leaving the Command-T window
       # (eg. <C-W q>, <C-W k> etc)
       ::VIM::command 'autocmd! * <buffer>'
-      ::VIM::command 'autocmd BufLeave <buffer> ruby $command_t.leave'
-      ::VIM::command 'autocmd BufUnload <buffer> ruby $command_t.unload'
+      ::VIM::command 'autocmd BufLeave <buffer> silent! ruby $command_t.leave'
+      ::VIM::command 'autocmd BufUnload <buffer> silent! ruby $command_t.unload'
 
       @has_focus  = false
       @selection  = nil
@@ -124,6 +134,16 @@ module CommandT
     end
 
     def close
+      # Unlisted buffers like those provided by Netrw, NERDTree and Vim's help
+      # don't actually appear in the buffer list; if they are the only such
+      # buffers present when Command-T is invoked (for example, when invoked
+      # immediately after starting Vim with a directory argument, like `vim .`)
+      # then performing the normal clean-up will yield an "E90: Cannot unload
+      # last buffer" error. We can work around that by doing a :quit first.
+      if ::VIM::Buffer.count == 0
+        ::VIM::command 'silent quit'
+      end
+
       # Workaround for upstream bug in Vim 7.3 on some platforms
       #
       # On some platforms, $curbuf.number always returns 0. One workaround is
@@ -134,10 +154,10 @@ module CommandT
       # For more details, see: https://wincent.com/issues/1617
       if $curbuf.number == 0
         # use bwipeout as bunload fails if passed the name of a hidden buffer
-        ::VIM::command 'bwipeout! GoToFile'
+        ::VIM::command 'silent! bwipeout! GoToFile'
         @@buffer = nil
       else
-        ::VIM::command "bunload! #{@@buffer.number}"
+        ::VIM::command "silent! bunload! #{@@buffer.number}"
       end
     end
 
@@ -255,7 +275,7 @@ module CommandT
       return unless VIM::Window.select(@window)
       unlock
       clear
-      @window.height = 1
+      @window.height = @min_height > 0 ? @min_height : 1
       @@buffer[1] = "-- #{msg} --"
       lock
     end
@@ -284,31 +304,37 @@ module CommandT
     end
 
     def match_text_for_idx idx
-        match = truncated_match @matches[idx]
-        if idx == @selection
-            prefix = SELECTION_MARKER
-            suffix = padding_for_selected_match match
-        else
-            if VIM::has_syntax? && VIM::has_conceal?
-                match = add_syntax_highlight match
-            end
-            prefix = UNSELECTED_MARKER
-            suffix = ''
+      match = truncated_match @matches[idx].to_s
+      if idx == @selection
+        prefix = SELECTION_MARKER
+        suffix = padding_for_selected_match match
+      else
+        if VIM::has_syntax? && VIM::has_conceal?
+          match = match_with_syntax_highlight match
         end
-        prefix + match + suffix
+        prefix = UNSELECTED_MARKER
+        suffix = ''
+      end
+      prefix + match + suffix
     end
 
-    def add_syntax_highlight match
-        list = match.split(//)
-        @prompt.abbrev.split(//).each do |ch|
-            list.each_index do |i|
-                if list[i] == ch
-                    list[i] = [MH_START, ch, MH_END]
-                    break
-                end
-            end
+    # Highlight matching characters within the matched string.
+    #
+    # Note that this is only approximate; it will highlight the first matching
+    # instances within the string, which may not actually be the instances that
+    # were used by the matching/scoring algorithm to determine the best score
+    # for the match.
+    #
+    def match_with_syntax_highlight match
+      highlight_chars = @prompt.abbrev.downcase.chars.to_a
+      match.chars.inject([]) do |output, char|
+        if char.downcase == highlight_chars.first
+          highlight_chars.shift
+          output.concat [MH_START, char, MH_END]
+        else
+          output << char
         end
-        list.flatten.join
+      end.join
     end
 
     # Print just the specified match.
@@ -332,7 +358,8 @@ module CommandT
         @window_width = @window.width # update cached value
         max_lines = VIM::Screen.lines - 5
         max_lines = 1 if max_lines < 0
-        actual_lines = match_count > max_lines ? max_lines : match_count
+        actual_lines = match_count < @min_height ? @min_height : match_count
+        actual_lines = max_lines if actual_lines > max_lines
         @window.height = actual_lines
         (1..actual_lines).each do |line|
           idx = line - 1
