@@ -128,8 +128,8 @@ noremap <C-l> <C-w>l
 
 " Alternate Files
 map <leader>aa :A<CR>
-map <leder>as :AS<CR>
-map <leder>av :AV<CR>
+map <leader>as :AS<CR>
+map <leader>av :AV<CR>
 
 " Buffers
 map <leader><leader> <C-^>
@@ -174,6 +174,8 @@ map <Leader>rx :CloseVimTmuxPanes<CR>
 
 " Interrupt any command running in the runner pane
 map <Leader>re :InterruptVimTmuxRunner<CR>
+
+vmap <LocalLeader>vs "vy :call RunVimTmuxCommand(@v . "\n", 0)<CR>
 
 " Surround
 map <Leader>' cs"'

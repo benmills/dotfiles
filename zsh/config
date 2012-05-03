@@ -2,13 +2,11 @@ autoload -U compinit
 compinit
 
 #Path
-export PATH=$HOME/.bin/:$HOME/.rvm/bin/:/usr/local/bin:/var/lib/gems/1.8/bin/:$PATH:/usr/local/Cellar/python/2.7.1/bin/:/usr/local/lib/node_modules/.bin/
+export PATH=$PATH:$HOME/.bin/:/usr/local/bin/:$HOME/.rvm/bin
 
 # Env Vars
 export EDITOR=vim
-export JAVA_HOME="/Library/Java/Home"
 export GREP_OPTIONS='--color'
-export LSCOLORS=ExFxCxDxBxegedabagacad
 
 # Options
 set -o emacs

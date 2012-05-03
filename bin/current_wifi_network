@@ -1,2 +1,21 @@
-#/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | awk '/ SSID/ {print substr($0, index($0, $2))}'
-iwconfig wlan0 | grep ESSID | awk -F : '{ print $2 }' | awk -F "\"" '{ print $2 }'
+output() {
+  if [ "$1" != "" ]; then
+    echo $1
+  else
+    echo "Not connected"
+  fi
+
+  exit 0
+}
+
+eth_connected=$(ifconfig | grep eth0 > /dev/null; echo $?)
+wifi=$(iwconfig wlan0 | grep ESSID | awk -F : '{ print $2 }' | awk -F "\"" '{ print $2 }')
+
+if [ "$eth_connected" == 0 ]; then
+  wired=$(ifconfig eth0 | grep -E "inet [0-9].*")
+  if [ "$wired" != "" ]; then
+    output "Wired"
+  fi
+fi
+
+output "$wifi"

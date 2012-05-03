@@ -37,7 +37,7 @@ The percent of the screen the split pane Vimux will spawn should take up.
 Default: "20"
 
 ------------------------------------------------------------------------------
-2.2 g:VimuxOrientation                        *VimuxConfiguration_oriengation*
+2.2 g:VimuxOrientation                        *VimuxConfiguration_orientation*
 
 The default orientation of the split tmux pane. This tells tmux to make the
 pane either vertically or horizontally, which is backward from how Vim handles
@@ -50,3 +50,22 @@ Options:
   "h": horizontal
 
 Default: "v"
+
+------------------------------------------------------------------------------
+2.3 g:VimuxUseNearestPane                *VimuxConfiguration_use_nearest_pane*
+
+Use exising pane (not used by vim) if found instead of running split-window.
+
+  let VimuxUseNearestPane = 1
+
+Default: 0
+
+------------------------------------------------------------------------------
+2.4 g:VimuxResetSequence                   *VimuxConfiguration_reset_sequence*
+
+The keys sent to the runner pane before running a command. By default it sends
+`q` to make sure the pane is not in scroll-mode and `C-u` to clear the line.
+
+  let VimuxUseNearestPane = ""
+
+Default: "q C-u"

@@ -1,6 +1,8 @@
 VimuxConfiguration	vimux.txt	/*VimuxConfiguration*
 VimuxConfiguration_height	vimux.txt	/*VimuxConfiguration_height*
-VimuxConfiguration_oriengation	vimux.txt	/*VimuxConfiguration_oriengation*
+VimuxConfiguration_orientation	vimux.txt	/*VimuxConfiguration_orientation*
+VimuxConfiguration_reset_sequence	vimux.txt	/*VimuxConfiguration_reset_sequence*
+VimuxConfiguration_use_nearest_pane	vimux.txt	/*VimuxConfiguration_use_nearest_pane*
 VimuxUsage	vimux.txt	/*VimuxUsage*
 vimux-contents	vimux.txt	/*vimux-contents*
 vimux.txt	vimux.txt	/*vimux.txt*

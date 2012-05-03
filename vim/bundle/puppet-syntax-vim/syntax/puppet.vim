@@ -73,8 +73,7 @@ syn keyword puppetControl       case default if else elsif
 syn keyword puppetSpecial       true false undef
 
 " comments last overriding everything else
-syn match   puppetComment       "\s*#.*$" contains=puppetTodo
-syn region  puppetComment       start="/\*" end="\*/" contains=puppetTodo extend
+syn match   puppetComment            "\s*#.*$" contains=puppetTodo
 syn keyword puppetTodo          TODO NOTE FIXME XXX BUG HACK contained
 
 " Define the default highlighting.
