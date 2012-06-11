@@ -1,0 +1,3 @@
+#!/bin/bash
+
+curl -s $@ | python -mjson.tool

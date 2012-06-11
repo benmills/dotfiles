@@ -116,6 +116,10 @@ let erlang_show_errors = 0
 " Powerline
 let g:powerline_cache_file = "~/.vim"
 
+" Vimux
+let VimuxUseNearestPane = 1
+let g:VimuxOrientation = "h"
+
 "
 
 " ========= Navigation Shortcuts ========
@@ -132,7 +136,7 @@ map <leader>as :AS<CR>
 map <leader>av :AV<CR>
 
 " Buffers
-map <leader><leader> <C-^>
+noremap <leader><leader> <C-^>
 
 " CommandT
 map <leader>ff :CommandT<Enter>
@@ -161,19 +165,19 @@ map Y y$
 map <leader>cc :TComment<CR>
 
 " Prompt for a command to run
-map <Leader>rp :PromptVimTmuxCommand<CR>
+map <Leader>vp :PromptVimTmuxCommand<CR>
 
 " Run last command executed by RunVimTmuxCommand
 map <Leader>rl :RunLastVimTmuxCommand<CR>
 
 " Inspect runner pane
-map <Leader>ri :InspectVimTmuxRunner<CR>
+map <Leader>vi :InspectVimTmuxRunner<CR>
 
 " Close all other tmux panes in current window
-map <Leader>rx :CloseVimTmuxPanes<CR>
+map <Leader>vx :CloseVimTmuxPanes<CR>
 
 " Interrupt any command running in the runner pane
-map <Leader>re :InterruptVimTmuxRunner<CR>
+map <Leader>ve :InterruptVimTmuxRunner<CR>
 
 vmap <LocalLeader>vs "vy :call RunVimTmuxCommand(@v . "\n", 0)<CR>
 

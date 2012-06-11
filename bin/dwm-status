@@ -1,0 +1,65 @@
+# colours: 01:normal 02:white 03:red 04:green 05:yellow 06:blue 07:cyan 08:magenta 09:grey
+
+dte() {
+ echo -e "\x01$( date +"%F" ) \x02$(date +"%I:%M") "
+}
+
+stats(){
+  mem=$(free -m | awk '/^-/ {print $3}')
+  hd=$(df -P | sort -d | awk '/^\/dev\/ma|sdc/{s=s (s?" ":"") $5} END {printf "%s", s}')
+
+  echo -e "\x09[\x02HD \x08$hd \x02Mem \x04$mem\x01\x09]"
+}
+
+bat(){
+  ac=$(acpi -V | awk 'NR==1 {print +$4}')
+    onl=$(acpi -V | grep "on-line")
+    if [ -z "$onl" ] && [ "$ac" -gt "15" ]; then
+      echo -e "\x09[\x02Bat \x07$ac%\x01\x09]"
+        elif [ -z "$onl" ] && [ "$ac" -le "15" ]; then
+        echo -e "\x09[\x02Bat \x03$ac%\x01\x09]"
+    else
+      echo -e "\x09[\x02AC \x07$ac%\x01\x09]"
+        fi
+}
+
+wifi() {
+  ip=$(ifconfig | grep "inet " | grep -v "127.0.0.1" | awk '{ print " "$2 }' || "")
+  wifi=$($HOME/.bin/current_wifi_network)
+
+  echo -e "\x09[\x02Net \x06$wifi\x01$ip\x09]\x01"
+}
+
+mail() {
+  echo -e "\x09[\x02Mail \x03$($HOME/.bin/total_unread_count)\x09]\x01"
+}
+
+vol() {
+  volume=$(amixer sget Master | tail -1 | cut -d" " -f6 | sed 's/.\(.*\)../\1/')
+  active=$(amixer sget Master | tail -1 | cut -d" " -f8 | sed 's/.\(.*\)./\1/')
+  if [ "$active" = "on" ]; then
+    if [ "$volume" -gt "58" ]; then
+      echo -e "\x09[\x02Vol \x05$volume%\x09]\x01"
+    else
+      echo -e "\x09[\x02Vol \x07$volume%\x09]\x01"
+    fi
+  else
+    echo -e "\x09[\x03Mute\x09]\x01"
+  fi
+}
+
+music() {
+  cmus-remote -Q &> /dev/null
+  running=$?
+
+  if [ "$running" -eq "0" ]; then
+    playing=$(cmus-remote -Q | grep status | cut -d" " -f2)
+    song=$(cmus-remote -Q | grep title | sed -e "s/tag\stitle\s//g")
+
+    if [ "$song" != "" ] && [ "$playing" == "playing" ]; then
+      echo -e "\x09[\x02Playing \x04$song\x09]"
+    fi
+  fi
+}
+
+xsetroot -name "$(music) $(vol) $(mail) $(stats) $(wifi) $(bat) $(dte)"

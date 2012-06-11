@@ -1,14 +1,15 @@
 autoload -U compinit
 compinit
 
-#Path
-export PATH=$PATH:$HOME/.bin/:/usr/local/bin/:$HOME/.rvm/bin
+#path
+export PATH=/usr/local/bin:$HOME/.rbenv/bin:$PATH:$HOME/.bin/:/usr/local/bin/
 
-# Env Vars
+#env vars
 export EDITOR=vim
 export GREP_OPTIONS='--color'
+export BROWSER=google-chrome
 
-# Options
+#options
 set -o emacs
 setopt EXTENDED_HISTORY # add timestamps to history
 setopt LOCAL_OPTIONS # allow functions to have local options
@@ -23,7 +24,7 @@ setopt INC_APPEND_HISTORY SHARE_HISTORY  # adds history incrementally and share 
 setopt HIST_IGNORE_ALL_DUPS  # don't record dupes in history
 setopt HIST_REDUCE_BLANKS
 
-# Completion
+#completion
 zstyle ':completion::complete:*' use-cache 1
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # case insensitive completion
 zstyle ':completion:*:default' menu 'select=0' # menu-style
@@ -34,5 +35,10 @@ if [ -f ~/bt/system-scripts/pairing_stations/ec2env ]; then
   source ~/bt/system-scripts/pairing_stations/ec2env
 fi
 
-#rvm
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
+#rbenv
+eval "$(rbenv init -)"
+
+#java
+export JUNIT_HOME="/Developer/junit4.10"
+export PATH=$PATH:$JUNIT_HOME
+export CLASSPATH="$CLASSPATH:$JUNIT_HOME/junit-4.10.jar:$JUNIT_HOME"

@@ -31,9 +31,12 @@ xmodmap ~/.Xmodmap
 xbindkeys
 xcalib ~/Settings/colorprofile.icc
 
+dropboxd &
+xfce4-power-manager &
+
 while true; do
-  $HOME/.dwm-status
+  $HOME/.bin/dwm-status
   sleep 2
 done &
 
-exec ck-launch-session bash -c "xfce4-power-manager & dwm"
+exec ck-launch-session bash -c "dwm"
