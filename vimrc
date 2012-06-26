@@ -14,12 +14,12 @@ call pathogen#helptags()
 filetype plugin indent on
 
 " Highlight trailing whitespace
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd BufRead,InsertLeave * match ExtraWhitespace /\s\+$/
-
-" Set up highlight group & retain through colorscheme changes
-highlight ExtraWhitespace ctermbg=red guibg=red
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+" autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+" autocmd BufRead,InsertLeave * match ExtraWhitespace /\s\+$/
+" 
+" " Set up highlight group & retain through colorscheme changes
+" highlight ExtraWhitespace ctermbg=red guibg=red
+" autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 
 "
 
@@ -98,6 +98,7 @@ set nofoldenable
 
 " CommandT
 let g:CommandTMaxHeight=10
+let g:CommandTMinHeight=10
 
 " NERDTree
 let NERDTreeShowFiles=1
@@ -231,3 +232,11 @@ imap jj <esc>
 " ========= Commands ========
 command! Note :set laststatus=0 nonumber
 command! NoteOff :set laststatus=2 number
+
+map <leader>oo :call VimuxRunCommand("clear")<CR> :VimuxClearRunnerHistory<CR> :call VimuxRunCommand("ls")<CR>
+
+function ClearRun(cmd)
+  call VimuxRunCommand("clear")
+  call VimuxClearRunnerHistory()
+  call VimuxRunCommand(a:cmd)
+endfunction
