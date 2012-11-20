@@ -1,5 +1,6 @@
 URxvt.scrollBar: off
-URxvt.font: xft:Inconsolata:size=9
+URxvt.font: xft:DejaVu Sans Mono:size=9
+! URxvt.boldFont: xft:DejaVu Sans Mono:size=9
 URxvt*termName:screen-256color
 URxvt.jumpScroll: true
 URxvt.saveLines: 32
@@ -10,37 +11,32 @@ Xft.rgba:       rgb
 Xft.hinting:    true
 Xft.hinstyle:   hintfull
 Xft.lcdfilter:  lcdlight
-
 URxvt*xftAntialias: true
 
-URxvt.keysym.C-0: command:\033]710;xft: Inconsolata:pixelsize=10:dpi=96\007
-URxvt.keysym.C-1: command:\033]710;xft: Inconsolata:pixelsize=12:dpi=96\007
-URxvt.keysym.C-2: command:\033]710;xft: Inconsolata:pixelsize=14:dpi=96\007
-URxvt.keysym.C-3: command:\033]710;xft: Inconsolata:pixelsize=16:dpi=96\007
-URxvt.keysym.C-4: command:\033]710;xft: Inconsolata:pixelsize=18:dpi=96\007
-URxvt.keysym.C-5: command:\033]710;xft: Inconsolata:pixelsize=24:dpi=96\007
-URxvt.keysym.C-9: command:\033]710;xft: Inconsolata:pixelsize=36:dpi=96\007
+URxvt.keysym.C-4: command:\033]710;xft: Monaco:size=7\007
+URxvt.keysym.C-5: command:\033]710;xft: Monaco:size=9\007
+URxvt.keysym.C-6: command:\033]710;xft: Monaco:size=11\007
+URxvt.keysym.C-7: command:\033]710;xft: Inconsolata:size=13\007
+URxvt.keysym.C-8: command:\033]710;xft: Inconsolata:size=19\007
+URxvt.keysym.C-9: command:\033]710;xft: Inconsolata:size=24\007
+URxvt.keysym.C-0: command:\033]710;xft: Inconsolata:size=30\007
 
 URxvt.perl-ext-common:  default,matcher,url-select,clipboard,keyboard-select
-URxvt.urlLauncher:      /usr/bin/google-chrome
-URxvt.matcher.button:   1
-URxvt.keysym.M-U:       perl:url-select:select_next
-URxvt.underlineURLs:    true
-
-URxvt.keysym.Mod4-c:   perl:clipboard:copy
-URxvt.keysym.Mod4-v:   perl:clipboard:paste
-
+URxvt.clipboard.copycmd:  xclip -i -selection clipboard
+URxvt.clipboard.pastecmd: xclip -o -selection clipboard
+URxvt.keysym.M-U: perl:url-select:select_next
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
-URxvt.keysym.M-s: perl:keyboard-select:search
+URxvt.url-select.launcher: google-chrome
 
+! Tomorrow Night
 
 !MISC
 URxvt.background:  #262626
 URxvt.foreground:  #A8A8A8
 
-URxvt.colorBD:     #7F8DAD
-URxvt.colorIT:     #FF0095
-URxvt.colorUL:     #7F8DAD
+URxvt.colorBD:     #9B8AA8
+URxvt.colorIT:     #9B8AA8
+URxvt.colorUL:     #B29EB8
 
 !BLK
 URxvt.color0:      #404040
@@ -73,3 +69,42 @@ URxvt.color13: #E8A8FF
 !CYN
 URxvt.color6:  #2E9E6C
 URxvt.color14: #6CD5A3
+
+!-- Tomorrow Color Scheme
+
+! Names of the original color are in parenthesis.
+
+! With the exception of DarkYellow (which is Orange) and Yellow
+! (which is Yellow), bright colors were derived by simply upping the 'value'
+! of each color by 22.  This number was derived from maxing out the value on
+! Red.
+
+! *foreground:   #4d4d4c
+! *background:   #fafafa
+! ! CursorColor (Selection)
+! *cursorColor:  #d6d6d6
+! 
+! ! Black + Grey (Comment)
+! *color0:       #000000
+! *color8:       #8e908c
+! ! Red + Bright Red
+! *color1:       #c82829
+! *color9:       #ff3334
+! ! Green + Bright Green
+! *color2:       #718c00
+! *color10:      #9ec400
+! ! Yellow (Orange) + Bright Yellow (Yellow)
+! *color3:       #f5871f
+! *color11:      #eab700
+! ! Blue + Bright Blue
+! *color4:       #4271ae
+! *color12:      #5795e6
+! ! Magenta (Purple) + Bright Magenta
+! *color5:       #8959a8
+! *color13:      #b777e0
+! ! Cyan (Aqua) + Bright Cyan
+! *color6:       #3e999f
+! *color14:      #54ced6
+! ! Light Grey (Selection) + White (Current Line)
+! *color7:       #d6d6d6
+! *color15:      #efefef

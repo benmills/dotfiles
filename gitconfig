@@ -21,3 +21,5 @@
 [user]
 	name = benmills
 	email = bmills@benmillsdesigns.com
+[push]
+	default = matching

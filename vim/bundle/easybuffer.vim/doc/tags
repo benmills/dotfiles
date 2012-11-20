@@ -1,0 +1,10 @@
+EasyBuffer	easybuffer.txt	/*EasyBuffer*
+EasyBufferHorizontal	easybuffer.txt	/*EasyBufferHorizontal*
+EasyBufferHorizontalBelow	easybuffer.txt	/*EasyBufferHorizontalBelow*
+EasyBufferVertical	easybuffer.txt	/*EasyBufferVertical*
+EasyBufferVerticalRight	easybuffer.txt	/*EasyBufferVerticalRight*
+easybuffer.vim	easybuffer.txt	/*easybuffer.vim*
+easybuffer.vim-configuration	easybuffer.txt	/*easybuffer.vim-configuration*
+easybuffer.vim-intro	easybuffer.txt	/*easybuffer.vim-intro*
+easybuffer.vim-usage	easybuffer.txt	/*easybuffer.vim-usage*
+g:easybuffer_chars	easybuffer.txt	/*g:easybuffer_chars*

@@ -29,14 +29,15 @@ unclutter -noevents &
 xrdb -load ~/.Xresources
 xmodmap ~/.Xmodmap
 xbindkeys
-xcalib ~/Settings/colorprofile.icc
+xcalib ~/.settings/color.icc
 
 dropboxd &
-xfce4-power-manager &
+xautolock -time 5 -locker slock &
+sudo /home/benmills/.bin/keyboard_brightness_setter &
 
 while true; do
   $HOME/.bin/dwm-status
   sleep 2
 done &
 
-exec ck-launch-session bash -c "dwm"
+exec ck-launch-session dbus-launch bash -c "dwm"

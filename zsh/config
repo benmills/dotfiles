@@ -2,7 +2,7 @@ autoload -U compinit
 compinit
 
 #path
-export PATH=/usr/local/bin:$HOME/.rbenv/bin:$PATH:$HOME/.bin/:/usr/local/bin/
+export PATH=$HOME/.bin/:/usr/local/bin:$HOME/.rbenv/bin:$PATH
 
 #env vars
 export EDITOR=vim
@@ -42,3 +42,6 @@ eval "$(rbenv init -)"
 export JUNIT_HOME="/Developer/junit4.10"
 export PATH=$PATH:$JUNIT_HOME
 export CLASSPATH="$CLASSPATH:$JUNIT_HOME/junit-4.10.jar:$JUNIT_HOME"
+
+#cd path
+export CDPATH=.:~

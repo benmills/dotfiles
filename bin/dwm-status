@@ -62,4 +62,4 @@ music() {
   fi
 }
 
-xsetroot -name "$(music) $(vol) $(mail) $(stats) $(wifi) $(bat) $(dte)"
+xsetroot -name "$(music) $(vol) $(stats) $(wifi) $(bat) $(dte)"

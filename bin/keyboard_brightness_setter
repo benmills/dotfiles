@@ -1,0 +1,11 @@
+#!/usr/bin/ruby
+require "socket"
+LED = "/sys/bus/platform/drivers/applesmc/applesmc.768/leds/smc::kbd_backlight/brightness"
+
+server = TCPServer.open(2000)
+loop do
+  client = server.accept
+  brightness = client.gets.to_i
+  `echo "#{brightness}" > #{LED}`
+  client.close
+end

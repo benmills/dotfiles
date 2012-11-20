@@ -15,7 +15,7 @@ hi Normal            ctermfg=NONE        ctermbg=NONE        cterm=NONE
 hi NonText           ctermfg=black       ctermbg=NONE        cterm=NONE
 
 hi Cursor            ctermfg=black       ctermbg=white       cterm=reverse
-hi LineNr            ctermfg=darkgray    ctermbg=black       cterm=NONE
+hi LineNr            ctermfg=darkgray    ctermbg=NONE       cterm=NONE
 
 hi VertSplit         ctermfg=darkgrey    ctermbg=darkgrey    cterm=NONE 
 hi StatusLine        ctermfg=white       ctermbg=black       cterm=NONE

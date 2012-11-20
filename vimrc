@@ -14,12 +14,12 @@ call pathogen#helptags()
 filetype plugin indent on
 
 " Highlight trailing whitespace
-" autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-" autocmd BufRead,InsertLeave * match ExtraWhitespace /\s\+$/
-" 
-" " Set up highlight group & retain through colorscheme changes
-" highlight ExtraWhitespace ctermbg=red guibg=red
-" autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd BufRead,InsertLeave * match ExtraWhitespace /\s\+$/
+
+" Set up highlight group & retain through colorscheme changes
+highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 
 "
 
@@ -31,7 +31,6 @@ set encoding=utf-8
 set scrolloff=3
 set autoindent
 set showmode
-set showcmd
 set nopaste
 set hidden
 set wildmenu
@@ -41,7 +40,7 @@ set ttyfast
 set ruler
 set number
 set backspace=indent,eol,start
-set laststatus=2                  " Show the status line all the time
+set laststatus=1                  " Show the status line all the time
 set wildignore+=*.o,*.obj,.git,*.pyc,.DS_Store
 set t_Co=256
 set showbreak=↪
@@ -94,11 +93,16 @@ set foldmethod=indent
 set foldlevel=2
 set nofoldenable
 
+" Go
+let go_highlight_trailing_whitespace_error = 0
+autocmd Filetype go setlocal textwidth=0 nosmartindent tabstop=8 shiftwidth=8 softtabstop=8 noexpandtab
+
 " ========= Plugin Options ========
 
-" CommandT
-let g:CommandTMaxHeight=10
-let g:CommandTMinHeight=10
+" Ctrlp
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+let g:ctrlp_max_files = 0
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 
 " NERDTree
 let NERDTreeShowFiles=1
@@ -120,6 +124,7 @@ let g:powerline_cache_file = "~/.vim"
 " Vimux
 let VimuxUseNearestPane = 1
 let g:VimuxOrientation = "h"
+let g:VimuxHeight = "40"
 
 "
 
@@ -138,13 +143,15 @@ map <leader>av :AV<CR>
 
 " Buffers
 noremap <leader><leader> <C-^>
+noremap <leader>be :EasyBuffer<CR>
+noremap <leader>bs <C-w>s:EasyBuffer<CR>
+noremap <leader>bv <C-w>v:EasyBuffer<CR>
+
 
 " CommandT
-map <leader>ff :CommandT<Enter>
-map <C-p> :CommandT<Enter>
-map <leader>fb :CommandTBuffer<Enter>
-map <leader>fr :CommandTFlush<Enter>
-nnoremap <leader>fw <C-w>v<C-w>l:CommandT<Enter>
+map <leader>ff :CtrlP<Enter>
+map <leader>fb :CtrlPBuffer<Enter>
+map <leader>fr :CtrlPClearAllCaches<Enter>
 
 " NERDTree
 map <leader>nt :NERDTreeToggle<Enter>
@@ -182,11 +189,15 @@ map <Leader>ve :InterruptVimTmuxRunner<CR>
 
 vmap <LocalLeader>vs "vy :call RunVimTmuxCommand(@v . "\n", 0)<CR>
 
+
 " Surround
 map <Leader>' cs"'
 map <Leader>" cs'"
 
 " ========= Utility Shortcuts ========
+
+" Quck git grep
+nnoremap <silent> <Leader>gw :GitGrepWord<CR>
 
 " Quick Editing
 nnoremap <leader>ev :e $MYVIMRC<cr>
@@ -230,13 +241,31 @@ imap <C-l> <SPACE>=><SPACE>
 imap jj <esc>
 
 " ========= Commands ========
+
 command! Note :set laststatus=0 nonumber
 command! NoteOff :set laststatus=2 number
 
-map <leader>oo :call VimuxRunCommand("clear")<CR> :VimuxClearRunnerHistory<CR> :call VimuxRunCommand("ls")<CR>
+" ========= Functions ========
 
-function ClearRun(cmd)
-  call VimuxRunCommand("clear")
-  call VimuxClearRunnerHistory()
-  call VimuxRunCommand(a:cmd)
+function! GitGrepWord()
+  cgetexpr system("git grep -n '" . expand("<cword>") . "'")
+  cwin
+  echo 'Number of matches: ' . len(getqflist())
+endfunction
+command! -nargs=0 GitGrepWord :call GitGrepWord()
+
+function! SpecCommand()
+  if system("grep 'rspec' Gemfile -s | wc -l") == "0\n"
+    return "m"
+  else
+    return "rspec"
+  endif
+endfunction
+
+function! RunFocsedTest()
+  call VimuxRunCommand("clear;".SpecCommand() . " " . expand("%") . " -l " . line("."))
+endfunction
+
+function! RunTests()
+  call VimuxRunCommand("clear;".SpecCommand() . " " . expand("%"))
 endfunction

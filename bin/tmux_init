@@ -1,0 +1,5 @@
+#!/bin/bash
+tmux rename-session $(basename $(pwd))
+tmux set default-path $(pwd)
+tmux rename-window "term"
+tmux new-window -n "code"

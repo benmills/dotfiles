@@ -13,15 +13,15 @@ ncrease volume
     m:0x0 + c:121
     XF86AudioMute
 
-"~/.bin/toggle_cmus"
+"~/.bin/rdio-play-pause"
     m:0x0 + c:172
     XF86AudioPlay
 
-"cmus-remote -r"
+"~/.bin/rdio-prev"
     m:0x0 + c:173
     XF86AudioPrev
 
-"cmus-remote -n"
+"~/.bin/rdio-next"
     m:0x0 + c:171
     XF86AudioNext
 
