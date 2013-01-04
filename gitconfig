@@ -1,20 +1,10 @@
 [color]
   ui = auto
 [alias]
-  ci = commit
   co = checkout
   st = status
-  ch = cherry -v origin
-  br = branch
-  addall = add -A .
-  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-
-  # show difference between the HEAD and the index
-  staged = diff --cached
-
-  # show difference between working tree and the index
-  unstaged = diff
-  
+	sed = !git grep -l $1 | xargs sed -i "" -e "s/$1/$2/g" && echo > /dev/null
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short 
 [github]
   user = benmills
   token = 7354f573f43906c1164ec123e5d0ed1c

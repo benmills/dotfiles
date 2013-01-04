@@ -80,7 +80,7 @@ set formatoptions=qrn1
 
 " Color
 set background=dark
-colorscheme ir_ben
+colorscheme Tomorrow-Night
 
 " File Types
 au BufNewFile,BufRead *.less set filetype=less
@@ -268,4 +268,15 @@ endfunction
 
 function! RunTests()
   call VimuxRunCommand("clear;".SpecCommand() . " " . expand("%"))
+endfunction
+
+function! GolangCurrentPackage()
+  let packageLine = search("package", "s")
+  ''
+  let packageName = split(getline(packageLine), " ")[1]
+  return packageName
+endfunction
+
+function! GolangTestCurrentPackage()
+  call VimuxRunCommand("clear;go test " . GolangCurrentPackage())
 endfunction

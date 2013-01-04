@@ -1,0 +1,6 @@
+#!/bin/zsh
+
+FILENAME="$(date +%s).jpg"
+DROPBOX_PUBLIC_PATH="/home/benmills/Dropbox/Public/screenshots/"
+import "$DROPBOX_PUBLIC_PATH$FILENAME"
+dropbox puburl "$DROPBOX_PUBLIC_PATH$FILENAME"

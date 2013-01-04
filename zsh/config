@@ -29,6 +29,10 @@ zstyle ':completion::complete:*' use-cache 1
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # case insensitive completion
 zstyle ':completion:*:default' menu 'select=0' # menu-style
 
+autoload edit-command-line
+zle -N edit-command-line
+bindkey '^X^e' edit-command-line
+
 #ec2
 if [ -f ~/bt/system-scripts/pairing_stations/ec2env ]; then
   export SYSTEM_SCRIPTS=~/bt/system-scripts
@@ -45,3 +49,14 @@ export CLASSPATH="$CLASSPATH:$JUNIT_HOME/junit-4.10.jar:$JUNIT_HOME"
 
 #cd path
 export CDPATH=.:~
+
+export GREP_OPTIONS='--color'
+export LSCOLORS=ExFxCxDxBxegedabagacad
+
+# C-d to exit
+exit_shell() {
+  exit
+}
+
+zle -N exit_shell
+bindkey "^d" exit_shell
