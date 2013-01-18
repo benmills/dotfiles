@@ -31,7 +31,7 @@ wifi() {
 }
 
 mail() {
-  echo -e "\x09[\x02Mail \x03$($HOME/.bin/total_unread_count)\x09]\x01"
+  echo -e "\x09[\x02Mail \x03W:$($HOME/.bin/work_mail_unread_count)\x09]\x01"
 }
 
 vol() {

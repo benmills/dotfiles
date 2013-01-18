@@ -8,6 +8,7 @@ export PATH=$HOME/.bin/:/usr/local/bin:$HOME/.rbenv/bin:$PATH
 export EDITOR=vim
 export GREP_OPTIONS='--color'
 export BROWSER=google-chrome
+export TERM=screen-256color
 
 #options
 set -o emacs

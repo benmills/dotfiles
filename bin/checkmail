@@ -1,0 +1,22 @@
+#!/bin/bash
+
+pid_file=$(echo "$1`date`" | md5sum | cut -d" " -f1)
+
+get_unread_count() {
+  echo $(/usr/bin/fetchmail --pid "$pid_file" --user "$1" --check 2>/dev/null)
+}
+
+while true; do
+  line=$(get_unread_count $1)
+  total=$(echo $line | cut -d" " -f1)
+  read=$(echo $line | cut -d" " -f3 | sed 's/(//')
+
+  if [[ $read =~ ^[0-9]+$ ]]; then
+    unread=$(echo "$total - $read" | bc)
+  else
+    unread=$total
+  fi
+
+  notify-send $1 "new mail"
+  sleep 20
+done

@@ -86,6 +86,8 @@ colorscheme Tomorrow-Night
 au BufNewFile,BufRead *.less set filetype=less
 au BufNewFile,BufRead rebar.config set filetype=erlang
 au BufNewFile,BufRead *.mustache setf mustache
+autocmd FileType mail set spell
+autocmd Filetype go setlocal textwidth=0 nosmartindent tabstop=2 shiftwidth=2 softtabstop=2 noexpandtab
 runtime! ftdetect/*.vim
 
 " Folding
@@ -103,14 +105,6 @@ autocmd Filetype go setlocal textwidth=0 nosmartindent tabstop=8 shiftwidth=8 so
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 let g:ctrlp_max_files = 0
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
-
-" NERDTree
-let NERDTreeShowFiles=1
-let NERDTreeShowHidden=1
-let NERDTreeMinimalUI=1
-let NERDTreeDirArrows=1
-let NERDTreeQuitOnOpen=1
-let NERDTreeIgnore=['.DS_Store']
 
 " Surrond
 let g:surround_{char2nr("t")} = "<\1\r..*\r&\1>\r</\1\r..*\r&\1>"
@@ -152,11 +146,6 @@ noremap <leader>bv <C-w>v:EasyBuffer<CR>
 map <leader>ff :CtrlP<Enter>
 map <leader>fb :CtrlPBuffer<Enter>
 map <leader>fr :CtrlPClearAllCaches<Enter>
-
-" NERDTree
-map <leader>nt :NERDTreeToggle<Enter>
-map <leader>nt :NERDTreeToggle<Enter>
-map <leader>nf :NERDTreeFind<Enter>
 
 " Create window splits easier. The default
 " " way is Ctrl-w,v and Ctrl-w,s. I remap
@@ -235,6 +224,9 @@ map <leader>fd :set nofoldenable<CR>
 " TagBar
 map <Leader>tb :TagbarToggle<CR>
 
+" netrw
+map <Leader>nf :e%:h<CR>
+
 " ========= Insert Shortcuts ========
 
 imap <C-l> <SPACE>=><SPACE>
@@ -268,15 +260,4 @@ endfunction
 
 function! RunTests()
   call VimuxRunCommand("clear;".SpecCommand() . " " . expand("%"))
-endfunction
-
-function! GolangCurrentPackage()
-  let packageLine = search("package", "s")
-  ''
-  let packageName = split(getline(packageLine), " ")[1]
-  return packageName
-endfunction
-
-function! GolangTestCurrentPackage()
-  call VimuxRunCommand("clear;go test " . GolangCurrentPackage())
 endfunction

@@ -1,6 +1,5 @@
 URxvt.scrollBar: off
 URxvt.font: xft:Source Code Pro:size=11
-URxvt.boldFont: xft:Source Code Pro:size=11
 
 URxvt*termName:screen-256color
 URxvt.jumpScroll: true
@@ -18,11 +17,12 @@ URxvt*xftAntialias: false
 
 URxvt.keysym.C-4: command:\033]710;xft: Monaco:size=7\007
 URxvt.keysym.C-5: command:\033]710;xft: Monaco:size=9\007
-URxvt.keysym.C-6: command:\033]710;URxvt.boldFont: xft:Monaco:size=9\007
-URxvt.keysym.C-7: command:\033]710;xft: Inconsolata:size=13\007
-URxvt.keysym.C-8: command:\033]710;xft: Inconsolata:size=19\007
-URxvt.keysym.C-9: command:\033]710;xft: Inconsolata:size=24\007
-URxvt.keysym.C-0: command:\033]710;xft: Inconsolata:size=30\007
+URxvt.keysym.C-6: command:\033]710;xft: Source Code Pro:size=11\007
+
+URxvt.keysym.C-7: command:\033]710;xft: Source Code Pro:size=13\007
+URxvt.keysym.C-8: command:\033]710;URxvt.boldFont: Source Code Pro:size=13\007
+
+URxvt.keysym.C-9: command:\033]710;xft: Source Code Pro:size=17\007
 
 URxvt.perl-ext-common:  default,matcher,url-select,clipboard,keyboard-select
 URxvt.clipboard.copycmd:  xclip -i -selection clipboard

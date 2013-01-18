@@ -29,35 +29,21 @@ if len(s:goarch) == 0
 endif
 
 function! go#complete#Package(ArgLead, CmdLine, CursorPos)
-  let dirs = []
-
-  let workspaces = split( $GOPATH, ':' )
-  if workspaces != []
-      let dirs += workspaces
-  endif
-
   let goroot = $GOROOT
-  if len(goroot) != 0
-    let dirs += [ goroot ]
+  if len(goroot) == 0
+    " should not occur.
+    return []
   endif
-
-  if len( dirs ) == 0
-      " should not happen
-      return []
-  endif
-
   let ret = {}
-  for dir in dirs
-    let root = expand(dir.'/pkg/'.s:goos.'_'.s:goarch)
-    for i in split(globpath(root, a:ArgLead.'*'), "\n")
-      if isdirectory(i)
-        let i .= '/'
-      elseif i !~ '\.a$'
-        continue
-      endif
-      let i = substitute(substitute(i[len(root)+1:], '[\\]', '/', 'g'), '\.a$', '', 'g')
-      let ret[i] = i
-    endfor
+  let root = expand(goroot.'/pkg/'.s:goos.'_'.s:goarch)
+  for i in split(globpath(root, a:ArgLead.'*'), "\n")
+    if isdirectory(i)
+      let i .= '/'
+    elseif i !~ '\.a$'
+      continue
+    endif
+    let i = substitute(substitute(i[len(root)+1:], '[\\]', '/', 'g'), '\.a$', '', 'g')
+    let ret[i] = i
   endfor
   return sort(keys(ret))
 endfunction

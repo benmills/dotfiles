@@ -35,6 +35,8 @@ dropboxd &
 xautolock -time 5 -locker slock &
 sudo /home/benmills/.bin/keyboard_brightness_setter &
 
+feh --bg-scale ~/pictures/SUFj9.png
+
 while true; do
   $HOME/.bin/dwm-status
   sleep 2
