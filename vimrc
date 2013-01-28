@@ -33,8 +33,8 @@ set autoindent
 set showmode
 set nopaste
 set hidden
+set wildmode=longest,list
 set wildmenu
-set wildmode=list:longest
 set visualbell
 set ttyfast
 set ruler
@@ -102,7 +102,6 @@ autocmd Filetype go setlocal textwidth=0 nosmartindent tabstop=8 shiftwidth=8 so
 " ========= Plugin Options ========
 
 " Ctrlp
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 let g:ctrlp_max_files = 0
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 
@@ -112,13 +111,13 @@ let g:surround_{char2nr("t")} = "<\1\r..*\r&\1>\r</\1\r..*\r&\1>"
 " Vimerl
 let erlang_show_errors = 0
 
-" Powerline
-let g:powerline_cache_file = "~/.vim"
-
 " Vimux
 let VimuxUseNearestPane = 1
 let g:VimuxOrientation = "h"
 let g:VimuxHeight = "40"
+
+" netrw
+let g:netrw_banner = 0
 
 "
 
@@ -236,6 +235,7 @@ imap jj <esc>
 
 command! Note :set laststatus=0 nonumber
 command! NoteOff :set laststatus=2 number
+command! NERDTreeToggle :e.
 
 " ========= Functions ========
 

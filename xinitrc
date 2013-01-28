@@ -12,9 +12,19 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
   unset f
 fi
 
+feh --bg-center ~/pictures/abstract_painting.jpg
+
+xmodmap ~/.Xmodmap
+xbindkeys
+xcalib ~/.settings/color.icc
+
 keychain ~/.ssh/id_rsa
 [ -f ~/.keychain/$HOSTNAME-sh ] && . ~/.keychain/$HOSTNAME-sh 2>/dev/null
 [ -f ~/.keychain/$HOSTNAME-sh-gpg ] && . ~/.keychain/$HOSTNAME-sh-gpg 2>/dev/null
+
+# powersave
+xset +dpms
+xset dpms 0 0 300
 
 # start terminal emulation daemon
 /usr/bin/urxvtd -q -o -f
@@ -27,15 +37,8 @@ syndaemon -t -k -i 2 -d &
 unclutter -noevents &
 
 xrdb -load ~/.Xresources
-xmodmap ~/.Xmodmap
-xbindkeys
-xcalib ~/.settings/color.icc
 
-dropboxd &
 xautolock -time 5 -locker slock &
-sudo /home/benmills/.bin/keyboard_brightness_setter &
-
-feh --bg-scale ~/pictures/SUFj9.png
 
 while true; do
   $HOME/.bin/dwm-status
