@@ -25,7 +25,7 @@ bat(){
 
 wifi() {
   ip=$(ifconfig | grep "inet " | grep -v "127.0.0.1" | awk '{ print " "$2 }' || "")
-  wifi=$($HOME/.bin/current_wifi_network)
+  wifi=$(wicd-cli -y -d | grep "Essid" | cut -d" " -f2)
 
   echo -e "\x09[\x02Net \x06$wifi\x01$ip\x09]\x01"
 }

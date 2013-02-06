@@ -1,0 +1,73 @@
+#!/bin/bash
+# Basic info script for screenshot
+
+# colours
+lt=$'\e[1;36m' # light cyan
+dk=$'\e[0;36m' # dark cyan
+tx=$'\e[1;32m' # green text
+ec=$'\e[0m'
+
+# installed window managers
+wms=(dwm echinus i3 wmfs)
+
+# details
+machine=$(hostname)
+arch=$(uname -m)
+mykernel=$(awk '{print $2}' <(pacman -Q linux))
+mycpu=$(awk 'sub(/\(TM\)/, ":") {print $2,$6}' <(uname -p))
+myuptime=$(awk '{ sub(/,/,""); if (NF==10) print $3; else if (NF>10) print $3,$4}' <(uptime))
+myshell=$(echo ${SHELL##*/})
+myterm=$(echo $TERM)
+myedit=$(echo $EDITOR)
+browser="google-chrome"
+mybrowser=$(echo ${browser##*/})
+
+                              
+# if X is running
+if [ "$DISPLAY" ]; then
+    # check for running wm
+    for w in "${wms[@]}"; do
+        PID="$(pgrep "$w")"
+        if [ "$PID" ]; then
+            case "$w" in
+                dwm)  wm="dwm" ;;
+            echinus)  wm="echinus" ;;
+                 i3)  wm="i3" ;;
+               wmfs)  wm="WMFS" ;;
+            esac
+        fi
+    done
+    myres=$(awk '/current/ {print $8,$9,+$10}' <(xrandr))
+    myfont=$(awk -F: '{print $3}' <(grep "^URxvt.font" $HOME/.Xresources))
+    # screenshot command
+    shot="scrot -cd5"
+else
+    myres="Framebuffer"
+    wm="TTY"
+    myfont=$(awk -F\" '{print $2}' <(grep "^CONSOLEFONT" /etc/rc.conf))
+    # screenshot command
+    shot="fbgrab -s5 fbgrab.png"
+fi
+
+# ASCII goodness…
+echo ${lt}"                 +"      
+echo "                 #            "${tx}"Machine:"${ec} "${machine}"${lt}       
+echo "                ###           "${tx}"Architecture:"${ec} "${arch}"${lt} 
+echo "               #####          "${tx}"Kernel:"${ec} "${mykernel}"${lt}
+echo "               ######         "${tx}"CPU:"${ec} "${mycpu}"${lt}
+echo "              ; #####;        "${tx}"Uptime:"${ec} "${myuptime}"${lt}
+echo "             +##.#####        "${tx}"Resolution:"${ec} "${myres}"${lt}
+echo "            +##########       "${tx}"Window Manager:"${ec} "${wm}"${lt}
+echo "           #####"${dk}"######"${lt}"##;     "${tx}"Shell:"${ec} "${myshell^}"${lt}
+echo "          ###"${dk}"############"${lt}"+    "${tx}"Terminal:"${ec} "${myterm^}"${lt}
+echo "         #"${dk}"######   #######    "${tx}"Editor:"${ec} "${myedit^}"${dk}       
+echo "       .######;     ;###;\`.  "       ${tx}"Browser:"${ec} "${mybrowser^}"${dk} 
+echo "      .#######;     ;#####.  "        ${tx}"Font:"${ec} "${myfont^}"${dk} 
+echo "      #########.   .########\`"     
+echo "     ######'           '######"   
+echo "    ;####                 ####;"  
+echo "    ##'                     '##"  
+echo "   #'                         \`#" 
+echo "  '                            \`${ec}"
+echo " "
+${shot}

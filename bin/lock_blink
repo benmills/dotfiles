@@ -1,3 +1,0 @@
-#!/bin/sh
-
-flock -w 30 /tmp/blink_lock -c $HOME/.bin/blink

@@ -86,8 +86,12 @@ colorscheme Tomorrow-Night
 au BufNewFile,BufRead *.less set filetype=less
 au BufNewFile,BufRead rebar.config set filetype=erlang
 au BufNewFile,BufRead *.mustache setf mustache
+au BufNewFile,BufRead *.txt set filetype=markdown
+
 autocmd FileType mail set spell
+autocmd Filetype mail highlight ExtraWhitespace ctermbg=none guibg=none
 autocmd Filetype go setlocal textwidth=0 nosmartindent tabstop=2 shiftwidth=2 softtabstop=2 noexpandtab
+
 runtime! ftdetect/*.vim
 
 " Folding
@@ -118,6 +122,7 @@ let g:VimuxHeight = "40"
 
 " netrw
 let g:netrw_banner = 0
+let g:netrw_bufsettings = 'noma nomod nu nowrap ro nobl'
 
 "
 
@@ -135,7 +140,7 @@ map <leader>as :AS<CR>
 map <leader>av :AV<CR>
 
 " Buffers
-noremap <leader><leader> <C-^>
+noremap <leader>bl :e#<CR>
 noremap <leader>be :EasyBuffer<CR>
 noremap <leader>bs <C-w>s:EasyBuffer<CR>
 noremap <leader>bv <C-w>v:EasyBuffer<CR>

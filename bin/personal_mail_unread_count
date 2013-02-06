@@ -1,9 +1,0 @@
-#!/bin/bash
-
-unread_count_file=/tmp/work_unread_count
-
-if [ -r $unread_count_file ]; then
-  cat $unread_count_file
-else
-  echo "0"
-fi
