@@ -1,2 +1,37 @@
-map <silent> <LocalLeader>rb :wa<CR> :call RunTests()<CR>
-map <silent> <LocalLeader>rf :wa<CR> :call RunFocsedTest()<CR>
+map <silent> <LocalLeader>rb :wa<CR> :call _RunAll()<CR>
+map <silent> <LocalLeader>rc :wa<CR> :RunRubyFocusedContext<CR>
+map <silent> <LocalLeader>rf :wa<CR> :call _RunLine()<CR>
+map <silent> <LocalLeader>rl :wa<CR> :call _RunLast()<CR>
+
+map <LocalLeader>ir :call _BounceInferiorSlime()<CR>
+
+function! _BounceInferiorSlime()
+  if _IsInferiorSlimeRunning()
+    call VimuxInterruptRunner()
+    call VimuxRunCommand("inferior-slime")
+  endif
+endfunction
+
+function! _RunAll()
+  if _IsInferiorSlimeRunning()
+    execute "InferiorSlimeSpecFile"
+  else
+    execute "RunAllRubyTests"
+  endif
+endfunction
+
+function! _RunLine()
+  if _IsInferiorSlimeRunning()
+    execute "InferiorSlimeSpecLine"
+  else
+    execute "RunRubyFocusedTest"
+  endif
+endfunction
+
+function! _IsInferiorSlimeRunning()
+  if system("ps axo command | grep inferior-slime | grep -v grep") == ""
+    return 0
+  else
+    return 1
+  end
+endfunction

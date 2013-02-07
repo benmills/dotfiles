@@ -1,0 +1,198 @@
+# A basic .muttrc for use with Gmail
+
+# Change the following six lines to match your Gmail account details
+folder-hook 'personal' source "~/.mutt/personal_config"
+folder-hook 'work' source "~/.mutt/work_config"
+
+source "~/.mutt/work_config"
+
+# Shortcuts
+macro index gp '<sync-mailbox><enter-command>source ~/.mutt/personal_config<enter><change-folder>!<enter>'
+macro index gw '<sync-mailbox><enter-command>source ~/.mutt/work_config<enter><change-folder>!<enter>'
+
+# Change the following line to a different editor you prefer.
+set editor = "vim"
+
+# Collapse all threads by default
+#folder-hook . "exec collapse-all"
+
+# Paths ----------------------------------------------
+set folder           = "imaps://imap.gmail.com:993"
+set alias_file       = ~/.mutt/alias         # where to store aliases
+set header_cache     = ~/.mutt/cache/headers # where to store headers
+set message_cachedir = ~/.mutt/cache/bodies  # where to store bodies
+set certificate_file = ~/.mutt/certificates  # where to store certs
+set mailcap_path     = ~/.mutt/mailcap       # entries for filetypes
+set tmpdir           = ~/.mutt/temp          # where to keep temp files
+set signature        = ~/.mutt/sig           # my signature file
+unset record#           = "+[Gmail]/Sent Mail"
+set postponed        = "+[Gmail]/Drafts"
+set spoolfile        = imaps://imap.gmail.com:993/INBOX
+
+# Basic Options --------------------------------------
+set wait_key = no        # shut up, mutt
+set mbox_type = Maildir  # mailbox type
+set timeout = 3          # idle time before scanning
+set mail_check = 20      # minimum time between scans
+unset move               # gmail does that
+set delete               # don't ask, just do
+unset confirmappend      # don't ask, just do!
+set quit                 # don't ask, just do!!
+unset mark_old           # read/new is good enough for me
+set pipe_decode          # strip headers and eval mimes when piping
+set thorough_search      # strip headers and eval mimes before searching
+set sort = threads
+set sort_aux = last-date-received
+set imap_check_subscribed = yes
+
+# Header Options -------------------------------------
+ignore *                                # ignore all headers
+unignore from: to: cc: date: subject:   # show only these
+unhdr_order *                           # some distros order things by default
+hdr_order from: to: cc: date: subject:  # and in this order
+
+# Index View Options ---------------------------------
+set date_format = "%m/%d"
+set index_format = "[%Z]  %D  %-20.20F  %s"
+set sort = threads                         # like gmail
+set sort_aux = reverse-last-date-received  # like gmail
+set uncollapse_jump                        # don't collapse on an unread message
+set sort_re                                # thread based on regex
+set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+
+# Index Key Bindings ---------------------------------
+bind index gg       first-entry
+bind index G        last-entry
+
+bind index R        group-reply
+bind index <tab>    sync-mailbox
+bind index <space>  collapse-thread
+
+# Ctrl-R to mark all as read
+macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
+
+# Compose View Options ------------------------------
+set realname = "Benjamin Mills"
+set envelope_from
+set sig_dashes
+set edit_headers
+set fast_reply
+set askcc
+set fcc_attach
+unset mime_forward
+set forward_format = "Fwd: %s"
+set forward_decode
+set attribution = "On %d, %n wrote:"
+set reply_to
+set reverse_name
+set include
+set forward_quote
+set editor = "vim"
+
+# Pager View Options ---------------------------------
+set pager_index_lines = 10 # number of index lines to show
+set pager_context = 3      # number of context lines to show
+set pager_stop             # don't go to next message automatically
+set menu_scroll            # scroll in menus
+set tilde                  # show tildes like in vim
+unset markers              # no ugly plus signs
+
+# GPG ---------------------------------
+set pgp_decode_command="gpg %?p?--passphrase-fd 0? --no-verbose --batch --output - %f"
+set pgp_verify_command="gpg --no-verbose --batch --output - --verify %s %f"
+set pgp_decrypt_command="gpg --passphrase-fd 0 --no-verbose --batch --output - %f"
+set pgp_sign_command="gpg --no-verbose --batch --output - --passphrase-fd 0 --armor --detach-sign --textmode %?a?-u %a? %f"
+set pgp_clearsign_command="gpg --no-verbose --batch --output - --passphrase-fd 0 --armor --textmode --clearsign %?a?-u %a? %f"
+set pgp_import_command="gpg --no-verbose --import -v %f"
+set pgp_export_command="gpg --no-verbose --export --armor %r"
+set pgp_verify_key_command="gpg --no-verbose --batch --fingerprint --check-sigs %r"
+set pgp_list_pubring_command="gpg --no-verbose --batch --with-colons --list-keys %r"
+set pgp_list_secring_command="gpg --no-verbose --batch --with-colons --list-secret-keys %r"
+set pgp_autosign=yes
+set pgp_replyencrypt=yes
+set pgp_timeout=1800
+set pgp_good_sign="^gpg: Good signature from"
+
+set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+alternative_order text/plain text/enriched text/html
+
+# set default
+  color normal     white         default
+
+# main colors
+  color tree       blue          default
+  color error      brightred     default
+  color message    brightgreen   default
+  color status     brightblack         black
+  color indicator  yellow        black
+
+# color all ML mails
+  color index      blue          default "~u"
+
+# uncolor certain messages
+  uncolor index "~E"
+  uncolor index "~P"
+  uncolor index "~C @.com"
+  uncolor index "~N ~u"
+  uncolor index "~N !~u"
+  uncolor index "~T"
+  uncolor index "~D"
+
+# and recolor them appropriately
+  color index      brightred     default "~E"
+  color index      brightyellow  default "~P"
+  color index      green         default "~C @.com"
+  color index      green           default "~N ~u"  # new ML mail
+  color index      green         default "~N !~u" # new non-ML mail
+  color index      brightgreen   default "~T"
+  color index      white         red     "~D"
+
+# set up the headers
+  color header     brightmagenta default "^from:"
+  color header     green         default "^to:"
+  color header     yellow        default "^cc:"
+  color header     blue          default "^date:"
+  color header     cyan          default "^subject:"
+
+# message bodies
+  color attachment brightblack   default
+  color search     red           brightblack
+  color signature  cyan          default
+  color tilde      brightblack   default
+  color hdrdefault yellow        default
+  color bold       brightyellow  default
+
+# urls
+  color body       brightblue    default "(^|<| )mailto:[^ ]+@[^ ]( |>|$)"
+  color body       brightblue    default "(^|<| )(http|https|ftp|file|telnet|news|finger)://[^ ]+( |>|$)"
+# urls regex
+  color body       brightblue   default "([a-z][a-z0-9+-]*://(((([a-z0-9_.!~*'();:&=+$,-]|%[0-9a-f][0-9a-f])*@)?((([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?|[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+)(:[0-9]+)?)|([a-z0-9_.!~*'()$,;:@&=+-]|%[0-9a-f][0-9a-f])+)(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?(#([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?|(www|ftp)\\.(([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?(:[0-9]+)?(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?(#([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?)[^].,:;!)? \t\r\n<>\"]"
+# email regex
+  color body       brightblue   default "((@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\]),)*@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\]):)?[0-9a-z_.+%$-]+@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\])"
+  color body       brightblue   default "(my regex 1)"
+  color body       brightcyan   default "(my regex 2)"
+  color body       brightred    default "(my regex 3|my regex 4|my regex 5)"
+
+# smileys, the right way and the backward-ass euro way
+  color body       brightmagenta default "(^| )+(|[<>|])[8;:](|[^ ])[)(/|DOPS]( |$)+"
+  color body       brightmagenta default "(^| )+[)(/|DOPS](|[^ ])[8;:](|[<>|])( |$)+"
+
+# *bold*, _underline_, and /italic/
+  color body       brightcyan    default "(^| )\\*[^ ]+\\*( |$)"
+  color body       brightcyan    default "(^| )_[^ ]+_( |$)"
+  color body       brightcyan    default "(^| )/[^ ]+/( |$)"
+
+# quote blocks
+  color quoted     magenta       default
+  color quoted1    cyan          default
+  color quoted2    green         default
+  color quoted3    yellow        default
+  color quoted4    brightmagenta default
+  color quoted5    brightgreen   default
+  color quoted6    brightyellow  default
+  color quoted7    brightcyan    default
+
+# PGP messages
+  color body      brightgreen    default "^gpg signature OK.*"
+  color body      yellow         default "^gpg "
+  color body      brightred      default "^gpg signature NOT OK. *"

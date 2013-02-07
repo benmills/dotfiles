@@ -9,6 +9,13 @@ export EDITOR=vim
 export GREP_OPTIONS='--color'
 export BROWSER=google-chrome
 export TERM=screen-256color
+export GOPATH=~/.go:$PWD
+export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
+
+#ls color
+alias ls='ls --color'
+LS_COLORS='di=1:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=35:*.rpm=90'
+export LS_COLORS
 
 #options
 set -o emacs
@@ -61,3 +68,7 @@ exit_shell() {
 
 zle -N exit_shell
 bindkey "^d" exit_shell
+
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey "^X^E" edit-command-line

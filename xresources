@@ -1,5 +1,5 @@
 URxvt.scrollBar: off
-URxvt.font: xft:Source Code Pro:size=11
+URxvt.font: xft:Source Code Pro:size=10
 
 URxvt*termName:screen-256color
 URxvt.jumpScroll: true
@@ -7,7 +7,7 @@ URxvt.saveLines: 32
 URxvt.letterSpace: -1
 URxvt.internalBorder: 0
 
-Xft.dpi:        50
+;Xft.dpi:        50
 Xft.antialias:  true
 Xft.rgba:       rgb
 Xft.hinting:    false
@@ -15,10 +15,10 @@ Xft.hinstyle:   hintfull
 Xft.lcdfilter:  lcdlight
 URxvt*xftAntialias: false
 
+URxvt.keysym.C-3: command:\033]710;xft: Monaco:size=3\007
 URxvt.keysym.C-4: command:\033]710;xft: Monaco:size=7\007
 URxvt.keysym.C-5: command:\033]710;xft: Monaco:size=9\007
-URxvt.keysym.C-6: command:\033]710;xft: Source Code Pro:size=11\007
-
+URxvt.keysym.C-6: command:\033]710;xft: Source Code Pro:size=10\007
 URxvt.keysym.C-7: command:\033]710;xft: Source Code Pro:size=13\007
 URxvt.keysym.C-8: command:\033]710;URxvt.boldFont: Source Code Pro:size=13\007
 

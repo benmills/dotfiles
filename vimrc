@@ -21,6 +21,8 @@ autocmd BufRead,InsertLeave * match ExtraWhitespace /\s\+$/
 highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 
+" autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+
 "
 
 " ========= Options ========
@@ -89,6 +91,7 @@ au BufNewFile,BufRead *.mustache setf mustache
 au BufNewFile,BufRead *.txt set filetype=markdown
 
 autocmd FileType mail set spell
+autocmd FileType mail call search("^$")
 autocmd Filetype mail highlight ExtraWhitespace ctermbg=none guibg=none
 autocmd Filetype go setlocal textwidth=0 nosmartindent tabstop=2 shiftwidth=2 softtabstop=2 noexpandtab
 
@@ -128,19 +131,7 @@ let g:netrw_bufsettings = 'noma nomod nu nowrap ro nobl'
 
 " ========= Navigation Shortcuts ========
 
-" Easier split navigation
-noremap <C-h> <C-w>h
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
-
-" Alternate Files
-map <leader>aa :A<CR>
-map <leader>as :AS<CR>
-map <leader>av :AV<CR>
-
 " Buffers
-noremap <leader>bl :e#<CR>
 noremap <leader>be :EasyBuffer<CR>
 noremap <leader>bs <C-w>s:EasyBuffer<CR>
 noremap <leader>bv <C-w>v:EasyBuffer<CR>
@@ -148,14 +139,6 @@ noremap <leader>bv <C-w>v:EasyBuffer<CR>
 
 " CommandT
 map <leader>ff :CtrlP<Enter>
-map <leader>fb :CtrlPBuffer<Enter>
-map <leader>fr :CtrlPClearAllCaches<Enter>
-
-" Create window splits easier. The default
-" " way is Ctrl-w,v and Ctrl-w,s. I remap
-" " this to vv and ss
-nnoremap <silent> vv <C-w>v
-nnoremap <silent> ss <C-w>s
 
 " ========= Coding Shortcuts ========
 
@@ -169,7 +152,7 @@ map <leader>cc :TComment<CR>
 map <Leader>vp :PromptVimTmuxCommand<CR>
 
 " Run last command executed by RunVimTmuxCommand
-map <Leader>rl :RunLastVimTmuxCommand<CR>
+map <Leader>rl :call _RunLast()<CR>
 
 " Inspect runner pane
 map <Leader>vi :InspectVimTmuxRunner<CR>
@@ -192,25 +175,13 @@ map <Leader>" cs'"
 " Quck git grep
 nnoremap <silent> <Leader>gw :GitGrepWord<CR>
 
-" Quick Editing
-nnoremap <leader>ev :e $MYVIMRC<cr>
-nnoremap <leader>eo :e ~/Dropbox/notes<cr>
-nnoremap <leader>es :e ~/.vim/snippets
-
-" " Better comand-line editing
+" Better comand-line editing
 cnoremap <C-j> <t_kd>
 cnoremap <C-k> <t_ku>
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 cnoremap <C-f> <right>
 cnoremap <C-b> <left>
-
-" Don't have to use Shift to get into command mode, just hit semicolon
-nnoremap ; :
-
-" Insert new lines without going into insert mode
-nmap t o<ESC>k
-nmap T O<ESC>j
 
 " Clear Search
 map <leader>nh :noh<Enter>
@@ -221,20 +192,15 @@ nmap <silent> <leader>vis :so $MYVIMRC<CR>
 " Rebuild Tags
 map <silent> <LocalLeader>rt :!ctags -R --exclude=".git\|.svn\|log\|tmp\|db\|pkg" --extra=+f<CR>
 
-" Folding
-map <leader>fe :set foldenable<CR>
-map <leader>fd :set nofoldenable<CR>
-
-" TagBar
-map <Leader>tb :TagbarToggle<CR>
-
 " netrw
 map <Leader>nf :e%:h<CR>
+
+" clear whitespace
+map <Leader>cw :%s/\s\+$//g<CR>
 
 " ========= Insert Shortcuts ========
 
 imap <C-l> <SPACE>=><SPACE>
-imap jj <esc>
 
 " ========= Commands ========
 
@@ -251,18 +217,70 @@ function! GitGrepWord()
 endfunction
 command! -nargs=0 GitGrepWord :call GitGrepWord()
 
-function! SpecCommand()
-  if system("grep 'rspec' Gemfile -s | wc -l") == "0\n"
-    return "m"
-  else
-    return "rspec"
+" function! SpecCommand()
+"   if system("grep 'rspec' Gemfile -s | wc -l") == "0\n"
+"     return "m"
+"   else
+"     return "rspec"
+"   endif
+" endfunction
+" 
+" function! RunFocsedTest()
+"   call VimuxRunCommand("clear;".SpecCommand() . " " . expand("%") . " -l " . line("."))
+" endfunction
+" 
+" function! RunTests()
+"   call VimuxRunCommand("clear;".SpecCommand() . " " . expand("%"))
+" endfunction
+
+
+function! VimuxRunCommand(command)
+  if !exists("g:VimuxRunnerPaneIndex")
+    call VimuxOpenPane()
   endif
+
+    let escaped_command = shellescape(a:command)
+    call system("send-keys -t ".g:VimuxRunnerPaneIndex." \"".escaped_command."\"")
+    call system("send-keys -t ".g:VimuxRunnerPaneIndex." Enter")
 endfunction
 
-function! RunFocsedTest()
-  call VimuxRunCommand("clear;".SpecCommand() . " " . expand("%") . " -l " . line("."))
+function! VimuxOpenPane()
+  let height = 40
+  let orientation = "-h"
+
+  call system("tmux split-window -p ".height." ".orientation)
+  let g:VimuxRunnerPaneIndex = VimuxTmuxPaneIndex()
+  call system("tmux last-pane")
 endfunction
 
-function! RunTests()
-  call VimuxRunCommand("clear;".SpecCommand() . " " . expand("%"))
+function! VimuxTmuxSession()
+  return VimuxTmuxProperty("S")
+endfunction
+
+function! VimuxTmuxPaneIndex()
+  return VimuxTmuxProperty("P")
+endfunction
+
+function! VimuxTmuxWindowIndex()
+  return VimuxTmuxProperty("I")
+endfunction
+
+function! VimuxTmuxProperty(property)
+    return substitute(system("tmux display -p '#".a:property."'"), '\n$', '', '')
+endfunction
+
+function! _IsInferiorSlimeRunning()
+  if system("ps axo command | grep inferior-slime | grep -v grep") == ""
+    return 0
+  else
+    return 1
+  end
+endfunction
+
+function! _RunLast()
+  if _IsInferiorSlimeRunning()
+    execute "InferiorSlimeSpecLast"
+  else
+    execute "VimuxRunLastCommand"
+  endif
 endfunction

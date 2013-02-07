@@ -8,30 +8,34 @@ stats(){
   mem=$(free -m | awk '/^-/ {print $3}')
   hd=$(df -P | sort -d | awk '/^\/dev\/ma|sdc/{s=s (s?" ":"") $5} END {printf "%s", s}')
 
-  echo -e "\x09[\x02HD \x08$hd \x02Mem \x04$mem\x01\x09]"
+  echo -e "\x02HD \x08$hd \x02Mem \x04$mem\x01"
 }
 
 bat(){
   ac=$(acpi -V | awk 'NR==1 {print +$4}')
     onl=$(acpi -V | grep "on-line")
     if [ -z "$onl" ] && [ "$ac" -gt "15" ]; then
-      echo -e "\x09[\x02Bat \x07$ac%\x01\x09]"
+      echo -e "\x02Bat \x07$ac%\x01"
         elif [ -z "$onl" ] && [ "$ac" -le "15" ]; then
-        echo -e "\x09[\x02Bat \x03$ac%\x01\x09]"
+        echo -e "\x02Bat \x03$ac%\x01"
     else
-      echo -e "\x09[\x02AC \x07$ac%\x01\x09]"
+      echo -e "\x02AC \x07$ac%\x01"
         fi
 }
 
 wifi() {
   ip=$(ifconfig | grep "inet " | grep -v "127.0.0.1" | awk '{ print " "$2 }' || "")
-  wifi=$(wicd-cli -y -d | grep "Essid" | cut -d" " -f2)
+  wifi=$(iwconfig wlan0 | grep ESSID | cut -d'"' -f2)
 
-  echo -e "\x09[\x02Net \x06$wifi\x01$ip\x09]\x01"
+  if [ -z $ip ]; then
+    echo -e "\x02Net \x06Offline\x01"
+  else
+    echo -e "\x02Net \x06$wifi\x01$ip\x01"
+  fi
 }
 
 mail() {
-  echo -e "\x09[\x02Mail \x03W:$($HOME/.bin/work_mail_unread_count)\x09]\x01"
+  echo -e "\x02Mail \x03W:$($HOME/.bin/work_mail_unread_count)\x01"
 }
 
 vol() {
@@ -39,12 +43,12 @@ vol() {
   active=$(amixer sget Master | tail -1 | cut -d" " -f8 | sed 's/.\(.*\)./\1/')
   if [ "$active" = "on" ]; then
     if [ "$volume" -gt "58" ]; then
-      echo -e "\x09[\x02Vol \x05$volume%\x09]\x01"
+      echo -e "\x02Vol \x05$volume%\x01"
     else
-      echo -e "\x09[\x02Vol \x07$volume%\x09]\x01"
+      echo -e "\x02Vol \x07$volume%\x01"
     fi
   else
-    echo -e "\x09[\x03Mute\x09]\x01"
+    echo -e "\x03Mute\x01"
   fi
 }
 
@@ -57,9 +61,15 @@ music() {
     song=$(cmus-remote -Q | grep title | sed -e "s/tag\stitle\s//g")
 
     if [ "$song" != "" ] && [ "$playing" == "playing" ]; then
-      echo -e "\x09[\x02Playing \x04$song\x09]"
+      echo -e "\x02Playing \x04$song"
     fi
   fi
 }
 
-xsetroot -name "$(music) $(vol) $(stats) $(wifi) $(bat) $(dte)"
+autolocking() {
+  if [ "$(pgrep xautolock)" -z ]; then
+    echo -e "\x03NO AUTOLOCK"
+  fi
+}
+
+xsetroot -name "$(autolocking) $(vol)  $(stats)  $(wifi)  $(bat)  $(dte)"

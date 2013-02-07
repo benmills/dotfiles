@@ -1,0 +1,2 @@
+#!/bin/bash
+tmux new-session -s comm finch \; new-window -n mail mutt

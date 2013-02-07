@@ -1,1 +1,1 @@
-TERM=screen-256color /usr/bin/mutt
+/usr/bin/mutt

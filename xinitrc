@@ -1,48 +1,73 @@
 #!/bin/sh
-#
-# ~/.xinitrc
-#
-# Executed by startx (run your window manager from here)
-# colours: 01:normal 02:white 03:red 04:green 05:yellow 06:blue 07:cyan 08:magenta 09:grey
 
-if [ -d /etc/X11/xinit/xinitrc.d ]; then
-  for f in /etc/X11/xinit/xinitrc.d/*; do
-    [ -x "$f" ] && . "$f"
-  done
-  unset f
-fi
+source_system_xinitrcs() {
+  if [ -d /etc/X11/xinit/xinitrc.d ]; then
+    for f in /etc/X11/xinit/xinitrc.d/*; do
+      [ -x "$f" ] && . "$f"
+    done
+    unset f
+  fi
+}
 
-feh --bg-center ~/pictures/abstract_painting.jpg
+setup_visual_env() {
+  feh --bg-scale ~/Pictures/sky2.jpg
+  xcalib ~/.settings/color.icc
+}
 
-xmodmap ~/.Xmodmap
-xbindkeys
-xcalib ~/.settings/color.icc
+setup_powersave() {
+  xset +dpms
+  xset dpms 0 0 300
+}
 
-keychain ~/.ssh/id_rsa
-[ -f ~/.keychain/$HOSTNAME-sh ] && . ~/.keychain/$HOSTNAME-sh 2>/dev/null
-[ -f ~/.keychain/$HOSTNAME-sh-gpg ] && . ~/.keychain/$HOSTNAME-sh-gpg 2>/dev/null
+setup_keys() {
+  keychain ~/.ssh/id_rsa
+  [ -f ~/.keychain/$HOSTNAME-sh ] && . ~/.keychain/$HOSTNAME-sh 2>/dev/null
+  [ -f ~/.keychain/$HOSTNAME-sh-gpg ] && . ~/.keychain/$HOSTNAME-sh-gpg 2>/dev/null
+}
 
-# powersave
-xset +dpms
-xset dpms 0 0 300
+setup_daemons() {
+  autocutsel -fork &
+  autocutsel -selection PRIMARY -fork &
+  syndaemon -t -k -i 2 -d &
+  unclutter -noevents &
+  xautolock -time 5 -locker slock &
+}
 
-# start terminal emulation daemon
-/usr/bin/urxvtd -q -o -f
+setup_keyboard() {
+  xmodmap ~/.xmodmap
+  xbindkeys
+}
 
-autocutsel -fork &
-autocutsel -selection PRIMARY -fork &
-syndaemon -t -k -i 2 -d &
+setup_terminal() {
+  urxvtd -q -o -f
+  xrdb -load ~/.xresources
+}
 
-# hide cursor
-unclutter -noevents &
+run_dwm() {
+  while true; do
+    $HOME/.bin/dwm-status
+    sleep 2
+  done &
 
-xrdb -load ~/.Xresources
+  exec ck-launch-session dbus-launch bash -c "dwm"
+}
 
-xautolock -time 5 -locker slock &
+run_bspwm() {
+  sxhkd &
+  bspwm
+}
 
-while true; do
-  $HOME/.bin/dwm-status
-  sleep 2
-done &
+source_system_xinitrcs
+setup_visual_env
+setup_powersave
+setup_keys
+setup_daemons
+setup_keyboard
+setup_terminal
 
-exec ck-launch-session dbus-launch bash -c "dwm"
+case $1 in
+  dwm) run_dwm;;
+  bspwm) run_bspwm;;
+  *) run_dwm;;
+esac
+

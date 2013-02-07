@@ -1,0 +1,2 @@
+#!/bin/bash
+gvim -geometry "85x45+100+100" -c "set title titlestring=notes" -c "cd /home/benmills/Dropbox/notes" -c "NERDTreeToggle"
