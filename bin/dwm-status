@@ -1,7 +1,7 @@
 # colours: 01:normal 02:white 03:red 04:green 05:yellow 06:blue 07:cyan 08:magenta 09:grey
 
 dte() {
- echo -e "\x01$( date +"%F" ) \x02$(date +"%I:%M") "
+ echo -e "\x01$( date +"%F" ) \x02$(date +"%I:%M:%S") "
 }
 
 stats(){
@@ -72,4 +72,4 @@ autolocking() {
   fi
 }
 
-xsetroot -name "$(autolocking) $(vol)  $(stats)  $(wifi)  $(bat)  $(dte)"
+echo "$(autolocking) $(vol)  $(stats)  $(wifi)  $(bat)  $(dte)" | dzen2 -p

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+dz_fn="Source Code Pro:size=10"
+dz_fg="#bbbbbb"
+dz_bg="#303030"
+
+dzen2 -fn "$dz_fn" -fg "$dz_fg" -bg "$dz_bg" -p $@

@@ -1,0 +1,27 @@
+#!/bin/bash
+# bspc_status() {
+#   while true; do
+#     bspc put_status
+#     sleep 3
+#   done
+# }
+# 
+# bspc_status &
+
+while true; do
+    if read line < $PANEL_FIFO; then
+      wm_status=""
+      IFS=':' read -a array <<< "$line"
+      for element in "${array[@]}"; do
+        if [[ $element =~ ^D ]]; then
+          wm_status="$wm_status ^fg(white)${element:1}"
+        elif [[ $element =~ ^E|^d ]]; then
+          wm_status="$wm_status ^ca(1, bspc use ${element:1})^fg(darkgray)${element:1}^ca()"
+        elif [[ $element =~ ^L ]]; then
+          wm_status="$wm_status - ^ca(1, bspc cycle_layout)^fg(white)${element:1}^ca()"
+        fi
+      done
+
+      echo $wm_status
+    fi
+done

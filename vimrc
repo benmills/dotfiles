@@ -149,21 +149,23 @@ map Y y$
 map <leader>cc :TComment<CR>
 
 " Prompt for a command to run
-map <Leader>vp :PromptVimTmuxCommand<CR>
+map <Leader>vp :VimuxPromptCommand<CR>
 
 " Run last command executed by RunVimTmuxCommand
 map <Leader>rl :call _RunLast()<CR>
 
 " Inspect runner pane
-map <Leader>vi :InspectVimTmuxRunner<CR>
+map <Leader>vi :VimuxInspectRunner<CR>
 
 " Close all other tmux panes in current window
-map <Leader>vx :CloseVimTmuxPanes<CR>
+map <Leader>vx :VimuxCloseRunner<CR>
 
 " Interrupt any command running in the runner pane
-map <Leader>ve :InterruptVimTmuxRunner<CR>
+map <Leader>ve :VimuxInterruptRunner<CR>
 
-vmap <LocalLeader>vs "vy :call RunVimTmuxCommand(@v . "\n", 0)<CR>
+vmap <LocalLeader>vs "vy :call VimuxSendText(@v)<CR>:call VimuxSendKeys("Enter")<CR>
+
+" puts "lol"
 
 
 " Surround
@@ -216,58 +218,6 @@ function! GitGrepWord()
   echo 'Number of matches: ' . len(getqflist())
 endfunction
 command! -nargs=0 GitGrepWord :call GitGrepWord()
-
-" function! SpecCommand()
-"   if system("grep 'rspec' Gemfile -s | wc -l") == "0\n"
-"     return "m"
-"   else
-"     return "rspec"
-"   endif
-" endfunction
-" 
-" function! RunFocsedTest()
-"   call VimuxRunCommand("clear;".SpecCommand() . " " . expand("%") . " -l " . line("."))
-" endfunction
-" 
-" function! RunTests()
-"   call VimuxRunCommand("clear;".SpecCommand() . " " . expand("%"))
-" endfunction
-
-
-function! VimuxRunCommand(command)
-  if !exists("g:VimuxRunnerPaneIndex")
-    call VimuxOpenPane()
-  endif
-
-    let escaped_command = shellescape(a:command)
-    call system("send-keys -t ".g:VimuxRunnerPaneIndex." \"".escaped_command."\"")
-    call system("send-keys -t ".g:VimuxRunnerPaneIndex." Enter")
-endfunction
-
-function! VimuxOpenPane()
-  let height = 40
-  let orientation = "-h"
-
-  call system("tmux split-window -p ".height." ".orientation)
-  let g:VimuxRunnerPaneIndex = VimuxTmuxPaneIndex()
-  call system("tmux last-pane")
-endfunction
-
-function! VimuxTmuxSession()
-  return VimuxTmuxProperty("S")
-endfunction
-
-function! VimuxTmuxPaneIndex()
-  return VimuxTmuxProperty("P")
-endfunction
-
-function! VimuxTmuxWindowIndex()
-  return VimuxTmuxProperty("I")
-endfunction
-
-function! VimuxTmuxProperty(property)
-    return substitute(system("tmux display -p '#".a:property."'"), '\n$', '', '')
-endfunction
 
 function! _IsInferiorSlimeRunning()
   if system("ps axo command | grep inferior-slime | grep -v grep") == ""

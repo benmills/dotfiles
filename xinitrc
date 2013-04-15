@@ -34,13 +34,13 @@ setup_daemons() {
 }
 
 setup_keyboard() {
-  xmodmap ~/.xmodmap
+  xmodmap ~/.Xmodmap
   xbindkeys
 }
 
 setup_terminal() {
   urxvtd -q -o -f
-  xrdb -load ~/.xresources
+  xrdb -load ~/.Xresources
 }
 
 run_dwm() {
@@ -54,7 +54,11 @@ run_dwm() {
 
 run_bspwm() {
   sxhkd &
-  bspwm
+
+  [ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
+  mkfifo "$PANEL_FIFO"
+
+  exec bspwm -s "$PANEL_FIFO"
 }
 
 source_system_xinitrcs
