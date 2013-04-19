@@ -1,7 +1,8 @@
 #!/bin/bash
-
 dz_fn="Source Code Pro:size=10"
 dz_fg="#bbbbbb"
 dz_bg="#303030"
+screen_height=$(sres -H)
+y_pos=$(($screen_height - 15))
 
-dzen2 -fn "$dz_fn" -fg "$dz_fg" -bg "$dz_bg" -p $@
+dzen2 -y $y_pos -fn "$dz_fn" -fg "$dz_fg" -bg "$dz_bg" -p $@

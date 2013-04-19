@@ -5,11 +5,18 @@
 # based on (c) 2007, by Robert Manea
 # http://dzen.geekmode.org/dwiki/doku.php?id=dzen:calendar
 # modified by urukrama
-# 
+#
 
 TODAY=$(expr `date +'%d'` + 0)
 MONTH=`date +'%m'`
 YEAR=`date +'%Y'`
+PADDING=15
+SCREEN_HEIGHT=$(( $(sres -H) - $PADDING ))
+
+echo $SCREEN_HEIGHT
+
+CAL_WIDTH=160
+CAL_HEIGHT=340
 
 (
 echo
@@ -23,4 +30,4 @@ cal \
 cal `expr \( $MONTH + 1 \) % 12` $YEAR \
     | sed -e 's/^\(.*[A-Za-z][A-Za-z]*.*\)$/^fg(#bbbbbb)^bg(#303030)\1/'
 ) \
-    | panel -p 4 -x 1280 -y 15 -w 160 -l 16 -sa c -e 'onstart=uncollapse;key_Escape=ungrabkeys,exit'
+  | panel -p 4 -x 1280 -y $(( $SCREEN_HEIGHT - $CAL_HEIGHT )) -w 160 -l 16 -sa c -e 'onstart=uncollapse;button1=exit'
