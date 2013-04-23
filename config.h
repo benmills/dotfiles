@@ -5,7 +5,7 @@
 static const char font[]            = "Source Code Pro:size=10";
 static const char normbordercolor[] = "#303030";
 static const char normbgcolor[]     = "#303030";
-static const char normfgcolor[]     = "#bbbbbb";
+static const char normfgcolor[]     = "#A3A3A3";
 static const char selbordercolor[]  = "#005577";
 static const char selbgcolor[]      = "#303030";
 static const char selfgcolor[]      = "#FFFFFF";
@@ -29,7 +29,7 @@ static const char colors[NUMCOLORS][ColLast][9] = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "term", "web", "comm", "notes", "media", "documents", "other" };
 
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
@@ -98,11 +98,15 @@ static Key keys[] = {
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
 	TAGKEYS(                        XK_4,                      3)
+
 	TAGKEYS(                        XK_5,                      4)
 	TAGKEYS(                        XK_6,                      5)
 	TAGKEYS(                        XK_7,                      6)
-	TAGKEYS(                        XK_8,                      7)
-	TAGKEYS(                        XK_9,                      8)
+
+	TAGKEYS(                        XK_q,                      4)
+	TAGKEYS(                        XK_w,                      5)
+	TAGKEYS(                        XK_e,                      6)
+
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
 

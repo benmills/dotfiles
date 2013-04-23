@@ -12,11 +12,10 @@ MONTH=`date +'%m'`
 YEAR=`date +'%Y'`
 PADDING=15
 SCREEN_HEIGHT=$(( $(sres -H) - $PADDING ))
-
-echo $SCREEN_HEIGHT
-
 CAL_WIDTH=160
-CAL_HEIGHT=340
+
+CAL_Y=$(( $SCREEN_HEIGHT - 266 ))
+CAL_X=$(( $(sres -W) - 170 ))
 
 (
 echo
@@ -30,4 +29,4 @@ cal \
 cal `expr \( $MONTH + 1 \) % 12` $YEAR \
     | sed -e 's/^\(.*[A-Za-z][A-Za-z]*.*\)$/^fg(#bbbbbb)^bg(#303030)\1/'
 ) \
-  | panel -p 4 -x 1280 -y $(( $SCREEN_HEIGHT - $CAL_HEIGHT )) -w 160 -l 16 -sa c -e 'onstart=uncollapse;button1=exit'
+  | panel -p 4 -x $CAL_X -y $CAL_Y -w 160 -l 16 -sa c -e 'onstart=uncollapse;button1=exit'

@@ -1,6 +1,7 @@
 #!/bin/bash
+width=$(( $(srez eDP1 x) - 500 ))
 if [[ -z $3 ]]; then
-  echo "^fg(white) $1: ^fg(gray)$2" | panel -p 5 -ta l -w 500 -bg "#324E73" -fg "#94B9EB" &
+  echo "^fg(white) $1: ^fg(gray)$2" | panel -p 5 -ta l -w $width -bg "#324E73" -fg "#94B9EB" &
 else
-  echo "^fg(white) $1: ^fg(gray)$2" | panel -p 5 -ta l -w 500 -bg "#8C381C" -fg "#FFB69E" &
+  echo "^fg(white) $1: ^fg(gray)$2" | panel -p 5 -ta l -w $width -bg "#8C381C" -fg "#FFB69E" &
 fi
