@@ -1,2 +1,15 @@
 #!/bin/bash
-tmux new-session -s comm finch \; new-window -n mail mutt
+
+# killall notify-send-remoted #2>/dev/null
+# killall /bin/bash /Users/benmills/.bin/notify-send-remoted
+
+if [ -n "$(lsof -i :7777)" ]; then
+  parent=$(ps -p $(lsof -i :7777 | tail -1 | awk '{ print $2 }') -o ppid=)
+  if [ $parent != 1 ]; then
+    kill $parent
+  fi
+  kill -9 $(lsof -i :7777 | tail -1 | awk '{ print $2 }')
+fi
+
+notify-send-remoted &
+ssh millscomm

@@ -1,2 +1,2 @@
 #!/bin/bash
-dmenu_run -w 720 -h 50 -x 360 -y 200 -fn "Source Code Pro:size=20" -nb "#303030" -nf "#bbbbbb" -sb "#303030" -sf "#9EC5F9"
+dmenu_run -w 1200 -h 100 -x 670 -y 300 -fn "Source Code Pro:size=20" -nb "#303030" -nf "#bbbbbb" -sb "#303030" -sf "#9EC5F9"

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+while true; do
+  # eval "notify-send $(nc -lp 7777)"
+  eval "terminal-notifier $(nc -l 7777) >/dev/null"
+done

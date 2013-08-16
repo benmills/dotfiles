@@ -1,8 +1,5 @@
 #plugins
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-#path
-export PATH=$HOME/.bin/:/usr/local/bin:$HOME/.rbenv/bin:$PATH
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #env vars
 export EDITOR=vim
@@ -17,7 +14,6 @@ export PANEL_FIFO=/tmp/panel-fifo
 export XDG_CONFIG_HOME=$HOME/.config
 
 #ls color
-alias ls='ls --color'
 LS_COLORS='di=1:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=35:*.rpm=90'
 export LS_COLORS
 
@@ -47,19 +43,14 @@ autoload edit-command-line
 zle -N edit-command-line
 bindkey '^X^e' edit-command-line
 
+stty stop undef
+stty start undef
+
 #ec2
 if [ -f ~/bt/system-scripts/pairing_stations/ec2env ]; then
   export SYSTEM_SCRIPTS=~/bt/system-scripts
   source ~/bt/system-scripts/pairing_stations/ec2env
 fi
-
-#rbenv
-eval "$(rbenv init -)"
-
-#java
-export JUNIT_HOME="/Developer/junit4.10"
-export PATH=$PATH:$JUNIT_HOME
-export CLASSPATH="$CLASSPATH:$JUNIT_HOME/junit-4.10.jar:$JUNIT_HOME"
 
 # C-d to exit
 exit_shell() {
@@ -107,12 +98,15 @@ git_branch() {
 }
 
 git_remote_difference() {
+  has_origin=$(git remote | grep origin)
+  if [ -z $has_origin ]; then return; fi
+
   branch=$(git symbolic-ref HEAD --quiet)
   if [ -z $branch ]; then return; fi
 
-  remote=$(git remote show)
-  ahead_by=`echo $(git log --oneline $remote/${branch#refs/heads/}..HEAD 2> /dev/null | wc -l)`
-  behind_by=`echo $(git log --oneline HEAD..$remote/${branch#refs/heads/} 2> /dev/null | wc -l)`
+  remote=$(git rev-parse --abbrev-ref --symbolic-full-name @{u})
+  ahead_by=`echo $(git log --oneline $remote..HEAD 2> /dev/null | wc -l)`
+  behind_by=`echo $(git log --oneline HEAD..$remote 2> /dev/null | wc -l)`
 
   output=""
   if [ $ahead_by -gt 0 ]; then output="$output%{$fg_bold[white]%}↑%{$reset_color%}$ahead_by"; fi
@@ -144,3 +138,12 @@ git_prompt_info() {
 }
 
 export PROMPT='%{$fg[blue]%}%~%{$reset_color%}$(git_prompt_info) %{$fg[magenta]%}$%{$reset_color%} '
+
+#path
+export PATH=$HOME/.bin:$PATH
+export PATH=/usr/local/sbin:$PATH
+export PATH=/usr/local/bin:$PATH
+export PATH=$HOME/.go/bin:$PATH
+export PATH="./node_modules/.bin":$PATH
+
+eval "$(rbenv init -)"

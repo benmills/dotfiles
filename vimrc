@@ -110,7 +110,12 @@ autocmd Filetype go setlocal textwidth=0 nosmartindent tabstop=8 shiftwidth=8 so
 
 " Ctrlp
 let g:ctrlp_max_files = 0
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
+let g:ctrlp_user_command = {
+  \ 'types': {
+    \ 1: ['.git', 'cd %s && git ls-files . -co --exclude-standard'],
+    \ },
+  \ 'fallback': 'find %s -type f'
+  \ }
 
 " Surrond
 let g:surround_{char2nr("t")} = "<\1\r..*\r&\1>\r</\1\r..*\r&\1>"
@@ -232,5 +237,29 @@ function! _RunLast()
     execute "InferiorSlimeSpecLast"
   else
     execute "VimuxRunLastCommand"
+  endif
+endfunction
+
+" map <C-w>h :call TmuxAwareNavigate("h")<CR>
+" map <C-w>l :call TmuxAwareNavigate("l")<CR>
+" map <C-w>j :call TmuxAwareNavigate("j")<CR>
+" map <C-w>k :call TmuxAwareNavigate("k")<CR>
+
+function! TmuxAwareNavigate(direction)
+  let nr = winnr()
+  let tmux_last_pane = (a:direction == 'p' && s:tmux_is_last_pane)
+  if !tmux_last_pane
+    " try to switch windows within vim
+    exec 'wincmd ' . a:direction
+  endif
+  " Forward the switch panes command to tmux if:
+  " a) we're toggling between the last tmux pane;
+  " b) we tried switching windows in vim but it didn't have effect.
+  if tmux_last_pane || nr == winnr()
+    let cmd = 'tmux select-pane -' . tr(a:direction, 'phjkl', 'lLDUR')
+    silent call system(cmd)
+    let s:tmux_is_last_pane = 1
+  else
+    let s:tmux_is_last_pane = 0
   endif
 endfunction

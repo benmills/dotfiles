@@ -9,12 +9,8 @@ source_system_xinitrcs() {
   fi
 }
 
-setup_colors() {
-  xcalib ~/.settings/color.icc
-}
-
 setup_background() {
-  feh --bg-scale ~/pictures/vintage_chicago.jpg
+  feh --bg-center ~/pictures/Einn.jpg
 }
 
 setup_powersave() {
@@ -42,44 +38,24 @@ setup_keyboard() {
 }
 
 setup_terminal() {
-  urxvtd -q -o -f
   xrdb -load ~/.Xresources
 }
 
 run_dwm() {
-  setup_background
-  dwm-status
-  exec ck-launch-session dbus-launch bash -c "dwm"
-}
+  while true; do
+    $HOME/.bin/dwm-status
+    sleep 2
+  done &
 
-run_bspwm() {
-  setup_background
-  [ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
-  mkfifo "$PANEL_FIFO"
-
-  sxhkd &
-  conky | panel -ta r &
-  bspwm-status | panel -w 500 -ta l &
-
-  exec bspwm -s "$PANEL_FIFO"
-}
-
-run_herbstluftwm() {
-  exec herbstluftwm
+  exec dbus-launch bash -c "dwm"
 }
 
 source_system_xinitrcs
-setup_colors
 setup_powersave
-setup_keys
 setup_daemons
 setup_keyboard
 setup_terminal
+setup_background
+setup_keys
 
-case $1 in
-  dwm) run_dwm;;
-  bspwm) run_bspwm;;
-  herb) run_herbstluftwm;;
-  *) run_dwm;;
-esac
-
+run_dwm

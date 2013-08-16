@@ -1,9 +1,7 @@
 #!/bin/bash
-
 rez_output=$1
 rez_axis=$2
 rez_axis_target=$3
-
 
 invalid_args() {
   echo "usage: srez <output> <x,y>"
@@ -13,24 +11,24 @@ invalid_args() {
 if [ -z $rez_output ]; then invalid_args; fi
 if [ -z $rez_axis ]; then invalid_args; fi
 
-output=$(xrandr | grep $1)
+output=$(xrandr | grep "^$1")
 stats=$(echo $output | cut -d " " -f 3)
 res=$(echo $stats | cut -d "+" -f 1)
-w_res=$(echo $res | cut -d "x" -f 1)
-h_res=$(echo $res | cut -d "x" -f 2)
-x_offset=$(echo $stats | cut -d "+" -f 2)
-y_offset=$(echo $stats | cut -d "+" -f 3)
 
 if [ $rez_axis == "x" ]; then
   if [ -z $rez_axis_target ]; then
+    w_res=$(echo $res | cut -d "x" -f 1)
     echo $w_res
   else
+    x_offset=$(echo $stats | cut -d "+" -f 2)
     echo $(( $x_offset + $rez_axis_target ))
   fi
 elif [ $rez_axis == "y" ]; then
   if [ -z $rez_axis_target ]; then
+    h_res=$(echo $res | cut -d "x" -f 2)
     echo $h_res
   else
+    y_offset=$(echo $stats | cut -d "+" -f 3)
     echo $(( $y_offset + $rez_axis_target ))
   fi
 else
