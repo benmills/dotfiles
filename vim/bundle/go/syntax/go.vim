@@ -205,3 +205,12 @@ hi def link     goSpaceError        Error
 syn sync minlines=500
 
 let b:current_syntax = "go"
+
+" Function Identifiers
+syn match       goFunctionExportedIdentifier    "[A-Z]\w*("he=e-1 contained
+syn match       goFunctionNotExportedIdentifier "[a-z_]\w*("he=e-1 contained
+syn region      goFunctionDefinition            start="^func\s\+" end="\s\+{" contains=goDeclaration, goFunctionExportedIdentifier, goFunctionNotExportedIdentifier
+
+hi def link     goFunctionExportedIdentifier    Function
+hi def link     goFunctionNotExportedIdentifier Function
+

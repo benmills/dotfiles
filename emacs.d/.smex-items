@@ -1,0 +1,34 @@
+
+;; ----- smex-history -----
+(
+ kill-buffer
+ magit-commit
+ ruby-mode
+ load-file
+ helm-mini
+ list-packages
+ helm-find-files
+)
+
+;; ----- smex-data -----
+(
+ (load-file . 3)
+ (rspec-verify . 6)
+ (bundle-console . 1)
+ (rspec-verify-single . 5)
+ (list-packages . 2)
+ (getenv . 1)
+ (helm-mini . 2)
+ (helm-find-files . 2)
+ (ido-find-file . 1)
+ (rspec-toggle-spec-and-target . 1)
+ (flycheck-info . 1)
+ (flycheck-buffer . 1)
+ (flycheck-list-errors . 2)
+ (magit-commit . 2)
+ (magit-commit-add-log . 2)
+ (magit-diff-mode . 2)
+ (ruby-mode . 1)
+ (rspec-verify-all . 2)
+ (kill-buffer . 1)
+)

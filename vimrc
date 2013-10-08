@@ -82,7 +82,8 @@ set formatoptions=qrn1
 
 " Color
 set background=dark
-colorscheme Tomorrow-Night
+" colorscheme Tomorrow-Night
+colorscheme hybrid
 
 " File Types
 au BufNewFile,BufRead *.less set filetype=less
@@ -104,7 +105,8 @@ set nofoldenable
 
 " Go
 let go_highlight_trailing_whitespace_error = 0
-autocmd Filetype go setlocal textwidth=0 nosmartindent tabstop=8 shiftwidth=8 softtabstop=8 noexpandtab
+autocmd Filetype go setlocal textwidth=0 nosmartindent tabstop=2 shiftwidth=2 softtabstop=2 noexpandtab
+au FileType go au BufWritePre <buffer> Fmt
 
 " ========= Plugin Options ========
 
@@ -169,8 +171,6 @@ map <Leader>vx :VimuxCloseRunner<CR>
 map <Leader>ve :VimuxInterruptRunner<CR>
 
 vmap <LocalLeader>vs "vy :call VimuxSendText(@v)<CR>:call VimuxSendKeys("Enter")<CR>
-
-" puts "lol"
 
 
 " Surround

@@ -12,6 +12,7 @@ export GREP_OPTIONS='--color'
 export BSPWM_SOCKET=/tmp/bspwm-socket
 export PANEL_FIFO=/tmp/panel-fifo
 export XDG_CONFIG_HOME=$HOME/.config
+export WORDCHARS=""
 
 #ls color
 LS_COLORS='di=1:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=35:*.rpm=90'
@@ -146,4 +147,6 @@ export PATH=/usr/local/bin:$PATH
 export PATH=$HOME/.go/bin:$PATH
 export PATH="./node_modules/.bin":$PATH
 
-eval "$(rbenv init -)"
+#eval "$(rbenv init -)"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
