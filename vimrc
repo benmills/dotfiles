@@ -42,7 +42,7 @@ set ttyfast
 set ruler
 set number
 set backspace=indent,eol,start
-set laststatus=1                  " Show the status line all the time
+set laststatus=2                  " Show the status line all the time
 set wildignore+=*.o,*.obj,.git,*.pyc,.DS_Store
 set t_Co=256
 set showbreak=↪
@@ -120,7 +120,7 @@ let g:ctrlp_user_command = {
   \ }
 
 " Surrond
-let g:surround_{char2nr("t")} = "<\1\r..*\r&\1>\r</\1\r..*\r&\1>"
+"let g:surround_{char2nr("t")} = "<\1\r..*\r&\1>\r</\1\r..*\r&\1>"
 
 " Vimerl
 let erlang_show_errors = 0
@@ -172,10 +172,9 @@ map <Leader>ve :VimuxInterruptRunner<CR>
 
 vmap <LocalLeader>vs "vy :call VimuxSendText(@v)<CR>:call VimuxSendKeys("Enter")<CR>
 
-
 " Surround
-map <Leader>' cs"'
-map <Leader>" cs'"
+"map <Leader>' cs"'
+"map <Leader>" cs'"
 
 " ========= Utility Shortcuts ========
 
@@ -239,11 +238,6 @@ function! _RunLast()
     execute "VimuxRunLastCommand"
   endif
 endfunction
-
-" map <C-w>h :call TmuxAwareNavigate("h")<CR>
-" map <C-w>l :call TmuxAwareNavigate("l")<CR>
-" map <C-w>j :call TmuxAwareNavigate("j")<CR>
-" map <C-w>k :call TmuxAwareNavigate("k")<CR>
 
 function! TmuxAwareNavigate(direction)
   let nr = winnr()
