@@ -1,0 +1,1 @@
+git log --oneline | grep "#$1" | while read line; do git show $(echo $line | cut -d" " -f1); done

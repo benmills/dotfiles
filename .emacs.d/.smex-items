@@ -1,0 +1,60 @@
+
+;; ----- smex-history -----
+(
+ term
+ magit-status
+ replace-regexp
+ load-file
+ package-refresh-contents
+ package-install
+ load-theme
+)
+
+;; ----- smex-data -----
+(
+ (load-file . 11)
+ (rspec-verify . 6)
+ (bundle-console . 1)
+ (rspec-verify-single . 5)
+ (list-packages . 2)
+ (getenv . 1)
+ (helm-mini . 2)
+ (helm-find-files . 2)
+ (ido-find-file . 1)
+ (rspec-toggle-spec-and-target . 1)
+ (flycheck-info . 1)
+ (flycheck-buffer . 1)
+ (flycheck-list-errors . 2)
+ (magit-commit . 2)
+ (magit-commit-add-log . 2)
+ (magit-diff-mode . 2)
+ (ruby-mode . 3)
+ (rspec-verify-all . 2)
+ (kill-buffer . 1)
+ (term . 16)
+ (load-theme . 21)
+ (whitespace-mode . 1)
+ (whitespace-toggle-options . 4)
+ (ruby-end-mode . 1)
+ (projectile-mode . 3)
+ (projectile-grep . 4)
+ (magit-status . 2)
+ (ielm . 1)
+ (markdown-mode . 2)
+ (flyspell-mode . 3)
+ (auto-fill-mode . 3)
+ (compile . 1)
+ (maximize-window . 2)
+ (package-install . 8)
+ (package-list-packages . 1)
+ (magit-git-command . 1)
+ (go-alternate-visit-at-point . 2)
+ (run-go-tests . 1)
+ (run-go-test-at-point . 1)
+ (go-mode . 2)
+ (go-mode-reload . 1)
+ (package-refresh-contents . 2)
+ (replace-regexp . 1)
+ (gofmt . 1)
+ (magit-fetch . 1)
+)
