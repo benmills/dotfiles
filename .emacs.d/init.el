@@ -55,23 +55,22 @@
 
 (defvar benmills/packages '(ac-slime
                             auto-complete
-                            autopair
                             go-mode
                             magit
                             markdown-mode
                             puppet-mode
-                            rvm
                             smex
                             flycheck
-                            rspec-mode
                             yaml-mode
-                            inf-ruby
                             color-theme-solarized
-			    ruby-end
 			    projectile
 			    flx-ido
-			    anzu
 			    git-gutter
+			    ruby-mode
+			    ruby-end
+			    rspec-mode
+			    rvm
+			    js2-mode
 			    )
   "Default Packages")
 
@@ -95,20 +94,9 @@
 (setq ido-enable-flex-matching t
       ido-use-virtual-buffers t)
 
-; rspec-mode
-(defadvice rspec-compile (around rspec-compile-around)
-  "Use BASH shell for running the specs because of ZSH issues."
-  (let ((shell-file-name "/bin/bash"))
-    ad-do-it))
-(ad-activate 'rspec-compile)
-
-					; auto complete
+; auto complete
 (require 'auto-complete-config)
 (ac-config-default)
-
-; autopair
-(require 'autopair)
-;(autopair-global-mode)
 
 ; smex
 (setq smex-save-file (expand-file-name ".smex-items" user-emacs-directory))
@@ -117,43 +105,31 @@
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 
 ; Ruby
-(require 'rvm)
-(rvm-use-default)
 (setq ruby-deep-indent-paren nil)
+(add-to-list 'auto-mode-alist '("Capfile" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Gemfile" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.rake\\'" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.ru\\'" . ruby-mode))
+(add-hook 'ruby-mode-hook
+          (lambda () 
+	    (rvm-activate-corresponding-ruby)
+	    (ruby-end-mode)))
+(defadvice rspec-compile (around rspec-compile-around)
+  "Use BASH shell for running the specs because of ZSH issues."
+  (let ((shell-file-name "/bin/bash"))
+    ad-do-it))
+(defun bash-compile (compile-command)
+  (interactive "sCompile Command: ")
+  (let ((shell-file-name "/bin/bash"))
+    (compile compile-command)))
+(ad-activate 'rspec-compile)
 
 ; Markdown
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.mdown$" . markdown-mode))
 (add-hook 'markdown-mode-hook (lambda () (visual-line-mode t)))
-(setq markdown-command "pandoc --smart -f markdown -t html")
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes (quote ("73b835431bdbc4e83a3b176a38ebb740fbac78aa2635e1d4827b3c8211e0bc99" "394504bd559027641b544952d6e9e1c6dcb306b4d1b2c4ad6b98d3e6b5459683" "f89e21c3aef10d2825f2f079962c2237cd9a45f4dc1958091be8a6f5b69bb70c" "8bb1e9a22e9e9d405ca9bdf20b91301eba12c0b9778413ba7600e48d2d3ad1fb" "1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" "fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" default))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-
-;; There's something similar (but fancier) in vc-git.el: vc-git-grep
-;; -I means don't search through binary files
-(defcustom git-grep-switches "--extended-regexp -I -n --ignore-case"
-  "Switches to pass to `git grep'."
-  :type 'string)
-
-(defun git-grep (command-args)
-  (interactive
-   (list (read-shell-command "Run git-grep (like this): "
-                             (format "git grep %s -e "
-                                     git-grep-switches)
-                             'git-grep-history)))
-  (let ((grep-use-null-device nil))
-    (grep command-args)))
-(put 'upcase-region 'disabled nil)
 
 ; Look
 (load-theme 'solarized-light t)
@@ -163,12 +139,8 @@
 ; Projectile
 (projectile-global-mode)
 
-; Anzu
-(global-anzu-mode +1)
-
 ; Git Gutter
 (global-git-gutter-mode +1)
-
 
 ; golang
 (setenv "GOPATH" "/Users/benmills/.go")
@@ -184,3 +156,10 @@
     (setq
      compilation-exit-message-function
      'compilation-autoclose-on-success)))
+
+
+(defun rspec-test-for-buffer()
+  (interactive)
+  (compile (format "echo '%s' && rvm" (buffer-name))))
+
+;;; init.el ends here

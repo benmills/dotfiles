@@ -1,52 +1,52 @@
 
 ;; ----- smex-history -----
 (
+ magit-grep
+ bash-compile
  term
  magit-status
- replace-regexp
- load-file
- package-refresh-contents
- package-install
- load-theme
+ rspec-toggle-spec-and-target
+ projectile-grep
+ flyspell-mode
 )
 
 ;; ----- smex-data -----
 (
- (load-file . 11)
- (rspec-verify . 6)
+ (load-file . 16)
+ (rspec-verify . 8)
  (bundle-console . 1)
- (rspec-verify-single . 5)
+ (rspec-verify-single . 6)
  (list-packages . 2)
  (getenv . 1)
  (helm-mini . 2)
  (helm-find-files . 2)
  (ido-find-file . 1)
- (rspec-toggle-spec-and-target . 1)
+ (rspec-toggle-spec-and-target . 3)
  (flycheck-info . 1)
  (flycheck-buffer . 1)
  (flycheck-list-errors . 2)
  (magit-commit . 2)
  (magit-commit-add-log . 2)
- (magit-diff-mode . 2)
- (ruby-mode . 3)
- (rspec-verify-all . 2)
+ (magit-diff-mode . 3)
+ (ruby-mode . 5)
+ (rspec-verify-all . 4)
  (kill-buffer . 1)
- (term . 16)
+ (term . 24)
  (load-theme . 21)
  (whitespace-mode . 1)
  (whitespace-toggle-options . 4)
- (ruby-end-mode . 1)
+ (ruby-end-mode . 3)
  (projectile-mode . 3)
- (projectile-grep . 4)
- (magit-status . 2)
- (ielm . 1)
- (markdown-mode . 2)
- (flyspell-mode . 3)
+ (projectile-grep . 7)
+ (magit-status . 17)
+ (ielm . 2)
+ (markdown-mode . 3)
+ (flyspell-mode . 4)
  (auto-fill-mode . 3)
- (compile . 1)
+ (compile . 15)
  (maximize-window . 2)
- (package-install . 8)
- (package-list-packages . 1)
+ (package-install . 22)
+ (package-list-packages . 4)
  (magit-git-command . 1)
  (go-alternate-visit-at-point . 2)
  (run-go-tests . 1)
@@ -57,4 +57,25 @@
  (replace-regexp . 1)
  (gofmt . 1)
  (magit-fetch . 1)
+ (my-isearch-word-at-point . 2)
+ (anzu-query-replace . 1)
+ (multi-term . 3)
+ (grep . 4)
+ (rspec-compilation-mode . 3)
+ (rvm-use . 1)
+ (projectile-compile-project . 12)
+ (rspec-test-for-buffer . 2)
+ (zossima-mode . 1)
+ (inf-ruby-mode . 2)
+ (session-jump-to-last-change . 3)
+ (robe-jump . 2)
+ (rvm-autodetect-ruby . 1)
+ (rvm-activate-corresponding-ruby . 2)
+ (bash-compile . 8)
+ (ansi-color-for-comint-mode-on . 1)
+ (auto-revert-tail-mode . 1)
+ (revert-buffer . 2)
+ (delete-trailing-whitespace . 3)
+ (projectile-switch-project . 1)
+ (magit-grep . 5)
 )

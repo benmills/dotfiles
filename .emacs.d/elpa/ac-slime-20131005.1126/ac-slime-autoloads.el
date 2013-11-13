@@ -3,9 +3,9 @@
 ;;; Code:
 
 
-;;;### (autoloads (set-up-slime-ac) "ac-slime" "ac-slime.el" (21075
-;;;;;;  6509 0 0))
-;;; Generated autoloads from ac-slime.el
+;;;### (autoloads (set-up-slime-ac) "ac-slime" "../../../../../.emacs.d/elpa/ac-slime-20131005.1126/ac-slime.el"
+;;;;;;  "10a7a99dd7e9b6e7354c5bcafe9c6291")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/ac-slime-20131005.1126/ac-slime.el
 
 (defface ac-slime-menu-face '((t (:inherit ac-candidate-face))) "\
 Face for slime candidate menu." :group (quote auto-complete))
@@ -26,8 +26,9 @@ Add an optionally-fuzzy slime completion source to `ac-sources'.
 
 ;;;***
 
-;;;### (autoloads nil nil ("ac-slime-pkg.el") (21075 6509 793106
-;;;;;;  0))
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/ac-slime-20131005.1126/ac-slime-pkg.el"
+;;;;;;  "../../../../../.emacs.d/elpa/ac-slime-20131005.1126/ac-slime.el")
+;;;;;;  (21112 14704 345276 0))
 
 ;;;***
 
