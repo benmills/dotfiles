@@ -81,9 +81,8 @@ set textwidth=79
 set formatoptions=qrn1
 
 " Color
+colorscheme base16-ocean
 set background=dark
-" colorscheme Tomorrow-Night
-colorscheme hybrid
 
 " File Types
 au BufNewFile,BufRead *.less set filetype=less

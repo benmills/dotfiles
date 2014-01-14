@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
- magit-grep
- bash-compile
- term
  magit-status
- rspec-toggle-spec-and-target
- projectile-grep
+ load-theme
+ grep
+ raise-frame
  flyspell-mode
+ term
+ package-install
 )
 
 ;; ----- smex-data -----
@@ -32,16 +32,16 @@
  (rspec-verify-all . 4)
  (kill-buffer . 1)
  (term . 24)
- (load-theme . 21)
+ (load-theme . 24)
  (whitespace-mode . 1)
  (whitespace-toggle-options . 4)
  (ruby-end-mode . 3)
  (projectile-mode . 3)
  (projectile-grep . 7)
- (magit-status . 17)
+ (magit-status . 23)
  (ielm . 2)
  (markdown-mode . 3)
- (flyspell-mode . 4)
+ (flyspell-mode . 6)
  (auto-fill-mode . 3)
  (compile . 15)
  (maximize-window . 2)
@@ -60,7 +60,7 @@
  (my-isearch-word-at-point . 2)
  (anzu-query-replace . 1)
  (multi-term . 3)
- (grep . 4)
+ (grep . 5)
  (rspec-compilation-mode . 3)
  (rvm-use . 1)
  (projectile-compile-project . 12)
@@ -78,4 +78,5 @@
  (delete-trailing-whitespace . 3)
  (projectile-switch-project . 1)
  (magit-grep . 5)
+ (raise-frame . 1)
 )
