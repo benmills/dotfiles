@@ -1,7 +1,0 @@
-#!/bin/zsh
-
-FILENAME="$(date +%s).jpg"
-DROPBOX_PUBLIC_PATH="/home/benmills/Dropbox/Public/screenshots/"
-
-import "$DROPBOX_PUBLIC_PATH$FILENAME"
-echo "$DROPBOX_PUBLIC_PATH$FILENAME"

@@ -1,7 +1,0 @@
-runningvim=$(tmux display-message -p | grep vim)
-
-if [ -z $runningvim ]; then
-  tmux select-pane -L
-else
-  tmux send-keys C-w h
-fi

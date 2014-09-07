@@ -1,1 +1,0 @@
-MESA_EXTENSION_OVERRIDE=GL_EXT_texture_compression_s3tc padsp /usr/share/playonlinux/playonlinux --run "StarCraft II Wings of Liberty"

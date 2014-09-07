@@ -148,5 +148,6 @@ export PATH=$HOME/.go/bin:$PATH
 export PATH="./node_modules/.bin":$PATH
 
 #eval "$(rbenv init -)"
+source $(brew --prefix nvm)/nvm.sh
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

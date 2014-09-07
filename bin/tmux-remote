@@ -1,0 +1,6 @@
+#!/bin/bash
+tmux set prefix ^b
+tmux set status-right "#[bg=blue]#[fg=black][REMOTE HOTE]#[bg=default]#[fg=blue] Ctrl+b prefix"
+tmux set-window-option window-status-current-format '#[fg=black, bright](#I)'
+tmux set-window-option window-status-format '#[fg=black, bright]#I'
+tmux rename-session $1

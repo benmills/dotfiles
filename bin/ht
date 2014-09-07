@@ -1,0 +1,2 @@
+#!/bin/bash
+ssh deploy@feature-crb1.hoteltonight-test.com -l pair -A

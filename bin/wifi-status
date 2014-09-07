@@ -1,8 +1,0 @@
-ip=$(ifconfig | grep "inet " | grep -v "127.0.0.1" | awk '{ print " "$2 }' | cut -d" " -f2 | paste -sd "/")
-wifi=$(iwconfig wlan0 | grep ESSID | cut -d'"' -f2)
-
-if [ -z $ip ]; then
-  echo "^fg(darkgray)offline"
-else
-  echo "^fg(#9EC5F9)$wifi^fg(darkgray) $ip"
-fi

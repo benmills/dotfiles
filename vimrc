@@ -81,7 +81,7 @@ set textwidth=79
 set formatoptions=qrn1
 
 " Color
-colorscheme base16-ocean
+colorscheme Tomorrow-Night
 set background=dark
 
 " File Types
@@ -132,6 +132,9 @@ let g:VimuxHeight = "40"
 " netrw
 let g:netrw_banner = 0
 let g:netrw_bufsettings = 'noma nomod nu nowrap ro nobl'
+
+" vim-markdown
+let g:vim_markdown_folding_disabled=1
 
 "
 
